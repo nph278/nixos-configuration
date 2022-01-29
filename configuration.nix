@@ -6,6 +6,16 @@
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz";
+  colors = {
+    black = "#282c34";
+    red = "#e06c75";
+    green = "#98c379";
+    yellow = "#e5c07b";
+    blue = "#61afef";
+    magenta = "#c678dd";
+    cyan = "#56b6c2";
+    white = "#abb2bf";
+  };
 in
 {
   imports =
@@ -110,8 +120,8 @@ in
           # status_command = "while date ='%h %d -> %H %M %S'";
           # status_edge_padding = 30;
           colors = {
-            statusline = "#abb2bf";
-            background = "#282c34";
+            statusline = colors.white;
+            background = colors.black;
             # focused_workspace = "#282c34 #61afef #282c34";
             # active_workspace = "#282c34 #e06c75 #282c34";
             # inactive_workspace = "#282c34 #282c34 #abb2bf";
@@ -144,11 +154,41 @@ in
 
           size = 11;
         };
+        
+        colors = {
+          primary = {
+            background = colors.black;
+            foreground = colors.white;
+          };
+ 
+          cursor = {
+            text = "CellBackground";
+            cursor = colors.blue;
+          };
+ 
+          selection = {
+            text = "CellBackground";
+            background = colors.black;
+          };
+ 
+          normal = {
+            black = colors.black;
+            red = colors.red;
+            green = colors.green;
+            yellow = colors.yellow;
+            blue = colors.blue;
+            magenta = colors.magenta;
+            cyan = colors.cyan;
+            white = colors.white;
+          };
+        };
       };
     };
 
     programs.git = {
       enable = true;
+      userEmail = "carllegrone@protonmail.com";
+      userName = "nph278";
     };
 
     home.packages = with pkgs; [

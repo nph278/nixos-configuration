@@ -16,6 +16,11 @@ let
     cyan = "#56b6c2";
     white = "#abb2bf";
   };
+  font = "JetBrains Mono";
+  swayFont = {
+    names = [font];
+    size = 10.0;
+  };
 in
 {
   imports =
@@ -103,7 +108,7 @@ in
       config = {
         modifier = "Mod4";
         terminal = "alacritty";
-        # font = "JetBrains Mono Normal 11";
+        fonts = swayFont;
         gaps.inner = 5;
 
         input."*" = {
@@ -116,15 +121,27 @@ in
         };
         
         bars = [{
-          # font = "JetBrains Mono 10";
-          # status_command = "while date ='%h %d -> %H %M %S'";
-          # status_edge_padding = 30;
+          fonts = swayFont;
+          statusCommand = "while date +'%h %d -> %H %M %S     '; do sleep 1; done";
+          position = "top";
           colors = {
             statusline = colors.white;
             background = colors.black;
-            # focused_workspace = "#282c34 #61afef #282c34";
-            # active_workspace = "#282c34 #e06c75 #282c34";
-            # inactive_workspace = "#282c34 #282c34 #abb2bf";
+            focusedWorkspace = {
+              border = colors.black;
+              background = colors.blue;
+              text = colors.black;
+            };
+            activeWorkspace = {
+              border = colors.black;
+              background = colors.red;
+              text = colors.black;
+            };
+            inactiveWorkspace = {
+              border = colors.black;
+              background = colors.black;
+              text = colors.white;
+            };
           };
         }];
       };
@@ -136,19 +153,19 @@ in
       settings = {
         font = {
           normal = {
-            family = "JetBrains Mono";
+            family = font;
             style = "Regular";
           };
           bold = {
-            family = "JetBrains Mono";
+            family = font;
             style = "Bold";
           };
           italic = {
-            family = "JetBrains Mono";
+            family = font;
             style = "Italic";
           };
           bold_italic = {
-            family = "JetBrains Mono";
+            family = font;
             style = "Bold Italic";
           };
 
@@ -226,7 +243,7 @@ in
         db = "gdb -tui";
         rm = "trash";
         dev = "toolbox run -c dev zsh";
-        sshsetup = "kee & eval \"$(ssh-agent -s)\" && ssh-add ~/.ssh/id_ed25519";
+        ssh-setup = "killall ssh-agent; kee && eval \"$(ssh-agent -s)\" && wl-paste | ssh-add ~/.ssh/id_ed25519 && wl-copy ''";
       };
 
       initExtra = ''

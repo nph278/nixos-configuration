@@ -182,6 +182,10 @@ in
             white = colors.white;
           };
         };
+
+        shell = {
+          program = "zsh";
+        };
       };
     };
 
@@ -191,10 +195,81 @@ in
       userName = "nph278";
     };
 
+    programs.zsh = {
+      enable = true;
+      autocd = true;
+      enableAutosuggestions = true;
+      enableSyntaxHighlighting = true;
+      defaultKeymap = "viins";
+
+      shellAliases = {
+        # ls
+        ls = "ls --color";
+        l = "ls -la";
+
+        # git
+        ga = "git add -A";
+        gc = "git commit -m";
+        gp = "git push origin";
+        gg = "git log --graph --pretty=oneline --abbrev-commit";
+        gl = "git log --graph --pretty=short";
+        gac = "git add -A && git commit -m";
+        gf = "git fetch";
+        
+        # Programs
+        kee = "fl org.keepassxc.KeePassXC";
+        blender = "fl org.blender.Blender";
+        steam = "fl com.valvesoftware.Steam";
+        stk = "fl net.supertuxkart.SuperTuxKart";
+        
+        # Other
+        db = "gdb -tui";
+        rm = "trash";
+        dev = "toolbox run -c dev zsh";
+        sshsetup = "kee & eval \"$(ssh-agent -s)\" && ssh-add ~/.ssh/id_ed25519";
+      };
+
+      initExtra = ''
+        pfetch
+      '';
+
+      initExtraFirst = ''
+        fl() {
+          flatpak run $1 > /dev/null & disown
+        }
+
+        rebuild() {
+          sudo cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && sudo nixos-rebuild switch
+        }
+
+        function zle-keymap-select {
+          if [[ ''${KEYMAP} == vicmd ]] ||
+             [[ $1 = 'block' ]]; then
+            echo -ne '\e[1 q'
+          elif [[ ''${KEYMAP} == main ]] ||
+               [[ ''${KEYMAP} == viins ]] ||
+               [[ ''${KEYMAP} = ''' ]] ||
+               [[ $1 = 'beam' ]]; then
+            echo -ne '\e[5 q'
+          fi
+        }
+        
+        zle -N zle-keymap-select
+        echo -ne '\e[5 q'
+      '';
+
+      localVariables = {
+        # AAAHHHHHHHHH
+        PROMPT = "%F{white}%(?..%F{red}%?%F{white} )%F{yellow}%*%F{white} %F{green}%n@%m%F{white} %F{red}%~%F{white}$([[ -d ./.git ]] && printf \":\")%F{magenta}$([[ -d ./.git ]] && git branch --show-current)%F{white} ";
+      };
+    };
+
     home.packages = with pkgs; [
       # Admin
       neofetch
+      pfetch
       htop
+      trash-cli
       
       # Sway
       swaylock

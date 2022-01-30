@@ -136,6 +136,10 @@ in
           xkb_layout = "us";
           xkb_options = "caps:escape";
         };
+
+        output."*" = {
+          bg = "${colors.black} solid_color";
+        };
         
         bars = [{
           fonts = swayFont;
@@ -225,8 +229,15 @@ in
             "${mod}+Return" = "exec ${term}";
             "${mod}+d" = "exec ${menu}";
             "${mod}+q" = "exec qutebrowser";
+            "${mod}+Control+l" = "exec \"swaylock -f -c #000000\""; # Why doesnt this work?
         };
       };
+      extraConfig = ''
+        exec swayidle -w \
+          timeout 300 'swaylock -f -c #000000 ' \
+          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c #000000'
+      '';
     };
 
     # Alacritty
@@ -326,6 +337,7 @@ in
         rm = "trash";
         dev = "toolbox run -c dev zsh";
         ssh-setup = "killall ssh-agent; kee && eval \"$(ssh-agent -s)\" && wl-paste | ssh-add ~/.ssh/id_ed25519 && wl-copy ''";
+        lock = "swaylock -f -c #000000";
 
         # Nix
         rebuild = "sudo cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && sudo nixos-rebuild switch";

@@ -309,19 +309,20 @@ in
         rm = "trash";
         dev = "toolbox run -c dev zsh";
         ssh-setup = "killall ssh-agent; kee && eval \"$(ssh-agent -s)\" && wl-paste | ssh-add ~/.ssh/id_ed25519 && wl-copy ''";
+
+        # Nix
+        rebuild = "sudo cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && sudo nixos-rebuild switch";
+        rebuild-dev = "cp ~/Projects/nixos-configuration/dev/* ~/Projects/ && cp ~/Projects/nixos-configuration/dev/.* ~/Projects/ && direnv allow ~/Projects";
       };
 
       initExtra = ''
         pfetch
+        eval "$(direnv hook zsh)"
       '';
 
       initExtraFirst = ''
         fl() {
           flatpak run $1 > /dev/null & disown
-        }
-
-        rebuild() {
-          sudo cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && sudo nixos-rebuild switch
         }
 
         function zle-keymap-select {
@@ -550,6 +551,9 @@ in
       swaylock
       swayidle
       wl-clipboard
+
+      # Dev
+      direnv
     ];
   };
  

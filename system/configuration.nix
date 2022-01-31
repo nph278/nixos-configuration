@@ -341,7 +341,8 @@ in
 
         # Nix
         rebuild = "sudo cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && sudo nixos-rebuild switch";
-        rebuild-dev = "cp ~/Projects/nixos-configuration/dev/* ~/Projects/ && cp ~/Projects/nixos-configuration/dev/.* ~/Projects/ && direnv allow ~/Projects";
+        rebuild-dev = "cp ~/Projects/nixos-configuration/dev/* ~/Projects/; cp ~/Projects/nixos-configuration/dev/.* ~/Projects/; direnv allow ~/Projects";
+        rebuild-nvim = "cp ~/Projects/nixos-configuration/nvim/* ~/.config/nvim/; cp ~/Projects/nixos-configuration/nvim/.* ~/.config/nvim/";
       };
 
       initExtra = ''

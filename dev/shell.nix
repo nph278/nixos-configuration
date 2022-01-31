@@ -10,6 +10,9 @@ pkgs.mkShell {
     rustfmt
     rust-analyzer
 
+    # Python
+    pythonFull
+
     # Neovim
     neovim
   ];

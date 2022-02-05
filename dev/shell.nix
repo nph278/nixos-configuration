@@ -14,6 +14,13 @@ pkgs.mkShell {
     pythonFull
 
     # Neovim
-    neovim
+    (neovim.override {
+      configure = {
+        packages.myVimPackage = with pkgs.vimPlugins; {
+          # change this to the plugins you want
+          start = [ nerdcommenter ];
+        }; 
+      };     
+    })
   ];
 }

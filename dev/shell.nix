@@ -16,9 +16,17 @@ pkgs.mkShell {
     # Neovim
     (neovim.override {
       configure = {
+        customRC = ''
+          :luafile ~/Projects/init.lua
+        '';
+
         packages.myVimPackage = with pkgs.vimPlugins; {
-          # change this to the plugins you want
-          start = [ nerdcommenter ];
+
+          # Vim plugins
+          start = [
+            nerdcommenter
+            vim-tmux-navigator
+          ];
         }; 
       };     
     })

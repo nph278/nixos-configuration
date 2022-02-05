@@ -1,3 +1,4 @@
+-- Options
 vim.o.smarttab = true
 vim.o.cindent = true
 vim.o.tabstop = 2
@@ -46,7 +47,7 @@ vim.cmd("highlight SpecialChar ctermfg=3")
 vim.cmd("highlight Delimiter")
 vim.cmd("highlight SpecialComment ctermfg=8")
 vim.cmd("highlight Underlined gui=underline cterm=underline")
-vim.cmd("highlight Error ctermfg=1")
+vim.cmd("highlight Error ctermfg=1 ctermbg=0")
 vim.cmd("highlight Todo ctermfg=5")
 vim.cmd("highlight ColorColumn ctermbg=8")
 vim.cmd("highlight Conceal")
@@ -58,14 +59,14 @@ vim.cmd("highlight DiffAdd ctermbg=2 ctermfg=0")
 vim.cmd("highlight DiffChange ctermfg=3 gui=underline cterm=underline")
 vim.cmd("highlight DiffDelete ctermbg=1 ctermfg=0")
 vim.cmd("highlight DiffText ctermbg=3 ctermfg=0")
-vim.cmd("highlight ErrorMsg ctermfg=1")
+vim.cmd("highlight ErrorMsg ctermfg=1 ctermbg=0")
 vim.cmd("highlight VertSplit ctermfg=7")
 vim.cmd("highlight Folded ctermfg=8")
 vim.cmd("highlight FoldColumn")
 vim.cmd("highlight SignColumn")
 vim.cmd("highlight IncSearch ctermfg=3 ctermbg=8")
 vim.cmd("highlight LineNr ctermfg=8")
-vim.cmd("highlight CursorLineNr")
+vim.cmd("highlight CursorLineNr ctermfg=3")
 vim.cmd("highlight MatchParen ctermfg=4 gui=underline cterm=underline")
 vim.cmd("highlight ModeMsg")
 vim.cmd("highlight MoreMsg")
@@ -283,3 +284,96 @@ vim.cmd("highlight DiagnosticUnderlineWarn ctermfg=3 gui=underline cterm=underli
 vim.cmd("highlight DiagnosticUnderlineInfo ctermfg=4 gui=underline cterm=underline")
 vim.cmd("highlight DiagnosticUnderlineHint ctermfg=6 gui=underline cterm=underline")
 
+-- File tree
+require('nvim-tree').setup {
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = false,
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "h",
+      info = "i",
+      warning = "?",
+      error = "!",
+    }
+  },
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
+  system_open = {
+    cmd  = nil,
+    args = {}
+  },
+  filters = {
+    dotfiles = false,
+    custom = {}
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
+  view = {
+    width = 30,
+    height = 30,
+    hide_root_folder = false,
+    side = 'left',
+    auto_resize = false,
+    mappings = {
+      custom_only = false,
+      list = {}
+    },
+    number = false,
+    relativenumber = false,
+    signcolumn = "yes"
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true
+  }
+}
+vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', {})
+
+-- Status line
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = '16color',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+
+vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {}) -- Comment

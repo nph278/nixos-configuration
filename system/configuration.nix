@@ -33,7 +33,7 @@ let
   #   white = "#eceff4";
   # };
   
-  font = "JetBrains Mono";
+  font = "Fira Code Nerd Font";
   qbFont = "10pt ${font}";
   swayFont = {
     names = [font];
@@ -588,7 +588,7 @@ in
  
   # Fonts
   fonts.fonts = with pkgs; [
-    jetbrains-mono
+    nerdfonts
     noto-fonts
     noto-fonts-emoji
   ];

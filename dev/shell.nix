@@ -26,6 +26,10 @@ pkgs.mkShell {
           start = [
             nerdcommenter
             vim-tmux-navigator
+            nvim-web-devicons
+            vim-nix
+            lualine-nvim
+            nvim-tree-lua
           ];
         }; 
       };     

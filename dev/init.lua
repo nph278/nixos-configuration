@@ -280,6 +280,8 @@ vim.cmd("highlight GitGutterAdd ctermfg=2")
 vim.cmd("highlight GitGutterChange ctermfg=3")
 vim.cmd("highlight GitGutterDelete ctermfg=1")
 vim.cmd("highlight NvimTreeVertSplit ctermfg=7 ctermbg=0")
+vim.cmd("highlight SignColumn ctermbg=0")
+
 -- File tree
 require('nvim-tree').setup {
   disable_netrw       = true,

@@ -283,7 +283,10 @@ vim.cmd("highlight DiagnosticUnderlineError ctermfg=1 gui=underline cterm=underl
 vim.cmd("highlight DiagnosticUnderlineWarn ctermfg=3 gui=underline cterm=underline")
 vim.cmd("highlight DiagnosticUnderlineInfo ctermfg=4 gui=underline cterm=underline")
 vim.cmd("highlight DiagnosticUnderlineHint ctermfg=6 gui=underline cterm=underline")
-
+vim.cmd("highlight GitGutterAdd ctermfg=2")
+vim.cmd("highlight GitGutterChange ctermfg=3")
+vim.cmd("highlight GitGutterDelete ctermfg=1")
+vim.cmd("highlight NvimTreeVertSplit ctermfg=7 ctermbg=0")
 -- File tree
 require('nvim-tree').setup {
   disable_netrw       = true,

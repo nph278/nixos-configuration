@@ -30,6 +30,8 @@ pkgs.mkShell {
             vim-nix
             lualine-nvim
             nvim-tree-lua
+            vim-gitgutter
+            vim-toml
           ];
         }; 
       };     

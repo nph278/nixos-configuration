@@ -32,6 +32,14 @@ pkgs.mkShell {
             nvim-tree-lua
             vim-gitgutter
             vim-toml
+            nvim-lspconfig
+            luasnip
+            cmp_luasnip
+            nvim-cmp
+            cmp-nvim-lsp
+            cmp-buffer
+            cmp-path
+            cmp-cmdline
           ];
         }; 
       };     

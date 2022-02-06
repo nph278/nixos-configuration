@@ -293,6 +293,7 @@ vim.cmd("highlight LspDiagnosticsDefaultWarning ctermfg=3")
 vim.cmd("highlight LspDiagnosticsDefaultHint ctermfg=4")
 vim.cmd("highlight LspDiagnosticsDefaultInformation ctermfg=4")
 vim.cmd("highlight SignColumn ctermbg=0")
+vim.cmd("highlight MatchParen ctermbg=0 cterm=underline")
 
 -- File tree
 require('nvim-tree').setup {

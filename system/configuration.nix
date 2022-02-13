@@ -341,7 +341,7 @@ in
         rm = "trash";
         dev = "toolbox run -c dev zsh";
         ssh-setup = "killall ssh-agent; kee && eval \"$(ssh-agent -s)\" && wl-paste | ssh-add ~/.ssh/id_ed25519 && wl-copy ''";
-        lock = "swaylock -f -c #000000";
+        lock = "${lock}";
 
         # Nix
         rebuild = "sudo cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && sudo nixos-rebuild switch";
@@ -579,6 +579,7 @@ in
       pfetch
       htop
       trash-cli
+      pulsemixer
       
       # Sway
       swaylock

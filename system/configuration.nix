@@ -1,43 +1,20 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# TODO: doas maybe
+
+# configuration.nix(5) man page
 
 { config, pkgs, ... }:
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz";
 
-  # Themes
- 
-  # One Dark
-  colors = {
-    black = "#282c34";
-    red = "#e06c75";
-    green = "#98c379";
-    yellow = "#e5c07b";
-    blue = "#61afef";
-    magenta = "#c678dd";
-    cyan = "#56b6c2";
-    white = "#abb2bf";
-  };
+  theme = (import theme.nix);
 
-  # Nord
-  # colors = {
-  #   black = "#2e3440";
-  #   red = "#bf616a";
-  #   green = "#a3be8c";
-  #   yellow = "#ebcb8b";
-  #   blue = "#5e81ac";
-  #   magenta = "#b48ead";
-  #   cyan = "#8fbcbb";
-  #   white = "#eceff4";
-  # };
-  
-  font = "Fira Code Nerd Font";
-  qbFont = "10pt ${font}";
+  colors = theme.colors;
+  font = theme.font;
+  qbFont = "${theme.fontSize}pt ${font}";
   swayFont = {
     names = [font];
-    size = 10.0;
+    size = theme.fontSize;
   };
 
   mod = "Mod4";

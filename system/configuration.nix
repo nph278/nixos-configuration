@@ -86,10 +86,10 @@ in
   # Home Manager
   home-manager.users.carl = {
     # Sway
-    programs.zsh = (import ./zsh.nix) {inherit pkgs};
-    programs.alacritty = (import ./alacritty.nix) {theme};
-    programs.qutebrowser = (import ./qutebrowser.nix) {theme};
-    wayland.windowManager.sway = (import ./sway.nix) {inherit pkgs; theme};
+    programs.zsh = (import ./zsh.nix) {inherit pkgs;};
+    programs.alacritty = (import ./alacritty.nix) {inherit theme;};
+    programs.qutebrowser = (import ./qutebrowser.nix) {inherit theme;};
+    wayland.windowManager.sway = (import ./sway.nix) {inherit pkgs; inherit theme;};
 
     programs.git = {
       enable = true;

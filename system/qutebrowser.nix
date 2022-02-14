@@ -187,13 +187,13 @@ in
       };
     };
 
-    quickmarks = {
-      r = "reddit.com";
-      yt = "youtube.com";
-      gh = "github.com"; 
-    };
-
     auto_save.session = true;
     downloads.location.directory = "~/Downloads";
+  };
+
+  quickmarks = {
+    r = "reddit.com";
+    yt = "youtube.com";
+    gh = "github.com"; 
   };
 }

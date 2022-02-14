@@ -161,39 +161,39 @@ in
           };
         };
       };
-
-      fonts = {
-        completion.category = qbFont;
-        completion.entry = qbFont;
-        downloads = qbFont;
-        hints = qbFont;
-        keyhint = qbFont;
-        messages.error = qbFont;
-        messages.info = qbFont;
-        messages.warning = qbFont;
-        prompts = qbFont;
-        statusbar = qbFont;
-        tabs.selected = qbFont;
-        tabs.unselected = qbFont;
-
-        web.family = {
-          cursive = "Noto";
-          fantasy = "Noto";
-          fixed = font;
-          sans_serif = "Noto";
-          serif = "Noto";
-          standard = "Noto";
-        };
-      };
-
-      quickmarks = {
-        r = "reddit.com";
-        yt = "youtube.com";
-        gh = "github.com"; 
-      };
-
-      auto_save.session = true;
-      downloads.location.directory = "~/Downloads";
     };
+
+    fonts = {
+      completion.category = qbFont;
+      completion.entry = qbFont;
+      downloads = qbFont;
+      hints = qbFont;
+      keyhint = qbFont;
+      messages.error = qbFont;
+      messages.info = qbFont;
+      messages.warning = qbFont;
+      prompts = qbFont;
+      statusbar = qbFont;
+      tabs.selected = qbFont;
+      tabs.unselected = qbFont;
+
+      web.family = {
+        cursive = "Noto";
+        fantasy = "Noto";
+        fixed = font;
+        sans_serif = "Noto";
+        serif = "Noto";
+        standard = "Noto";
+      };
+    };
+
+    quickmarks = {
+      r = "reddit.com";
+      yt = "youtube.com";
+      gh = "github.com"; 
+    };
+
+    auto_save.session = true;
+    downloads.location.directory = "~/Downloads";
   };
 }

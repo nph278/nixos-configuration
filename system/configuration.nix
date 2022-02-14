@@ -1,4 +1,9 @@
-# TODO: bemenu, doas maybe
+# TODO:
+# bemenu
+# doas
+# kernel stuff
+# Auto ssh
+# script/partitions
 
 # configuration.nix(5) man page
 
@@ -104,6 +109,7 @@ in
       htop
       trash-cli
       pulsemixer
+      keepassxc
       
       # Sway
       swaylock

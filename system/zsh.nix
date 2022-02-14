@@ -21,8 +21,10 @@
     gac = "git add -A && git commit -m";
     gf = "git fetch";
     
+    # KeePassXC
+    kee = "keepassxc-cli open ~/.config/KeePass.kdbx";
+
     # Programs
-    kee = "fl org.keepassxc.KeePassXC";
     blender = "fl org.blender.Blender";
     steam = "fl com.valvesoftware.Steam";
     stk = "fl net.supertuxkart.SuperTuxKart";

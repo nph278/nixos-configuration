@@ -2,8 +2,7 @@
 
 let
   colors = theme.colors;
-  font = theme.font;
-  qbFont = "${toString theme.fontSize}pt ${font}";
+  font = "${toString theme.fontSize}pt ${theme.font}";
 in
 {
   enable = true;
@@ -164,18 +163,18 @@ in
     };
 
     fonts = {
-      completion.category = qbFont;
-      completion.entry = qbFont;
-      downloads = qbFont;
-      hints = qbFont;
-      keyhint = qbFont;
-      messages.error = qbFont;
-      messages.info = qbFont;
-      messages.warning = qbFont;
-      prompts = qbFont;
-      statusbar = qbFont;
-      tabs.selected = qbFont;
-      tabs.unselected = qbFont;
+      completion.category = font;
+      completion.entry = font;
+      downloads = font;
+      hints = font;
+      keyhint = font;
+      messages.error = font;
+      messages.info = font;
+      messages.warning = font;
+      prompts = font;
+      statusbar = font;
+      tabs.selected = font;
+      tabs.unselected = font;
 
       web.family = {
         cursive = "Noto";

@@ -2,16 +2,17 @@
 
 let
   colors = theme.colors;
-  font = theme.font;
   swayFont = {
-    names = [font];
+    names = [theme.font];
     size = theme.fontSize;
   };
 
+  bemenu_options = "--fn '${theme.font} ${toString theme.fontSize}' --tb ${colors.blue} --tf ${colors.black} --nf ${colors.blue} --nb ${colors.black} --sb ${colors.blue} --sf ${colors.black} --hb ${colors.blue} --hf ${colors.black} --scb ${colors.black} --scf ${colors.white} --fb ${colors.black} --ff ${colors.white}";
+
   mod = "Mod4";
   term = "alacritty";
-  menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
-  lock = "${pkgs.swaylock}/bin/swaylock -f -c #000000";
+  menu = "\"${pkgs.bemenu}/bin/bemenu-run ${bemenu_options}\"";
+  lock = "\"${pkgs.swaylock}/bin/swaylock -f -c #000000\"";
 in
 {
   enable = true;

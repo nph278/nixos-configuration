@@ -1,5 +1,4 @@
 # TODO:
-# bemenu
 # doas
 # kernel stuff
 # Auto ssh
@@ -115,6 +114,7 @@ in
       swaylock
       swayidle
       wl-clipboard
+      bemenu
 
       # Dev
       direnv

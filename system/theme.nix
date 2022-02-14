@@ -1,5 +1,5 @@
-# One Dark
 {
+  # One Dark
   colors = {
     black = "#282c34";
     red = "#e06c75";
@@ -11,18 +11,18 @@
     white = "#abb2bf";
   };
 
-# Nord
-# colors = {
-#   black = "#2e3440";
-#   red = "#bf616a";
-#   green = "#a3be8c";
-#   yellow = "#ebcb8b";
-#   blue = "#5e81ac";
-#   magenta = "#b48ead";
-#   cyan = "#8fbcbb";
-#   white = "#eceff4";
-# }
+  # Nord
+  # colors = {
+  #   black = "#2e3440";
+  #   red = "#bf616a";
+  #   green = "#a3be8c";
+  #   yellow = "#ebcb8b";
+  #   blue = "#5e81ac";
+  #   magenta = "#b48ead";
+  #   cyan = "#8fbcbb";
+  #   white = "#eceff4";
+  # }
 
   font = "Fira Code Nerd Font";
-  fontSize = 10;
+  fontSize = 10.0;
 }

@@ -114,7 +114,6 @@ in
       swaylock
       swayidle
       wl-clipboard
-      bemenu
 
       # Dev
       direnv

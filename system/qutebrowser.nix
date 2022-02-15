@@ -179,7 +179,7 @@ in
       web.family = {
         cursive = "Noto";
         fantasy = "Noto";
-        fixed = font;
+        fixed = theme.font;
         sans_serif = "Noto";
         serif = "Noto";
         standard = "Noto";

@@ -7,11 +7,8 @@ let
     size = theme.fontSize;
   };
 
-  bemenu_options = "--fn '${theme.font} ${toString theme.fontSize}' --tb ${colors.blue} --tf ${colors.black} --nf ${colors.blue} --nb ${colors.black} --sb ${colors.blue} --sf ${colors.black} --hb ${colors.blue} --hf ${colors.black} --scb ${colors.black} --scf ${colors.white} --fb ${colors.black} --ff ${colors.white}";
-
   mod = "Mod4";
   term = "alacritty";
-  menu = "\"${pkgs.bemenu}/bin/bemenu-run ${bemenu_options}\"";
   lock = "\"${pkgs.swaylock}/bin/swaylock -f -c #000000\"";
 in
 {
@@ -114,7 +111,6 @@ in
       "${mod}+r" = "mode resize";
 
       "${mod}+Return" = "exec ${term}";
-      "${mod}+d" = "exec ${menu}";
       "${mod}+q" = "exec ${pkgs.qutebrowser}/bin/qutebrowser";
       "${mod}+Control+l" = "exec \"${lock}\""; # Why doesnt this work?
     };

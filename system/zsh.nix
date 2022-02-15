@@ -37,7 +37,7 @@
     lock = "swaylock -f -c #000000";
 
     # Nix
-    rebuild = "sudo cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && sudo nixos-rebuild switch";
+    rebuild = "doas cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && doas nixos-rebuild switch";
     rebuild-dev = "ln -sf ~/Projects/nixos-configuration/dev/* ~/Projects/; ln -sf ~/Projects/nixos-configuration/dev/.* ~/Projects/; direnv allow ~/Projects";
   };
 

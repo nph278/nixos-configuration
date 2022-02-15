@@ -23,6 +23,6 @@
   #   white = "#eceff4";
   # }
 
-  font = "Fira Code Nerd Font";
+  font = "Caskaydia Cove Nerd Font";
   fontSize = 10.0;
 }

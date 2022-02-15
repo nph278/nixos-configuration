@@ -122,7 +122,7 @@ in
  
   # Fonts
   fonts.fonts = with pkgs; [
-    nerdfonts
+    (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
     noto-fonts
     noto-fonts-emoji
   ];

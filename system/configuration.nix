@@ -1,4 +1,5 @@
 # TODO:
+# Treesitter
 # doas
 # kernel stuff
 # Auto ssh
@@ -122,7 +123,7 @@ in
  
   # Fonts
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+    (nerdfonts.override { fonts = [ "VictorMono" ]; })
     noto-fonts
     noto-fonts-emoji
   ];

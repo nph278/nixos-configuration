@@ -10,19 +10,19 @@ in
     font = {
       normal = {
         family = font;
-        style = "Regular";
+        style = "regular";
       };
       bold = {
         family = font;
-        style = "Bold";
+        style = "bold";
       };
       italic = {
         family = font;
-        style = "Italic";
+        style = "italic";
       };
       bold_italic = {
         family = font;
-        style = "Bold Italic";
+        style = "bold italic";
       };
 
       size = 11;

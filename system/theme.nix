@@ -23,6 +23,6 @@
   #   white = "#eceff4";
   # }
 
-  font = "Caskaydia Cove Nerd Font";
+  font = "Victor Mono Nerd Font";
   fontSize = 10.0;
 }

@@ -18,6 +18,8 @@ vim.o.relativenumber = true
 
 -- Highlighting, edited from http//github.com/joshdick/onedark.vim
 vim.cmd("highlight Comment ctermfg=8 gui=italic cterm=italic")
+vim.cmd("highlight rustCommentLineDoc ctermfg=8 gui=italic cterm=italic")
+vim.cmd("highlight rustCommentBlockDoc ctermfg=8 gui=italic cterm=italic")
 vim.cmd("highlight Constant ctermfg=6")
 vim.cmd("highlight String ctermfg=2")
 vim.cmd("highlight Character ctermfg=2")

@@ -30,7 +30,6 @@ pkgs.mkShell {
             lualine-nvim
             nvim-tree-lua
             vim-gitgutter
-            vim-toml
             nvim-lspconfig
             luasnip
             cmp_luasnip

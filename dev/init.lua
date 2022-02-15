@@ -15,6 +15,10 @@ vim.o.showcmd = false
 vim.o.completeopt = 'menu,menuone,noselect,preview'
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.foldenable = true
+vim.o.foldlevel = 1000
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Highlighting, edited from http//github.com/joshdick/onedark.vim
 vim.cmd("highlight Comment ctermfg=8 gui=italic cterm=italic")
@@ -61,7 +65,7 @@ vim.cmd("highlight DiffDelete ctermbg=1 ctermfg=0")
 vim.cmd("highlight DiffText ctermbg=3 ctermfg=0")
 vim.cmd("highlight ErrorMsg ctermfg=1 ctermbg=0")
 vim.cmd("highlight VertSplit ctermfg=7")
-vim.cmd("highlight Folded ctermfg=8")
+vim.cmd("highlight Folded ctermfg=7 ctermbg=0 cterm=italic")
 vim.cmd("highlight IncSearch ctermfg=3 ctermbg=8")
 vim.cmd("highlight LineNr ctermfg=8")
 vim.cmd("highlight CursorLineNr ctermfg=3")
@@ -320,8 +324,7 @@ require('nvim-tree').setup {
       error = "!",
     }
   },
-  update_focused_file = {
-    enable      = false,
+  update_focused_file = { enable      = false,
     update_cwd  = false,
     ignore_list = {}
   },
@@ -451,8 +454,7 @@ cmp.setup({
   })
 })
 
-cmp.setup.cmdline('/', {
-  sources = {
+cmp.setup.cmdline('/', { sources = {
     { name = 'buffer' }
   }
 })
@@ -468,5 +470,16 @@ cmp.setup.cmdline(':', {
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- Treesitter
+
+require('nvim-treesitter.configs').setup {
+  highlight = {
+    enable = true,
+  }
+}
+
 -- Other keybinds
 vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {}) -- Comment
+vim.api.nvim_set_keymap('n', '+', '<plug>NERDCommenterToggle<CR>', {}) -- Comment
+vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', {}) -- Fold
+vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', {})

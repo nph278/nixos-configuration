@@ -27,7 +27,6 @@ pkgs.mkShell {
             nerdcommenter
             vim-tmux-navigator
             nvim-web-devicons
-            vim-nix
             lualine-nvim
             nvim-tree-lua
             vim-gitgutter
@@ -40,6 +39,7 @@ pkgs.mkShell {
             cmp-buffer
             cmp-path
             cmp-cmdline
+            nvim-treesitter
           ];
         }; 
       };     

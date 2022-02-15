@@ -1,5 +1,4 @@
 # TODO:
-# Treesitter
 # doas
 # kernel stuff
 # Auto ssh

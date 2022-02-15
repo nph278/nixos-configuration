@@ -1,9 +1,6 @@
 { theme }:
 
-let
-  colors = theme.colors;
-  font = "${toString theme.fontSize}pt ${theme.font}";
-in
+let colors = theme.colors; font = "${toString theme.fontSize}pt ${theme.font}"; in
 {
   enable = true;
   settings = {

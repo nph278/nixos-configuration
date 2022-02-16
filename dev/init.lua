@@ -396,6 +396,7 @@ require('lualine').setup {
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.rust_analyzer.setup {}
+nvim_lsp.rnix.setup {}
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -416,7 +417,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup servers
-local servers = { 'rust_analyzer' }
+local servers = { 'rust_analyzer', 'rnix' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

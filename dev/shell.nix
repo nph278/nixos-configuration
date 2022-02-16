@@ -1,4 +1,4 @@
-{pkgs ? import <nixpkgs> {}}:
+{ pkgs ? import <nixpkgs> { } }:
 
 pkgs.mkShell {
   name = "dev";
@@ -12,6 +12,9 @@ pkgs.mkShell {
 
     # Python
     pythonFull
+
+    # Nix
+    rnix-lsp
 
     # Neovim
     (neovim.override {
@@ -41,10 +44,10 @@ pkgs.mkShell {
             nvim-treesitter
             vim-fugitive
           ];
-        }; 
-      };     
+        };
+      };
     })
   ];
-  
+
   RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
 }

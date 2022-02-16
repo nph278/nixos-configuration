@@ -41,11 +41,6 @@
     rebuild-dev = "ln -sf ~/Projects/nixos-configuration/dev/* ~/Projects/; ln -sf ~/Projects/nixos-configuration/dev/.* ~/Projects/; direnv allow ~/Projects";
   };
 
-  initExtra = ''
-    pfetch
-    eval "$(direnv hook zsh)"
-  '';
-
   initExtraFirst = ''
     fl() {
       flatpak run $1 > /dev/null & disown
@@ -65,6 +60,12 @@
     
     zle -N zle-keymap-select
     echo -ne '\e[5 q'
+  '';
+
+  initExtra = ''
+    precmd() {zle-keymap-select}
+    pfetch
+    eval "$(direnv hook zsh)"
   '';
 
   localVariables = {

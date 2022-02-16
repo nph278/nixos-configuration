@@ -1,6 +1,9 @@
 { theme }:
 
-let colors = theme.colors; font = "${toString theme.fontSize}pt ${theme.font}"; in
+let
+  colors = theme.colors;
+  font = "${toString theme.fontSize}pt ${theme.font}";
+in
 {
   enable = true;
   settings = {
@@ -18,7 +21,7 @@ let colors = theme.colors; font = "${toString theme.fontSize}pt ${theme.font}"; 
         odd.bg = colors.black;
         fg = colors.white;
         match.fg = colors.green;
-        
+
         item.selected = {
           bg = colors.blue;
           fg = colors.black;
@@ -136,14 +139,14 @@ let colors = theme.colors; font = "${toString theme.fontSize}pt ${theme.font}"; 
           start = colors.blue;
           stop = colors.green;
         };
-        
+
         selected = {
           even.bg = colors.blue;
           odd.bg = colors.blue;
           even.fg = colors.black;
           odd.fg = colors.black;
         };
-        
+
         pinned = {
           even.bg = colors.black;
           odd.bg = colors.black;
@@ -190,6 +193,6 @@ let colors = theme.colors; font = "${toString theme.fontSize}pt ${theme.font}"; 
   quickmarks = {
     r = "reddit.com";
     yt = "youtube.com";
-    gh = "github.com"; 
+    gh = "github.com";
   };
 }

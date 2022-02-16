@@ -3,7 +3,7 @@
 let
   colors = theme.colors;
   swayFont = {
-    names = [theme.font];
+    names = [ theme.font ];
     size = theme.fontSize;
   };
 
@@ -30,7 +30,7 @@ in
     output."*" = {
       bg = "${colors.black} solid_color";
     };
-    
+
     bars = [{
       fonts = swayFont;
       statusCommand = "while date +'%h %d -> %H %M %S     '; do sleep 1; done";

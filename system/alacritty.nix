@@ -1,6 +1,6 @@
 { theme }:
 
-let 
+let
   colors = theme.colors;
   font = theme.font;
 in
@@ -27,23 +27,23 @@ in
 
       size = 11;
     };
-    
+
     colors = {
       primary = {
         background = colors.black;
         foreground = colors.white;
       };
- 
+
       cursor = {
         text = "CellBackground";
         cursor = colors.blue;
       };
- 
+
       selection = {
         text = "CellBackground";
         background = colors.black;
       };
- 
+
       normal = {
         black = colors.black;
         red = colors.red;

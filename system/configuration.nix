@@ -14,7 +14,8 @@ let
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       (import "${home-manager}/nixos")
     ];
@@ -79,21 +80,21 @@ in
 
   # Open ports in the firewall.
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [  ];
-  networking.firewall.allowedUDPPorts = [  ];
+  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
   # Opengl broken
   hardware.opengl.enable = true;
-  
+
   # Home Manager
   home-manager.users.carl = {
     # Sway
-    programs.zsh = (import ./zsh.nix) {inherit pkgs;};
-    programs.alacritty = (import ./alacritty.nix) {inherit theme;};
-    programs.qutebrowser = (import ./qutebrowser.nix) {inherit theme;};
-    wayland.windowManager.sway = (import ./sway.nix) {inherit pkgs; inherit theme;};
+    programs.zsh = (import ./zsh.nix) { inherit pkgs; };
+    programs.alacritty = (import ./alacritty.nix) { inherit theme; };
+    programs.qutebrowser = (import ./qutebrowser.nix) { inherit theme; };
+    wayland.windowManager.sway = (import ./sway.nix) { inherit pkgs; inherit theme; };
 
     programs.git = {
       enable = true;
@@ -109,7 +110,7 @@ in
       trash-cli
       pulsemixer
       keepassxc
-      
+
       # Sway
       swaylock
       swayidle
@@ -119,7 +120,7 @@ in
       direnv
     ];
   };
- 
+
   # Fonts
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "VictorMono" ]; })
@@ -147,11 +148,11 @@ in
   };
 
   # Fix swaylock
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   # Automatically start ssh
   programs.bash.shellInit = ''
-    if [[ $TERM == linux ]] then
+    if [[ $TERM == linux ]]; then
       eval "$(ssh-agent -s)"
     fi
   '';

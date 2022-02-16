@@ -39,6 +39,7 @@ pkgs.mkShell {
             cmp-path
             cmp-cmdline
             nvim-treesitter
+            vim-fugitive
           ];
         }; 
       };     

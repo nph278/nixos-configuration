@@ -149,6 +149,13 @@ in
   # Fix swaylock
   security.pam.services.swaylock = {};
 
+  # Automatically start ssh
+  programs.bash.shellInit = ''
+    if [[ $TERM == linux ]] then
+      eval "$(ssh-agent -s)"
+    fi
+  '';
+
   system.stateVersion = "21.11";
 }
 

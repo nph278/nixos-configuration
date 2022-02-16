@@ -473,9 +473,16 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 -- Treesitter
 
 require('nvim-treesitter.configs').setup {
+  ensure_installed = {
+    "rust",
+    "toml",
+    "python",
+    "nix",
+  },
+
   highlight = {
     enable = true,
-  }
+  },
 }
 
 -- Other keybinds

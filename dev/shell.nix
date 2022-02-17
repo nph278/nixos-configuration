@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> { } }:
 
 let
-  pkgs = import (fetchTarball("https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz")) {};
+  pkgs = import (fetchTarball ("https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz")) { };
 in
 pkgs.mkShell {
   name = "dev";

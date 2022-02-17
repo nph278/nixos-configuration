@@ -20,7 +20,7 @@
     gl = "git log --graph --pretty=short";
     gac = "git add -A && git commit -m";
     gf = "git fetch";
-    
+
     # KeePassXC
     kee = "keepassxc-cli open ~/.config/KeePass.kdbx";
 
@@ -28,7 +28,7 @@
     blender = "fl org.blender.Blender";
     steam = "fl com.valvesoftware.Steam";
     stk = "fl net.supertuxkart.SuperTuxKart";
-    
+
     # Other
     db = "gdb -tui";
     rm = "trash";

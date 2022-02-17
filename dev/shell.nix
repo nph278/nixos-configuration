@@ -14,7 +14,7 @@ pkgs.mkShell {
     rust-analyzer
 
     # Python
-    pythonFull
+    python310
 
     # Nix
     rnix-lsp

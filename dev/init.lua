@@ -493,7 +493,7 @@ require('telescope').load_extension('fzf')
 vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', {})
 vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope live_grep<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_document_symbols<CR>', {})
 
 -- Nerdcommenter
 vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {})
-vim.api.nvim_set_keymap('n', '+', '<plug>NERDCommenterToggle<CR>', {})

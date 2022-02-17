@@ -50,7 +50,8 @@ pkgs.mkShell {
             cmp-cmdline
             nvim-treesitter
             vim-fugitive
-            fzf-vim
+            telescope-nvim
+            telescope-fzf-native-nvim
           ];
         };
       };

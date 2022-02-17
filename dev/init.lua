@@ -472,10 +472,10 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Treesitter
-
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
     "rust",
+    "lua",
     "toml",
     "python",
     "nix",
@@ -485,11 +485,15 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   },
 }
-
--- Other keybinds
-vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {}) -- Comment
-vim.api.nvim_set_keymap('n', '+', '<plug>NERDCommenterToggle<CR>', {}) -- Comment
 vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', {}) -- Fold
 vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-p>', ':Files<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-g>', ':Rg<CR>', {})
+
+-- Telescope
+require('telescope').load_extension('fzf')
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope live_grep<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>', {})
+
+-- Nerdcommenter
+vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {})
+vim.api.nvim_set_keymap('n', '+', '<plug>NERDCommenterToggle<CR>', {})

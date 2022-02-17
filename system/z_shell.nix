@@ -69,7 +69,7 @@
   '';
 
   localVariables = {
-    # AAAHHHHHHHHH
-    PROMPT = "%F{white}%(?..%F{red}%?%F{white} )%F{yellow}%*%F{white} %F{green}%n@%m%F{white} %F{red}%~%F{white}$([[ -d ./.git ]] && printf \":\")%F{magenta}$([[ -d ./.git ]] && git branch --show-current)%F{white} ";
+    #         Time                  User@Hostname           Working dir
+    PROMPT = "%F{yellow}%*%F{white} %F{green}%n@%m%F{white} %F{red}%~%F{white} ";
   };
 }

@@ -19,6 +19,10 @@ pkgs.mkShell {
     # Nix
     rnix-lsp
 
+    # Tools
+    fzf
+    ripgrep
+
     # Neovim
     (neovim.override {
       configure = {
@@ -46,6 +50,7 @@ pkgs.mkShell {
             cmp-cmdline
             nvim-treesitter
             vim-fugitive
+            fzf-vim
           ];
         };
       };

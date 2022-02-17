@@ -491,3 +491,5 @@ vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {}) -- Commen
 vim.api.nvim_set_keymap('n', '+', '<plug>NERDCommenterToggle<CR>', {}) -- Comment
 vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', {}) -- Fold
 vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-p>', ':Files<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-g>', ':Rg<CR>', {})

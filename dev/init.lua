@@ -335,7 +335,6 @@ require('nvim-tree').setup {
     ignore_list = {}
   },
   system_open = {
-    cmd  = nil,
     args = {}
   },
   filters = {
@@ -372,7 +371,6 @@ vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', { silent = true })
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = '16color',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
@@ -397,6 +395,11 @@ require('lualine').setup {
   tabline = {},
   extensions = {}
 }
+vim.cmd("highlight lualine_a_normal ctermfg=0 ctermbg=4")
+vim.cmd("highlight lualine_a_insert ctermfg=0 ctermbg=2")
+vim.cmd("highlight lualine_a_visual ctermfg=0 ctermbg=5")
+vim.cmd("highlight lualine_a_replace ctermfg=0 ctermbg=1")
+vim.cmd("highlight lualine_a_inactive ctermfg=0 ctermbg=0")
 
 -- LSP & completion
 local nvim_lsp = require('lspconfig')

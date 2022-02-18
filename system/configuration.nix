@@ -1,4 +1,5 @@
 # TODO:
+# userscripts
 # kernel stuff
 # script/partitions
 
@@ -108,6 +109,7 @@ in
       trash-cli
       pulsemixer
       keepassxc
+      tree
 
       # Sway
       swaylock

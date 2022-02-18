@@ -2,7 +2,7 @@
 
 let
   colors = theme.colors;
-  font = "${toString theme.fontSize}pt ${theme.font}";
+  font = "11pt ${theme.font}";
 in
 {
   enable = true;

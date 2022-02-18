@@ -4,11 +4,10 @@ let
   colors = theme.colors;
   swayFont = {
     names = [ theme.font ];
-    size = theme.fontSize;
   };
 
   mod = "Mod4";
-  term = "alacritty";
+  term = "kitty";
   lock = "\"${pkgs.swaylock}/bin/swaylock -f -c #000000\"";
 in
 {

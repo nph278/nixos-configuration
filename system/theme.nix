@@ -24,5 +24,4 @@
   # }
 
   font = "Victor Mono Nerd Font";
-  fontSize = 10.0;
 }

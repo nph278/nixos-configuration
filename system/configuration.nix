@@ -116,6 +116,7 @@ in
 
       # Dev
       direnv
+      gh
     ];
   };
 

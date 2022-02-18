@@ -507,7 +507,7 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', { silent = tr
 vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope live_grep<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_document_symbols<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<space>c', ':Telescope lsp_code_actions<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<space>ca', ':Telescope lsp_code_actions<CR>', { silent = true })
 
 -- Nerdcommenter
 vim.api.nvim_set_keymap('n', '+', '<plug>NERDCommenterToggle<CR>', {})
@@ -518,3 +518,13 @@ vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<CR>', { silent = true })
+
+-- Rust
+vim.api.nvim_set_keymap('n', '<space>ct', ':!cargo test<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>cr', ':!cargo run<CR>', {})
+
+-- Files
+
+vim.api.nvim_set_keymap('n', '<space>q', ':xa<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>w', 'f<ESC>:w<CR>', {})
+

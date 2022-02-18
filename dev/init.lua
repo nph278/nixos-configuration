@@ -442,7 +442,7 @@ cmp.setup({
   },
 
   mapping = {
-    ['<Tab>'] = cmp.mapping(function()
+    ['<C-s>'] = cmp.mapping(function()
         if luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
         end

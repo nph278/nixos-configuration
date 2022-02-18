@@ -1,5 +1,4 @@
 { theme }:
-
 let
   colors = theme.colors;
   font = theme.font;

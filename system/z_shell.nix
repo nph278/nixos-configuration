@@ -29,16 +29,17 @@
     steam = "fl com.valvesoftware.Steam";
     stk = "fl net.supertuxkart.SuperTuxKart";
 
+    # Nix
+    rebuild = "doas cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && doas nixos-rebuild switch";
+    rebuild-dev = "ln -sf ~/Projects/nixos-configuration/dev/* ~/Projects/; ln -sf ~/Projects/nixos-configuration/dev/.* ~/Projects/; direnv allow ~/Projects";
+
     # Other
     db = "gdb -tui";
     rm = "trash";
     dev = "toolbox run -c dev zsh";
     ssh-setup = "killall ssh-agent; kee && eval \"$(ssh-agent -s)\" && wl-paste | ssh-add ~/.ssh/id_ed25519 && wl-copy ''";
     lock = "swaylock -f -c #000000";
-
-    # Nix
-    rebuild = "doas cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && doas nixos-rebuild switch";
-    rebuild-dev = "ln -sf ~/Projects/nixos-configuration/dev/* ~/Projects/; ln -sf ~/Projects/nixos-configuration/dev/.* ~/Projects/; direnv allow ~/Projects";
+    p = "cd ~/Projects; cd $(/usr/bin/env ls ~/Projects | grep -v \\\\. | fzf)";
   };
 
   initExtraFirst = ''

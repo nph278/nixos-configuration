@@ -117,6 +117,7 @@ in
       # Dev
       direnv
       gh
+      fzf
     ];
   };
 

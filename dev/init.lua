@@ -360,7 +360,7 @@ require('nvim-tree').setup {
     require_confirm = true
   }
 }
-vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', { silent = true })
 
 -- Status line
 require('lualine').setup {
@@ -484,8 +484,8 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   },
 }
-vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', {}) -- Fold
-vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', {})
+vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', { silent = true }) -- Fold
+vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', { silent = true})
 
 -- Telescope
 local telescope = require('telescope')
@@ -503,17 +503,18 @@ telescope.setup {
     },
   }
 }
-vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope live_grep<CR>', {})
-vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>', {})
-vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_document_symbols<CR>', {})
-vim.api.nvim_set_keymap('n', '<space>c', ':Telescope lsp_code_actions<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope live_grep<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_document_symbols<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<space>c', ':Telescope lsp_code_actions<CR>', { silent = true })
 
 -- Nerdcommenter
+vim.api.nvim_set_keymap('n', '+', '<plug>NERDCommenterToggle<CR>', {})
 vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {})
 
 -- Panel navigation
-vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<CR>', { silent = true })

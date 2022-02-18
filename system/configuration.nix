@@ -1,5 +1,4 @@
 # TODO:
-# kitty
 # kernel stuff
 # script/partitions
 

@@ -7,7 +7,7 @@ let
   };
 
   mod = "Mod4";
-  term = "kitty";
+  term = "alacritty";
   lock = "\"${pkgs.swaylock}/bin/swaylock -f -c #000000\"";
 in
 {

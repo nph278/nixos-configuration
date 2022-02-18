@@ -2,7 +2,7 @@
 
 let
   colors = theme.colors;
-  font = "11pt ${theme.font}";
+  font = "10pt ${theme.font}";
 in
 {
   enable = true;

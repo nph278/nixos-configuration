@@ -91,7 +91,7 @@ in
   home-manager.users.carl = {
     # Sway
     programs.zsh = (import ./z_shell.nix) { inherit pkgs; };
-    programs.kitty = (import ./kitty.nix) { inherit theme; };
+    programs.alacritty = (import ./alacritty.nix) { inherit theme; };
     programs.qutebrowser = (import ./qutebrowser.nix) { inherit theme; };
     wayland.windowManager.sway = (import ./sway.nix) { inherit pkgs; inherit theme; };
 

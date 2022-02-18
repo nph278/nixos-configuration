@@ -303,6 +303,9 @@ vim.cmd("highlight MatchParen ctermbg=0 cterm=underline")
 vim.cmd("highlight CmpItemKind ctermfg=5")
 vim.cmd("highlight CmpItemMenu ctermfg=2")
 
+-- Override C-f
+vim.api.nvim_set_keymap('n', '<C-f>', '', {})
+
 -- File tree
 require('nvim-tree').setup {
   disable_netrw       = true,

@@ -413,7 +413,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', 'f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 end
 
 -- Setup servers
@@ -489,11 +488,26 @@ vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', {}) -- Fold
 vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', {})
 
 -- Telescope
-require('telescope').load_extension('fzf')
+local telescope = require('telescope')
+telescope.load_extension('fzf')
+telescope.setup {
+  pickers = {
+    git_branches = {
+      theme = "dropdown"
+    },
+    find_files = {
+      theme = "dropdown"
+    },
+    lsp_code_actions = {
+      theme = "cursor"
+    },
+  }
+}
 vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', {})
 vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope live_grep<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_document_symbols<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>c', ':Telescope lsp_code_actions<CR>', {})
 
 -- Nerdcommenter
 vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {})

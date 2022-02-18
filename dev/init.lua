@@ -511,3 +511,9 @@ vim.api.nvim_set_keymap('n', '<space>c', ':Telescope lsp_code_actions<CR>', {})
 
 -- Nerdcommenter
 vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {})
+
+-- Panel navigation
+vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<CR>', {})

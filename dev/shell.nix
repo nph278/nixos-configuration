@@ -20,7 +20,6 @@ pkgs.mkShell {
     rnix-lsp
 
     # Tools
-    fzf
     ripgrep
 
     # Neovim
@@ -35,11 +34,11 @@ pkgs.mkShell {
           # Vim plugins
           start = [
             nerdcommenter
-            vim-tmux-navigator
             nvim-web-devicons
             lualine-nvim
             nvim-tree-lua
             vim-gitgutter
+
             nvim-lspconfig
             luasnip
             cmp_luasnip
@@ -48,8 +47,11 @@ pkgs.mkShell {
             cmp-buffer
             cmp-path
             cmp-cmdline
+
             nvim-treesitter
+
             vim-fugitive
+
             telescope-nvim
             telescope-fzf-native-nvim
           ];

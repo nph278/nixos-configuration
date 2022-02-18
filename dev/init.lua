@@ -72,9 +72,9 @@ vim.cmd("highlight CursorLineNr ctermfg=3")
 vim.cmd("highlight MatchParen ctermfg=4 gui=underline cterm=underline")
 vim.cmd("highlight NonText ctermfg=8")
 vim.cmd("highlight Normal ctermfg=7 ctermbg=0")
-vim.cmd("highlight Pmenu ctermfg=7 ctermbg=8")
-vim.cmd("highlight PmenuSel ctermfg=8 ctermbg=4")
-vim.cmd("highlight PmenuSbar ctermbg=8")
+vim.cmd("highlight Pmenu ctermfg=7 ctermbg=0")
+vim.cmd("highlight PmenuSel ctermfg=0 ctermbg=4")
+vim.cmd("highlight PmenuSbar ctermbg=0")
 vim.cmd("highlight PmenuThumb ctermbg=7")
 vim.cmd("highlight Question ctermfg=5")
 vim.cmd("highlight QuickFixLine ctermfg=0 ctermbg=3")
@@ -300,6 +300,8 @@ vim.cmd("highlight LspDiagnosticsDefaultHint ctermfg=4")
 vim.cmd("highlight LspDiagnosticsDefaultInformation ctermfg=4")
 vim.cmd("highlight SignColumn ctermbg=0")
 vim.cmd("highlight MatchParen ctermbg=0 cterm=underline")
+vim.cmd("highlight CmpItemKind ctermfg=5")
+vim.cmd("highlight CmpItemMenu ctermfg=2")
 
 -- File tree
 require('nvim-tree').setup {
@@ -324,7 +326,8 @@ require('nvim-tree').setup {
       error = "!",
     }
   },
-  update_focused_file = { enable      = false,
+  update_focused_file = {
+    enable      = false,
     update_cwd  = false,
     ignore_list = {}
   },
@@ -426,32 +429,58 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- Cmp
 local cmp = require'cmp'
+local lspkind = require('lspkind')
+luasnip = require('luasnip')
 
 cmp.setup({
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
+
   mapping = {
-    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<Tab>'] = cmp.mapping(function()
+        if luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        end
+      end
+    ),
+    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-    ['<C-y>'] = cmp.config.disable,
+    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
   },
+
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
+    { name = 'path' },
   }, {
     { name = 'buffer' },
-  })
+  }),
+
+  formatting = {
+    format = lspkind.cmp_format({
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[nvim]",
+        path = "[path]",
+        luasnip = "[snip]",
+      },
+    })
+  },
 })
 
 cmp.setup.cmdline('/', { sources = {
@@ -466,6 +495,9 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
+
+-- Luasnip
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -501,7 +533,11 @@ telescope.setup {
     lsp_code_actions = {
       theme = "cursor"
     },
-  }
+  },
+
+  preview = {
+    treesitter = true,
+  },
 }
 vim.api.nvim_set_keymap('n', '<space>p', ':Telescope find_files<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<space>g', ':Telescope live_grep<CR>', { silent = true })
@@ -524,7 +560,5 @@ vim.api.nvim_set_keymap('n', '<space>ct', ':!cargo test<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>cr', ':!cargo run<CR>', {})
 
 -- Files
-
 vim.api.nvim_set_keymap('n', '<space>q', ':xa<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>w', 'f<ESC>:w<CR>', {})
-

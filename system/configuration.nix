@@ -1,7 +1,6 @@
 # TODO:
-# doas
+# kitty
 # kernel stuff
-# Auto ssh
 # script/partitions
 
 # configuration.nix(5) man page

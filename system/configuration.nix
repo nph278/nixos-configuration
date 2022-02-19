@@ -1,4 +1,5 @@
 # TODO:
+# split up init.lua
 # userscripts
 # kernel stuff
 # script/partitions

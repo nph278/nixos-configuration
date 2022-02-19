@@ -35,7 +35,6 @@ pkgs.mkShell {
           start = [
             comment-nvim
             nvim-web-devicons
-            lualine-nvim
             nvim-tree-lua
             nvim-treesitter
 

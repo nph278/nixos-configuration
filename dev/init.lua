@@ -367,40 +367,6 @@ require('nvim-tree').setup {
 }
 vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', { silent = true })
 
--- Status line
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
-    always_divide_middle = true,
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
-}
-vim.cmd('highlight lualine_a_normal ctermfg=0 ctermbg=4')
-vim.cmd('highlight lualine_a_insert ctermfg=0 ctermbg=2')
-vim.cmd('highlight lualine_a_visual ctermfg=0 ctermbg=5')
-vim.cmd('highlight lualine_a_replace ctermfg=0 ctermbg=1')
-vim.cmd('highlight lualine_a_inactive ctermfg=0 ctermbg=0')
-
 -- LSP & completion
 local nvim_lsp = require('lspconfig')
 

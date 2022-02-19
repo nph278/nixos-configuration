@@ -569,3 +569,4 @@ vim.api.nvim_set_keymap('n', '<space>cr', ':!cargo run<CR>', {})
 -- Files
 vim.api.nvim_set_keymap('n', '<space>q', ':xa<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>w', '<C-f><ESC>:w<CR>', {})
+vim.api.nvim_set_keymap('n', '<space>s', '<C-^>', {})

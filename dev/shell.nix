@@ -1,4 +1,4 @@
-{ }:
+{}:
 
 let
   pkgs = import (fetchTarball ("https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz")) { };
@@ -33,11 +33,11 @@ pkgs.mkShell {
 
           # Vim plugins
           start = [
-            nerdcommenter
+            comment-nvim
             nvim-web-devicons
             lualine-nvim
             nvim-tree-lua
-            vim-gitgutter
+            nvim-treesitter
 
             # LSP/CMP
             nvim-lspconfig
@@ -52,10 +52,11 @@ pkgs.mkShell {
             cmp-nvim-lua
             friendly-snippets
 
-            nvim-treesitter
-
+            # Git
             vim-fugitive
+            vim-gitgutter
 
+            # Telescope
             telescope-nvim
             telescope-fzf-native-nvim
           ];

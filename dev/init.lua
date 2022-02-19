@@ -516,6 +516,8 @@ require('nvim-treesitter.configs').setup {
     "toml",
     "python",
     "nix",
+    "markdown",
+    "bash",
   },
 
   highlight = {
@@ -551,9 +553,8 @@ vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>', { silent
 vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_document_symbols<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<space>ca', ':Telescope lsp_code_actions<CR>', { silent = true })
 
--- Nerdcommenter
-vim.api.nvim_set_keymap('n', '+', '<plug>NERDCommenterToggle<CR>', {})
-vim.api.nvim_set_keymap('v', '+', '<plug>NERDCommenterToggle<CR>', {})
+-- Comment.nvim
+require("Comment").setup()
 
 -- Panel navigation
 vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', { silent = true })

@@ -606,7 +606,7 @@ local function filename()
 end
 
 local function filetype()
-  return string.format(" %s %s ", devicons.get_icon(vim.bo.filetype), vim.bo.filetype:upper())
+  return string.format(" %s ", vim.bo.filetype:upper())
 end
 
 local function lineinfo()

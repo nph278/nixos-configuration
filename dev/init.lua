@@ -64,7 +64,7 @@ vim.cmd('highlight DiffChange ctermfg=3 gui=underline cterm=underline')
 vim.cmd('highlight DiffDelete ctermbg=1 ctermfg=0')
 vim.cmd('highlight DiffText ctermbg=3 ctermfg=0')
 vim.cmd('highlight ErrorMsg ctermfg=1 ctermbg=0')
-vim.cmd('highlight VertSplit ctermfg=7')
+vim.cmd('highlight VertSplit ctermfg=0 ctermbg=0')
 vim.cmd('highlight Folded ctermfg=7 ctermbg=0 cterm=italic')
 vim.cmd('highlight IncSearch ctermfg=3 ctermbg=8')
 vim.cmd('highlight LineNr ctermfg=8')
@@ -249,9 +249,6 @@ vim.cmd('highlight xmlAttrib ctermfg=3')
 vim.cmd('highlight xmlEndTag ctermfg=1')
 vim.cmd('highlight xmlTag ctermfg=1')
 vim.cmd('highlight xmlTagName ctermfg=1')
-vim.cmd('highlight GitGutterAdd ctermfg=2')
-vim.cmd('highlight GitGutterChange ctermfg=3')
-vim.cmd('highlight GitGutterDelete ctermfg=1')
 vim.cmd('highlight LspError ctermfg=1')
 vim.cmd('highlight LspWarning ctermfg=3')
 vim.cmd('highlight LspInformation ctermfg=4')
@@ -282,29 +279,16 @@ vim.cmd('highlight DiagnosticUnderlineError ctermfg=1 gui=underline cterm=underl
 vim.cmd('highlight DiagnosticUnderlineWarn ctermfg=3 gui=underline cterm=underline')
 vim.cmd('highlight DiagnosticUnderlineInfo ctermfg=4 gui=underline cterm=underline')
 vim.cmd('highlight DiagnosticUnderlineHint ctermfg=6 gui=underline cterm=underline')
-vim.cmd('highlight GitGutterAdd ctermfg=2')
-vim.cmd('highlight GitGutterChange ctermfg=3')
-vim.cmd('highlight GitGutterDelete ctermfg=1')
-vim.cmd('highlight NvimTreeVertSplit ctermfg=7 ctermbg=0')
-vim.cmd('highlight NvimTreeFolderIcon ctermfg=4')
-vim.cmd('highlight NvimTreeLspDiagnosticsError ctermfg=1')
-vim.cmd('highlight NvimTreeLspDiagnosticsWarning ctermfg=3')
-vim.cmd('highlight NvimTreeLspDiagnosticsHint ctermfg=4')
-vim.cmd('highlight NvimTreeLspDiagnosticsInformation ctermfg=4')
-vim.cmd('highlight NvimTreeGitNew ctermfg=2')
-vim.cmd('highlight NvimTreeGitDirty ctermfg=3')
-vim.cmd('highlight NvimTreeGitDeleted ctermfg=1')
-vim.cmd('highlight LspDiagnosticsDefaultError ctermfg=1')
-vim.cmd('highlight LspDiagnosticsDefaultWarning ctermfg=3')
-vim.cmd('highlight LspDiagnosticsDefaultHint ctermfg=4')
-vim.cmd('highlight LspDiagnosticsDefaultInformation ctermfg=4')
 vim.cmd('highlight SignColumn ctermbg=0')
 vim.cmd('highlight MatchParen ctermbg=0 cterm=underline')
-vim.cmd('highlight CmpItemKind ctermfg=5')
-vim.cmd('highlight CmpItemMenu ctermfg=2')
 
 -- Override C-f
 vim.api.nvim_set_keymap('n', '<C-f>', '', {})
+
+-- GitGutter
+vim.cmd('highlight GitGutterAdd ctermfg=2')
+vim.cmd('highlight GitGutterChange ctermfg=3')
+vim.cmd('highlight GitGutterDelete ctermfg=1')
 
 -- File tree
 require('nvim-tree').setup {
@@ -365,9 +349,20 @@ require('nvim-tree').setup {
     require_confirm = true
   }
 }
+
 vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', { silent = true })
 
--- LSP & completion
+vim.cmd('highlight NvimTreeVertSplit ctermfg=0 ctermbg=0')
+vim.cmd('highlight NvimTreeFolderIcon ctermfg=4')
+vim.cmd('highlight NvimTreeLspDiagnosticsError ctermfg=1')
+vim.cmd('highlight NvimTreeLspDiagnosticsWarning ctermfg=3')
+vim.cmd('highlight NvimTreeLspDiagnosticsHint ctermfg=4')
+vim.cmd('highlight NvimTreeLspDiagnosticsInformation ctermfg=4')
+vim.cmd('highlight NvimTreeGitNew ctermfg=2')
+vim.cmd('highlight NvimTreeGitDirty ctermfg=3')
+vim.cmd('highlight NvimTreeGitDeleted ctermfg=1')
+
+-- LSP
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.rust_analyzer.setup {}
@@ -389,6 +384,11 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 end
+
+vim.cmd('highlight LspDiagnosticsDefaultError ctermfg=1')
+vim.cmd('highlight LspDiagnosticsDefaultWarning ctermfg=3')
+vim.cmd('highlight LspDiagnosticsDefaultHint ctermfg=4')
+vim.cmd('highlight LspDiagnosticsDefaultInformation ctermfg=4')
 
 -- Setup servers
 local servers = { 'rust_analyzer', 'rnix' }
@@ -468,10 +468,12 @@ cmp.setup.cmdline(':', {
   })
 })
 
+vim.cmd('highlight CmpItemKind ctermfg=5')
+vim.cmd('highlight CmpItemMenu ctermfg=2')
+
 -- Luasnip
 require('luasnip.loaders.from_vscode').lazy_load()
 
--- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Treesitter

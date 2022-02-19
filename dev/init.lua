@@ -570,3 +570,10 @@ vim.api.nvim_set_keymap('n', '<space>cr', ':!cargo run<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>q', ':xa<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>w', '<C-f><ESC>:w<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>s', '<C-^>', {})
+
+-- Other
+vim.api.nvim_set_keymap('n', 'Y', 'y$', {})
+vim.api.nvim_set_keymap('i', ',', ',<C-g>u', { noremap = true })
+vim.api.nvim_set_keymap('i', ';', ';<C-g>u', { noremap = true })
+vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
+vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })

@@ -13,6 +13,10 @@ pkgs.mkShell {
     rustfmt
     rust-analyzer
 
+    # Lua
+    sumneko-lua-language-server
+    luaformatter
+
     # Python
     python310
 

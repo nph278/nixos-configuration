@@ -275,10 +275,14 @@ vim.cmd('highlight DiagnosticError ctermfg=1')
 vim.cmd('highlight DiagnosticWarn ctermfg=3')
 vim.cmd('highlight DiagnosticInfo ctermfg=4')
 vim.cmd('highlight DiagnosticHint ctermfg=6')
-vim.cmd('highlight DiagnosticUnderlineError ctermfg=1 gui=underline cterm=underline')
-vim.cmd('highlight DiagnosticUnderlineWarn ctermfg=3 gui=underline cterm=underline')
-vim.cmd('highlight DiagnosticUnderlineInfo ctermfg=4 gui=underline cterm=underline')
-vim.cmd('highlight DiagnosticUnderlineHint ctermfg=6 gui=underline cterm=underline')
+vim.cmd(
+    'highlight DiagnosticUnderlineError ctermfg=1 gui=underline cterm=underline')
+vim.cmd(
+    'highlight DiagnosticUnderlineWarn ctermfg=3 gui=underline cterm=underline')
+vim.cmd(
+    'highlight DiagnosticUnderlineInfo ctermfg=4 gui=underline cterm=underline')
+vim.cmd(
+    'highlight DiagnosticUnderlineHint ctermfg=6 gui=underline cterm=underline')
 vim.cmd('highlight SignColumn ctermbg=0')
 vim.cmd('highlight MatchParen ctermbg=0 cterm=underline')
 
@@ -292,65 +296,38 @@ vim.cmd('highlight GitGutterDelete ctermfg=1')
 
 -- File tree
 require('nvim-tree').setup {
-  disable_netrw       = true,
-  hijack_netrw        = true,
-  open_on_setup       = false,
-  ignore_ft_on_setup  = {},
-  auto_close          = false,
-  open_on_tab         = false,
-  hijack_cursor       = false,
-  update_cwd          = false,
-  update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  },
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = 'h',
-      info = 'i',
-      warning = '?',
-      error = '!',
-    }
-  },
-  update_focused_file = {
-    enable      = false,
-    update_cwd  = false,
-    ignore_list = {}
-  },
-  system_open = {
-    args = {}
-  },
-  filters = {
-    dotfiles = false,
-    custom = {}
-  },
-  git = {
-    enable = true,
-    ignore = true,
-    timeout = 500,
-  },
-  view = {
-    width = 30,
-    height = 30,
-    hide_root_folder = false,
-    side = 'left',
-    auto_resize = false,
-    mappings = {
-      custom_only = false,
-      list = {}
+    disable_netrw = true,
+    hijack_netrw = true,
+    open_on_setup = false,
+    ignore_ft_on_setup = {},
+    auto_close = false,
+    open_on_tab = false,
+    hijack_cursor = false,
+    update_cwd = false,
+    update_to_buf_dir = {enable = true, auto_open = true},
+    diagnostics = {
+        enable = true,
+        icons = {hint = 'h', info = 'i', warning = '?', error = '!'}
     },
-    number = false,
-    relativenumber = false,
-    signcolumn = 'yes'
-  },
-  trash = {
-    cmd = 'trash',
-    require_confirm = true
-  }
+    update_focused_file = {enable = false, update_cwd = false, ignore_list = {}},
+    system_open = {args = {}},
+    filters = {dotfiles = false, custom = {}},
+    git = {enable = true, ignore = true, timeout = 500},
+    view = {
+        width = 30,
+        height = 30,
+        hide_root_folder = false,
+        side = 'left',
+        auto_resize = false,
+        mappings = {custom_only = false, list = {}},
+        number = false,
+        relativenumber = false,
+        signcolumn = 'yes'
+    },
+    trash = {cmd = 'trash', require_confirm = true}
 }
 
-vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<CR>', {silent = true})
 
 vim.cmd('highlight NvimTreeVertSplit ctermfg=0 ctermbg=0')
 vim.cmd('highlight NvimTreeFolderIcon ctermfg=4')
@@ -366,22 +343,46 @@ vim.cmd('highlight NvimTreeGitDeleted ctermfg=1')
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.rust_analyzer.setup {}
+nvim_lsp.sumneko_lua.setup {
+    formatting = "",
+    settings = {
+        Lua = {
+            runtime = {version = "LuaJIT", path = vim.split(package.path, ';')},
+            completion = {keywordSnippet = "Disable"},
+            diagnostics = {
+                enable = true,
+                globals = {"vim", "describe", "it", "before_each", "after_each"}
+            },
+            workspace = {
+                library = {
+                    vim.fn.expand("$VIMRUNTIME/lua"),
+                    vim.fn.expand("$VIMRUNTIME/lua/vim"),
+                    vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")
+                }
+            }
+        }
+    }
+}
 nvim_lsp.rnix.setup {}
 
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    local function buf_set_keymap(...)
+        vim.api.nvim_buf_set_keymap(bufnr, ...)
+    end
+    local function buf_set_option(...)
+        vim.api.nvim_buf_set_option(bufnr, ...)
+    end
 
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
+    -- Mappings.
+    local opts = {noremap = true, silent = true}
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 end
 
 vim.cmd('highlight LspDiagnosticsDefaultError ctermfg=1')
@@ -390,81 +391,63 @@ vim.cmd('highlight LspDiagnosticsDefaultHint ctermfg=4')
 vim.cmd('highlight LspDiagnosticsDefaultInformation ctermfg=4')
 
 -- Setup servers
-local servers = { 'rust_analyzer', 'rnix' }
+local servers = {'rust_analyzer', 'rnix', 'sumneko_lua'}
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        flags = {debounce_text_changes = 150}
     }
-  }
 end
 
 -- Cmp
-local cmp = require'cmp'
+local cmp = require 'cmp'
 local lspkind = require('lspkind')
 luasnip = require('luasnip')
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
+    snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
 
-  mapping = {
-    ['<C-r>'] = cmp.mapping(function()
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        end
-      end
-    ),
-    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-e>'] = cmp.mapping({
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
-    }),
-  },
+    mapping = {
+        ['<C-r>'] = cmp.mapping(function()
+            if luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            end
+        end),
+        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
+        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
+        ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'}),
+        ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 'c'}),
+        ['<CR>'] = cmp.mapping.confirm({select = true}),
+        ['<C-e>'] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close()
+        })
+    },
 
-  sources = cmp.config.sources({
-    { name = 'luasnip' },
-    { name = 'nvim_lsp' },
-    { name = 'nvim_lua' },
-    { name = 'path' },
-  }, {
-    { name = 'buffer' },
-  }),
+    sources = cmp.config.sources({
+        {name = 'luasnip'}, {name = 'nvim_lsp'}, {name = 'nvim_lua'},
+        {name = 'path'}
+    }, {{name = 'buffer'}}),
 
-  formatting = {
-    format = lspkind.cmp_format({
-      with_text = true,
-      menu = {
-        buffer = '[buf]',
-        nvim_lsp = '[LSP]',
-        nvim_lua = '[nvim]',
-        path = '[path]',
-        luasnip = '[snip]',
-      },
-    })
-  },
+    formatting = {
+        format = lspkind.cmp_format({
+            with_text = true,
+            menu = {
+                buffer = '[buf]',
+                nvim_lsp = '[LSP]',
+                nvim_lua = '[nvim]',
+                path = '[path]',
+                luasnip = '[snip]'
+            }
+        })
+    }
 })
 
-cmp.setup.cmdline('/', { sources = {
-    { name = 'buffer' }
-  }
-})
+cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
 
 cmp.setup.cmdline(':', {
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
+    sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})
 })
 
 vim.cmd('highlight CmpItemKind ctermfg=5')
@@ -473,84 +456,71 @@ vim.cmd('highlight CmpItemMenu ctermfg=2')
 -- Luasnip
 require('luasnip.loaders.from_vscode').lazy_load()
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
+                                                                     .protocol
+                                                                     .make_client_capabilities())
 
 -- Treesitter
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {
-    'rust',
-    'lua',
-    'toml',
-    'python',
-    'nix',
-    'markdown',
-    'bash',
-  },
-
-  highlight = {
-    enable = true,
-  },
-
-  
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
-
-  textobjects = {
-    select = {
-      enable = true,
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-
-        ["ac"] = "@conditional.outer",
-        ["ic"] = "@conditional.inner",
-
-        ["aa"] = "@parameter.outer",
-        ["ia"] = "@parameter.inner",
-      },
+    ensure_installed = {
+        'rust', 'lua', 'toml', 'python', 'nix', 'markdown', 'bash'
     },
-  },
+
+    highlight = {enable = true},
+
+    context_commentstring = {enable = true, enable_autocmd = false},
+
+    textobjects = {
+        select = {
+            enable = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+
+                ["ac"] = "@conditional.outer",
+                ["ic"] = "@conditional.inner",
+
+                ["aa"] = "@parameter.outer",
+                ["ia"] = "@parameter.inner"
+            }
+        }
+    }
 }
-vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', { silent = true }) -- Fold
-vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', { silent = true})
+vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', {silent = true}) -- Fold
+vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', {silent = true})
 
 -- Telescope
 local telescope = require('telescope')
 telescope.load_extension('fzf')
 telescope.setup {
-  pickers = {
-    git_branches = {
-      theme = 'dropdown'
+    pickers = {
+        git_branches = {theme = 'dropdown'},
+        find_files = {theme = 'dropdown'},
+        lsp_code_actions = {theme = 'cursor'}
     },
-    find_files = {
-      theme = 'dropdown'
-    },
-    lsp_code_actions = {
-      theme = 'cursor'
-    },
-  },
 
-  preview = {
-    treesitter = true,
-  },
+    preview = {treesitter = true}
 }
 
-vim.api.nvim_set_keymap('n', '<space>p', ':Telescope find_files<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<space>rg', ':Telescope live_grep<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_document_symbols<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<space>ca', ':Telescope lsp_code_actions<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<space>p', ':Telescope find_files<CR>',
+                        {silent = true})
+vim.api.nvim_set_keymap('n', '<space>rg', ':Telescope live_grep<CR>',
+                        {silent = true})
+vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>',
+                        {silent = true})
+vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_document_symbols<CR>',
+                        {silent = true})
+vim.api.nvim_set_keymap('n', '<space>ca', ':Telescope lsp_code_actions<CR>',
+                        {silent = true})
 
 -- Comment.nvim
 require('Comment').setup()
 
 -- Panel navigation
-vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<CR>', {silent = true})
 
 -- Rust
 vim.api.nvim_set_keymap('n', '<space>ct', ':!cargo test<CR>', {})
@@ -562,112 +532,94 @@ vim.api.nvim_set_keymap('n', '<space>w', '<C-f><ESC>:w<CR>', {})
 vim.api.nvim_set_keymap('n', '<space>s', '<C-^>', {})
 
 -- Fugitive
-vim.api.nvim_set_keymap('n', '<space>gs', ':G<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<space>ga', ':G add -A<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<space>gc', ':G commit -m ', { silent = true })
-vim.api.nvim_set_keymap('n', '<space>gp', ':G push<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<space>gg', ':Git log --graph --pretty=oneline --abbrev-commit<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<space>gs', ':G<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<space>ga', ':G add -A<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<space>gc', ':G commit -m ', {silent = true})
+vim.api.nvim_set_keymap('n', '<space>gp', ':G push<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<space>gg',
+                        ':Git log --graph --pretty=oneline --abbrev-commit<CR>',
+                        {silent = true})
 
 -- Status line (thanks to https://nuxsh.is-a.dev/blog/custom-nvim-statusline.html)
 local modes = {
-  ['n'] = 'NORMAL',
-  ['no'] = 'NORMAL',
-  ['v'] = 'VISUAL',
-  ['V'] = 'VISUAL LINE',
-  [''] = 'VISUAL BLOCK',
-  ['s'] = 'SELECT',
-  ['S'] = 'SELECT LINE',
-  [''] = 'SELECT BLOCK',
-  ['i'] = 'INSERT',
-  ['ic'] = 'INSERT',
-  ['R'] = 'REPLACE',
-  ['Rv'] = 'VISUAL REPLACE',
-  ['c'] = 'COMMAND',
-  ['cv'] = 'VIM EX',
-  ['ce'] = 'EX',
-  ['r'] = 'PROMPT',
-  ['rm'] = 'MOAR',
-  ['r?'] = 'CONFIRM',
-  ['!'] = 'SHELL',
-  ['t'] = 'TERMINAL',
+    ['n'] = 'NORMAL',
+    ['no'] = 'NORMAL',
+    ['v'] = 'VISUAL',
+    ['V'] = 'VISUAL LINE',
+    [''] = 'VISUAL BLOCK',
+    ['s'] = 'SELECT',
+    ['S'] = 'SELECT LINE',
+    [''] = 'SELECT BLOCK',
+    ['i'] = 'INSERT',
+    ['ic'] = 'INSERT',
+    ['R'] = 'REPLACE',
+    ['Rv'] = 'VISUAL REPLACE',
+    ['c'] = 'COMMAND',
+    ['cv'] = 'VIM EX',
+    ['ce'] = 'EX',
+    ['r'] = 'PROMPT',
+    ['rm'] = 'MOAR',
+    ['r?'] = 'CONFIRM',
+    ['!'] = 'SHELL',
+    ['t'] = 'TERMINAL'
 }
 
 local function mode()
-  local current_mode = vim.api.nvim_get_mode().mode
-  return string.format(' %s ', modes[current_mode]):upper()
+    local current_mode = vim.api.nvim_get_mode().mode
+    return string.format(' %s ', modes[current_mode]):upper()
 end
 
 local function update_mode_colors()
-  local current_mode = vim.api.nvim_get_mode().mode
-  local mode_color = '%#StatusLine#'
-  if current_mode == 'n' then
-      mode_color = '%#StatusLineNormalAccent#'
-  elseif current_mode == 'i' or current_mode == 'ic' then
-      mode_color = '%#StatusLineInsertAccent#'
-  elseif current_mode == 'v' or current_mode == 'V' or current_mode == '' then
-      mode_color = '%#StatusLineVisualAccent#'
-  elseif current_mode == 'R' then
-      mode_color = '%#StatusLineReplaceAccent#'
-  elseif current_mode == 'c' then
-      mode_color = '%#StatusLineCmdLineAccent#'
-  elseif current_mode == 't' then
-      mode_color = '%#StatusLineTerminalAccent#'
-  end
-  return mode_color
+    local current_mode = vim.api.nvim_get_mode().mode
+    local mode_color = '%#StatusLine#'
+    if current_mode == 'n' then
+        mode_color = '%#StatusLineNormalAccent#'
+    elseif current_mode == 'i' or current_mode == 'ic' then
+        mode_color = '%#StatusLineInsertAccent#'
+    elseif current_mode == 'v' or current_mode == 'V' or current_mode == '' then
+        mode_color = '%#StatusLineVisualAccent#'
+    elseif current_mode == 'R' then
+        mode_color = '%#StatusLineReplaceAccent#'
+    elseif current_mode == 'c' then
+        mode_color = '%#StatusLineCmdLineAccent#'
+    elseif current_mode == 't' then
+        mode_color = '%#StatusLineTerminalAccent#'
+    end
+    return mode_color
 end
 
 local function filepath()
-  local fpath = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.:h")
-  if fpath == "" or fpath == "." then
-      return " "
-  end
+    local fpath = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.:h")
+    if fpath == "" or fpath == "." then return " " end
 
-  return string.format(" %%<%s/", fpath)
+    return string.format(" %%<%s/", fpath)
 end
 
 local function filename()
-  local fname = vim.fn.expand "%:t"
-  if fname == "" then
-      return ""
-  end
-  return fname .. " "
+    local fname = vim.fn.expand "%:t"
+    if fname == "" then return "" end
+    return fname .. " "
 end
 
-local function filetype()
-  return string.format(" %s ", vim.bo.filetype:upper())
-end
+local function filetype() return string.format(" %s ", vim.bo.filetype:upper()) end
 
 local function lineinfo()
-  if vim.bo.filetype == "alpha" then
-    return ""
-  end
-  return " %l:%c "
+    if vim.bo.filetype == "alpha" then return "" end
+    return " %l:%c "
 end
 
 StatusLine = {}
 
 StatusLine.active = function()
-  return table.concat {
-    "%#StatusLine#",
-    update_mode_colors(),
-    mode(),
-    "%#Normal# ",
-    filepath(),
-    filename(),
-    "%=",
-    filetype(),
-    "%#StatusLineExtra#",
-    lineinfo(),
-  }
+    return table.concat {
+        "%#StatusLine#", update_mode_colors(), mode(), "%#Normal# ", filepath(),
+        filename(), "%=", filetype(), "%#StatusLineExtra#", lineinfo()
+    }
 end
 
-function StatusLine.inactive()
-  return " %F"
-end
+function StatusLine.inactive() return " %F" end
 
-function StatusLine.short()
-  return "%#StatusLineNC#   NvimTree"
-end
+function StatusLine.short() return "%#StatusLineNC#   NvimTree" end
 
 vim.api.nvim_exec([[
   augroup StatusLine
@@ -688,7 +640,9 @@ vim.cmd('highlight StatusLineExtra ctermfg=0 ctermbg=7')
 
 -- Other
 vim.api.nvim_set_keymap('n', 'Y', 'y$', {})
-vim.api.nvim_set_keymap('i', ',', ',<C-g>u', { noremap = true })
-vim.api.nvim_set_keymap('i', ';', ';<C-g>u', { noremap = true })
-vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
-vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
+vim.api.nvim_set_keymap('i', ',', ',<C-g>u', {noremap = true})
+vim.api.nvim_set_keymap('i', ';', ';<C-g>u', {noremap = true})
+vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", {silent = true})
+vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", {silent = true})
+
+

@@ -1,10 +1,8 @@
 # TODO:
-# Use :RustRun and such instead of !cargo run in shortcurs/whatever
-# Not horrible lua lsp
+# Install script
 # split up init.lua
 # userscripts
 # kernel stuff
-# script/partitions
 
 # configuration.nix(5) man page
 
@@ -15,13 +13,12 @@ let
   theme = (import ./theme.nix);
 in
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      (import "${home-manager}/nixos")
-    ];
-
+  imports = [
+    ./hardware-configuration.nix
+    (import "${home-manager}/nixos")
+  ];
+  
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -61,31 +58,23 @@ in
     extraGroups = [ "wheel" ];
   };
 
-  # Global packages.
+  # Global packages
   environment.systemPackages = with pkgs; [
     killall
     vim
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
+  # SUID wrapper support?
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
+  # Firewall
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [ ];
   networking.firewall.allowedUDPPorts = [ ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Opengl broken
   hardware.opengl.enable = true;
@@ -166,6 +155,7 @@ in
     fi
   '';
 
+  # Version
   system.stateVersion = "21.11";
 }
 

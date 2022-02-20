@@ -403,6 +403,10 @@ nvim_lsp.rnix.setup {
     on_attach = on_attach,
     flags = {debounce_text_changes = 150}
 }
+nvim_lsp.pylsp.setup {
+    on_attach = on_attach,
+    flags = {debounce_text_changes = 150}
+}
 
 vim.cmd('highlight LspDiagnosticsDefaultError ctermfg=1')
 vim.cmd('highlight LspDiagnosticsDefaultWarning ctermfg=3')

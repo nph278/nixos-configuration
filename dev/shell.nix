@@ -18,7 +18,9 @@ pkgs.mkShell {
     luaformatter
 
     # Python
-    python310
+    (python310.withPackages (p: with p; [
+      python-lsp-server
+    ]))
 
     # Nix
     rnix-lsp

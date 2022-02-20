@@ -121,6 +121,10 @@ in
       direnv
       gh
       fzf
+
+      # Multimedia
+      feh
+      mpv
     ];
   };
 

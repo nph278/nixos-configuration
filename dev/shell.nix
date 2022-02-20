@@ -36,12 +36,17 @@ pkgs.mkShell {
             comment-nvim
             nvim-web-devicons
             nvim-tree-lua
+
+            # Treesitter
             nvim-treesitter
             nvim-treesitter-textobjects
+            playground
 
-            # LSP/CMP
+            # LSP
             nvim-lspconfig
             lspkind-nvim
+
+            # Cmp
             luasnip
             cmp_luasnip
             nvim-cmp

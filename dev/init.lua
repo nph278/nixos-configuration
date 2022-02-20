@@ -612,8 +612,9 @@ StatusLine = {}
 
 StatusLine.active = function()
     return table.concat {
-        "%#StatusLine#", update_mode_colors(), mode(), "%#Normal# ", filepath(),
-        filename(), "%=", filetype(), "%#StatusLineExtra#", lineinfo()
+        "%#StatusLine#", update_mode_colors(), mode(), "%#Normal# ",
+        ":", filepath(), filename(), "%=", filetype(),
+        "%#StatusLineExtra#", lineinfo()
     }
 end
 

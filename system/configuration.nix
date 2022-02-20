@@ -1,4 +1,5 @@
 # TODO:
+# Not horrible lua lsp
 # split up init.lua
 # userscripts
 # kernel stuff

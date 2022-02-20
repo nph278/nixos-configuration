@@ -37,6 +37,7 @@ pkgs.mkShell {
             nvim-web-devicons
             nvim-tree-lua
             nvim-treesitter
+            nvim-treesitter-textobjects
 
             # LSP/CMP
             nvim-lspconfig

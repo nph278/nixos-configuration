@@ -413,7 +413,7 @@ cmp.setup({
   },
 
   mapping = {
-    ['<C-s>'] = cmp.mapping(function()
+    ['<C-r>'] = cmp.mapping(function()
         if luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
         end
@@ -489,6 +489,28 @@ require('nvim-treesitter.configs').setup {
 
   highlight = {
     enable = true,
+  },
+
+  
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
+
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+
+        ["ac"] = "@conditional.outer",
+        ["ic"] = "@conditional.inner",
+
+        ["aa"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
+      },
+    },
   },
 }
 vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', { silent = true }) -- Fold

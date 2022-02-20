@@ -342,29 +342,6 @@ vim.cmd('highlight NvimTreeGitDeleted ctermfg=1')
 -- LSP
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.rust_analyzer.setup {}
-nvim_lsp.sumneko_lua.setup {
-    formatting = "",
-    settings = {
-        Lua = {
-            runtime = {version = "LuaJIT", path = vim.split(package.path, ';')},
-            completion = {keywordSnippet = "Disable"},
-            diagnostics = {
-                enable = true,
-                globals = {"vim", "describe", "it", "before_each", "after_each"}
-            },
-            workspace = {
-                library = {
-                    vim.fn.expand("$VIMRUNTIME/lua"),
-                    vim.fn.expand("$VIMRUNTIME/lua/vim"),
-                    vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")
-                }
-            }
-        }
-    }
-}
-nvim_lsp.rnix.setup {}
-
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -385,19 +362,52 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 end
 
+nvim_lsp.rust_analyzer.setup {
+  settings = {
+    ["rust-analyzer"] = {
+      workspace = {
+        symbol = {
+          search = {
+            kind = "all_symbols"
+          }
+        }
+      },
+    },
+  },
+  on_attach = on_attach,
+  flags = {debounce_text_changes = 150}
+}
+nvim_lsp.sumneko_lua.setup {
+    formatting = "",
+    settings = {
+        Lua = {
+            runtime = {version = "LuaJIT", path = vim.split(package.path, ';')},
+            completion = {keywordSnippet = "Disable"},
+            diagnostics = {
+                enable = true,
+                globals = {"vim", "describe", "it", "before_each", "after_each"}
+            },
+            workspace = {
+                library = {
+                    vim.fn.expand("$VIMRUNTIME/lua"),
+                    vim.fn.expand("$VIMRUNTIME/lua/vim"),
+                    vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")
+                }
+            }
+        }
+    },
+    on_attach = on_attach,
+    flags = {debounce_text_changes = 150}
+}
+nvim_lsp.rnix.setup {
+    on_attach = on_attach,
+    flags = {debounce_text_changes = 150}
+}
+
 vim.cmd('highlight LspDiagnosticsDefaultError ctermfg=1')
 vim.cmd('highlight LspDiagnosticsDefaultWarning ctermfg=3')
 vim.cmd('highlight LspDiagnosticsDefaultHint ctermfg=4')
 vim.cmd('highlight LspDiagnosticsDefaultInformation ctermfg=4')
-
--- Setup servers
-local servers = {'rust_analyzer', 'rnix', 'sumneko_lua'}
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        flags = {debounce_text_changes = 150}
-    }
-end
 
 -- Cmp
 local cmp = require 'cmp'
@@ -427,8 +437,8 @@ cmp.setup({
 
     sources = cmp.config.sources({
         {name = 'luasnip'}, {name = 'nvim_lsp'}, {name = 'nvim_lua'},
-        {name = 'path'}
-    }, {{name = 'buffer'}}),
+        {name = 'path'}, {name = 'buffer'}
+    }),
 
     formatting = {
         format = lspkind.cmp_format({
@@ -508,7 +518,7 @@ vim.api.nvim_set_keymap('n', '<space>rg', ':Telescope live_grep<CR>',
                         {silent = true})
 vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>',
                         {silent = true})
-vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_document_symbols<CR>',
+vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_workspace_symbols<CR>',
                         {silent = true})
 vim.api.nvim_set_keymap('n', '<space>ca', ':Telescope lsp_code_actions<CR>',
                         {silent = true})
@@ -645,5 +655,3 @@ vim.api.nvim_set_keymap('i', ',', ',<C-g>u', {noremap = true})
 vim.api.nvim_set_keymap('i', ';', ';<C-g>u', {noremap = true})
 vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", {silent = true})
 vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", {silent = true})
-
-

@@ -1,4 +1,5 @@
 # TODO:
+# Use :RustRun and such instead of !cargo run in shortcurs/whatever
 # Not horrible lua lsp
 # split up init.lua
 # userscripts

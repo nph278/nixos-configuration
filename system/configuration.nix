@@ -17,7 +17,7 @@ in
     ./hardware-configuration.nix
     (import "${home-manager}/nixos")
   ];
-  
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -41,7 +41,7 @@ in
 
   # Flatpak
   services.flatpak.enable = true;
-  xdg.portal.enable = true;
+  xdg.portal.wlr.enable = true;
 
   # Pipewire
   security.rtkit.enable = true;

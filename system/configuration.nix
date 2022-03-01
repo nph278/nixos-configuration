@@ -62,6 +62,7 @@ in
   environment.systemPackages = with pkgs; [
     killall
     vim
+    unzip
   ];
 
   # SUID wrapper support?

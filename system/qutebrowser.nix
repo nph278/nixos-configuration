@@ -194,5 +194,6 @@ in
     r = "reddit.com";
     yt = "youtube.com";
     gh = "github.com";
+    pm = "protonmail.com";
   };
 }

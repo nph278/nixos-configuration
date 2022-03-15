@@ -188,12 +188,21 @@ in
 
     auto_save.session = true;
     downloads.location.directory = "~/Downloads";
+    hints.chars = "qwertyuiopasdfghjklzxcvbnm";
+    editor.command = [ "alacritty" "-e" "vim" "{file}" ];
   };
 
   quickmarks = {
     r = "reddit.com";
+    ra = "reddit.com/r/all";
     yt = "youtube.com";
     gh = "github.com";
     pm = "protonmail.com";
+    yc = "news.ycombinator.com";
+  };
+
+  keyBindings.normal = {
+    "eu" = "edit-url";
+    "et" = "edit-text";
   };
 }

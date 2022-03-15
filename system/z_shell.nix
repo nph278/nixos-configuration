@@ -40,7 +40,7 @@
     ssh-setup = "killall ssh-agent; kee && eval \"$(ssh-agent -s)\" && wl-paste | ssh-add ~/.ssh/id_ed25519 && wl-copy ''";
     lock = "swaylock -f -c #000000";
     p = "cd ~/Projects; cd $(/usr/bin/env ls ~/Projects | grep -v \\\\. | fzf)";
-    down = "cd ~/Projects && doas nix-collect-garbage -d && rebuild --upgrade && shutdown now";
+    down = "(cd ~/Projects && doas nix-collect-garbage -d && rebuild --upgrade && shutdown now) || lock";
   };
 
   initExtraFirst = ''

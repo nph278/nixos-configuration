@@ -108,11 +108,13 @@ in
       swaylock
       swayidle
       wl-clipboard
+      grim
 
       # Dev
       direnv
       gh
       fzf
+      xdg-utils
 
       # Multimedia
       feh

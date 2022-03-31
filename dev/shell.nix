@@ -22,6 +22,10 @@ pkgs.mkShell {
       python-lsp-server
     ]))
 
+    # Deps
+    openssl
+    pkg-config
+
     # Nix
     rnix-lsp
 

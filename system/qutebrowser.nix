@@ -147,7 +147,7 @@ in
           odd.fg = colors.black;
         };
 
-        pinned = {
+        inned = {
           even.bg = colors.black;
           odd.bg = colors.black;
           even.fg = colors.white;
@@ -179,7 +179,7 @@ in
       web.family = {
         cursive = "Noto";
         fantasy = "Noto";
-        fixed = theme.font;
+        fixed = "courier";
         sans_serif = "Noto";
         serif = "Noto";
         standard = "Noto";

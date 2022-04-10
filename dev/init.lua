@@ -363,19 +363,13 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp.rust_analyzer.setup {
-  settings = {
-    ["rust-analyzer"] = {
-      workspace = {
-        symbol = {
-          search = {
-            kind = "all_symbols"
-          }
+    settings = {
+        ["rust-analyzer"] = {
+            workspace = {symbol = {search = {kind = "all_symbols"}}}
         }
-      },
     },
-  },
-  on_attach = on_attach,
-  flags = {debounce_text_changes = 150}
+    on_attach = on_attach,
+    flags = {debounce_text_changes = 150}
 }
 nvim_lsp.sumneko_lua.setup {
     formatting = "",
@@ -621,14 +615,13 @@ local function lineinfo()
     if vim.bo.filetype == "alpha" then return "" end
     return " %l:%c "
 end
-
 StatusLine = {}
 
 StatusLine.active = function()
     return table.concat {
         "%#StatusLine#", update_mode_colors(), mode(), "%#Normal# ",
-        ":", filepath(), filename(), "%=", filetype(),
-        "%#StatusLineExtra#", lineinfo()
+        filepath(), filename(), "%=", filetype(), "%#StatusLineExtra#",
+        lineinfo()
     }
 end
 
@@ -655,24 +648,23 @@ vim.cmd('highlight StatusLineExtra ctermfg=0 ctermbg=7')
 
 -- LightSpeed.nvim
 require'lightspeed'.setup {
-  ignore_case = true, exit_after_idle_msecs = { unlabeled = 1000, labeled = nil },
-  --- s/x ---
-  jump_to_unique_chars = { safety_timeout = 400 },
-  match_only_the_start_of_same_char_seqs = true,
-  force_beacons_into_match_width = false,
-  substitute_chars = { ['\r'] = '¬', },
-  special_keys = {
-    next_match_group = '<space>',
-    prev_match_group = '<tab>',
-  },
-  --- f/t ---
-  limit_ft_matches = 4,
-  repeat_ft_with_target_char = false,
+    ignore_case = true,
+    exit_after_idle_msecs = {unlabeled = 1000, labeled = nil},
+    --- s/x ---
+    jump_to_unique_chars = {safety_timeout = 400},
+    match_only_the_start_of_same_char_seqs = true,
+    force_beacons_into_match_width = false,
+    substitute_chars = {['\r'] = '¬'},
+    special_keys = {next_match_group = '<space>', prev_match_group = '<tab>'},
+    --- f/t ---
+    limit_ft_matches = 4,
+    repeat_ft_with_target_char = false
 }
 vim.cmd('highlight LightspeedLabel ctermfg=3 cterm=bold,underline')
 vim.cmd('highlight LightspeedDistant ctermfg=6 cterm=bold,underline')
 vim.cmd('highlight LightspeedShortcut ctermfg=0 ctermbg=3 cterm=bold,underline')
-vim.cmd('highlight LightspeedMaskedChar ctermfg=8 ctermbg=3 cterm=bold,underline')
+vim.cmd(
+    'highlight LightspeedMaskedChar ctermfg=8 ctermbg=3 cterm=bold,underline')
 vim.cmd('highlight LightspeedGreyWash ctermfg=8')
 vim.cmd('highlight LightspeedGreyWash ctermfg=8 cterm=bold,underline')
 vim.cmd('highlight LightspeedUnlabeledMatch ctermfg=7 cterm=bold')
@@ -686,3 +678,5 @@ vim.api.nvim_set_keymap('i', ';', ';<C-g>u', {noremap = true})
 vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", {silent = true})
 vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", {silent = true})
 vim.api.nvim_set_keymap('n', '/', "/\\c", {silent = true})
+vim.api.nvim_set_keymap('t', '<Esc><Esc>', "<C-\\><C-n>", {silent = true})
+vim.api.nvim_set_keymap('t', '<C-d>', "<Esc><Esc>:q<CR>", {silent = true})

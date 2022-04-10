@@ -30,7 +30,7 @@
     stk = "fl net.supertuxkart.SuperTuxKart";
 
     # Nix
-    rebuild = "doas cp ~/Projects/nixos-configuration/system/* /etc/nixos/ && doas nixos-rebuild switch";
+    rebuild = "doas cp -r ~/Projects/nixos-configuration/system/* /etc/nixos/ && doas rm -rf /etc/nixos/prompt && doas cp -r ~/Projects/nixos-configuration/prompt /etc/nixos/prompt/ && doas nixos-rebuild switch";
     rebuild-dev = "ln -sf ~/Projects/nixos-configuration/dev/* ~/Projects/; ln -sf ~/Projects/nixos-configuration/dev/.* ~/Projects/; direnv allow ~/Projects";
 
     # Other
@@ -48,6 +48,19 @@
       flatpak run $1 > /dev/null & disown
     }
 
+    zle -N zle-keymap-select
+    echo -ne '\e[5 q'
+
+    function prompt-command {
+      printf "$(pwd) $"
+    }
+  '';
+
+  initExtra = ''
+    precmd() {zle-keymap-select}
+    pfetch
+    eval "$(direnv hook zsh)"
+
     function zle-keymap-select {
       if [[ ''${KEYMAP} == vicmd ]] ||
          [[ $1 = 'block' ]]; then
@@ -59,19 +72,9 @@
         echo -ne '\e[5 q'
       fi
     }
-    
-    zle -N zle-keymap-select
-    echo -ne '\e[5 q'
-  '';
-
-  initExtra = ''
-    precmd() {zle-keymap-select}
-    pfetch
-    eval "$(direnv hook zsh)"
   '';
 
   localVariables = {
-    #         Time                  User@Hostname           Working dir
-    PROMPT = "%F{yellow}%*%F{white} %F{green}%n@%m%F{white} %F{red}%~%F{white} ";
+    PROMPT = "$(prompt)";
   };
 }

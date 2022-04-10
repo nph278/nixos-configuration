@@ -11,6 +11,7 @@
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz";
   theme = (import ./theme.nix);
+  prompt = import ./prompt/default.nix;
 in
 {
   imports = [
@@ -115,6 +116,7 @@ in
       gh
       fzf
       xdg-utils
+      prompt
 
       # Multimedia
       feh

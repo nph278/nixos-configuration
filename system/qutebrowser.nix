@@ -147,7 +147,7 @@ in
           odd.fg = colors.black;
         };
 
-        inned = {
+        pinned = {
           even.bg = colors.black;
           odd.bg = colors.black;
           even.fg = colors.white;

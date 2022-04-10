@@ -3,7 +3,7 @@
 let
   pkgs = import (fetchTarball ("https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz")) { };
 in
-pkgs.mkShell {
+pkgs.mkShell rec {
   name = "dev";
   buildInputs = with pkgs; [
     # Rust
@@ -25,6 +25,10 @@ pkgs.mkShell {
     # Deps
     openssl
     pkg-config
+    # xorg.libX11
+    # xorg.libXcursor
+    # xorg.libXrandr
+    # xorg.libXi
 
     # Nix
     rnix-lsp
@@ -43,18 +47,19 @@ pkgs.mkShell {
 
           # Vim plugins
           start = [
-            comment-nvim
             nvim-web-devicons
             nvim-tree-lua
+            lightspeed-nvim
 
             # Treesitter
             nvim-treesitter
             nvim-treesitter-textobjects
-            playground
+            # playground
 
             # LSP
             nvim-lspconfig
             lspkind-nvim
+            comment-nvim
 
             # Cmp
             luasnip
@@ -81,4 +86,5 @@ pkgs.mkShell {
   ];
 
   RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+  # LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}";
 }

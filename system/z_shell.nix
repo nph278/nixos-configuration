@@ -30,7 +30,7 @@
     stk = "fl net.supertuxkart.SuperTuxKart";
 
     # Nix
-    rebuild = "doas cp -r ~/Projects/nixos-configuration/system/* /etc/nixos/ && doas rm -rf /etc/nixos/prompt && doas cp -r ~/Projects/nixos-configuration/prompt /etc/nixos/prompt/ && doas nixos-rebuild switch";
+    rebuild = "doas cp -r ~/Projects/nixos-configuration/system/* /etc/nixos/ && doas nixos-rebuild switch";
     rebuild-dev = "ln -sf ~/Projects/nixos-configuration/dev/* ~/Projects/; ln -sf ~/Projects/nixos-configuration/dev/.* ~/Projects/; direnv allow ~/Projects";
 
     # Other
@@ -75,6 +75,6 @@
   '';
 
   localVariables = {
-    PROMPT = "$(prompt)";
+    PROMPT = "%~ $ ";
   };
 }

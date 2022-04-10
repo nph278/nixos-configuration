@@ -48,8 +48,8 @@ pkgs.mkShell rec {
           # Vim plugins
           start = [
             nvim-web-devicons
-            nvim-tree-lua
             lightspeed-nvim
+            # nvim-tree-lua
 
             # Treesitter
             nvim-treesitter
@@ -73,12 +73,13 @@ pkgs.mkShell rec {
             friendly-snippets
 
             # Git
-            vim-fugitive
+            # vim-fugitive
             vim-gitgutter
 
             # Telescope
             telescope-nvim
             telescope-fzf-native-nvim
+            telescope-file-browser-nvim
           ];
         };
       };

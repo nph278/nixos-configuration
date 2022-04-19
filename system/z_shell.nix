@@ -30,8 +30,7 @@
     stk = "fl net.supertuxkart.SuperTuxKart";
 
     # Nix
-    rebuild = "doas cp -r ~/Projects/nixos-configuration/system/* /etc/nixos/ && doas nixos-rebuild switch";
-    rebuild-dev = "ln -sf ~/Projects/nixos-configuration/dev/* ~/Projects/; ln -sf ~/Projects/nixos-configuration/dev/.* ~/Projects/; direnv allow ~/Projects";
+    rebuild = "doas nixos-rebuild switch";
 
     # Other
     db = "gdb -tui";

@@ -127,7 +127,7 @@ in
       };
 
       tabs = {
-        bar.bg = colors.white;
+        bar.bg = colors.black;
 
         even.bg = colors.black;
         odd.bg = colors.black;

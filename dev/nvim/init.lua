@@ -461,8 +461,8 @@ vim.api.nvim_set_hl(0, 'CmpItemMenu', { ctermfg = 2 })
 require('luasnip.loaders.from_vscode').lazy_load()
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
-.protocol
-.make_client_capabilities())
+  .protocol
+  .make_client_capabilities())
 
 -- Treesitter
 require('nvim-treesitter.configs').setup {
@@ -527,8 +527,15 @@ vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>',
   { silent = true })
 vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_workspace_symbols<CR>',
   { silent = true })
-vim.api.nvim_set_keymap('n', '<space>ca', ':Telescope lsp_code_actions<CR>',
+
+-- https://github.com/nvim-telescope/telescope-ui-select.nvim/blob/master/lua/telescope/_extensions/ui-select.lua TODO TODO todo TODO
+
+vim.api.nvim_set_keymap('n', '<space>ca', ':lua vim.lsp.buf.code_action()<CR>',
   { silent = true })
+vim.api.nvim_set_keymap('v', '<space>ca', ':\'<,\'>lua vim.lsp.buf.range_code_action()<CR>',
+  { silent = true })
+
+
 vim.api.nvim_set_keymap('n', '<space>h', ':Telescope registers<CR>',
   { silent = true })
 vim.api.nvim_set_keymap('n', '<space>e', ':Telescope file_browser<CR><Esc>',

@@ -117,7 +117,7 @@ in
       xdg-utils
 
       # Multimedia
-      feh
+      imv
       mpv
 
       # Cursor theme

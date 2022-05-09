@@ -109,6 +109,7 @@ in
       swayidle
       wl-clipboard
       grim
+      sway-contrib.grimshot
 
       # Dev
       direnv
@@ -165,4 +166,3 @@ in
   # Version
   system.stateVersion = "21.11";
 }
-

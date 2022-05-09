@@ -119,6 +119,9 @@ in
       # Multimedia
       feh
       mpv
+
+      # Cursor theme
+      capitaine-cursors
     ];
   };
 
@@ -155,6 +158,7 @@ in
   programs.bash.shellInit = ''
     if [[ $TERM == linux ]]; then
       eval "$(ssh-agent -s)"
+      sway
     fi
   '';
 

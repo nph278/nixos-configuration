@@ -450,6 +450,7 @@ cmp.setup({
 
 cmp.setup.cmdline('/', { sources = { { name = 'buffer' } } })
 
+-- This is broken with case-insensitive mode
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } })
 })

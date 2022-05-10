@@ -28,6 +28,7 @@
     blender = "fl org.blender.Blender";
     steam = "fl com.valvesoftware.Steam";
     stk = "fl net.supertuxkart.SuperTuxKart";
+    gimp = "fl org.gimp.GIMP";
 
     # Nix
     rebuild = "doas nixos-rebuild switch";
@@ -44,7 +45,7 @@
 
   initExtraFirst = ''
     fl() {
-      flatpak run $1 > /dev/null & disown
+      flatpak run $1 &> /dev/null & disown
     }
 
     zle -N zle-keymap-select

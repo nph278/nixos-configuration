@@ -7,7 +7,7 @@ let
   };
 
   term = "alacritty";
-  lock = "\"${pkgs.swaylock}/bin/swaylock -f -c #000000\"";
+  lock = "${pkgs.swaylock}/bin/swaylock -f -c #000000";
 in
 {
   enable = true;
@@ -105,7 +105,7 @@ in
       "Control+q" = "exec ${pkgs.qutebrowser}/bin/qutebrowser";
       "Mod4+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save screen ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
       "Mod4+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save area ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
-      "Mod4+Control+l" = "exec \"${lock}\""; # Why doesnt this work?
+      "Mod4+Control+l" = "exec ${lock}"; # Why
     };
   };
   extraConfig = ''

@@ -186,6 +186,12 @@ in
       };
     };
 
+    fileselect = {
+      single_file.command = [ "alacritty" "-e" "ranger" "--choosefile={}" ];
+      multiple_files.command = [ "alacritty" "-e" "ranger" "--choosefile={}" ];
+      folder.command = [ "alacritty" "-e" "ranger" "--choosedir={}" ];
+    };
+
     auto_save.session = true;
     downloads.location.directory = "~/Downloads";
     hints.chars = "qwertyuiopasdfghjklzxcvbnm";

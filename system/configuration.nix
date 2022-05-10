@@ -1,8 +1,5 @@
 # TODO:
-# Install script
-# split up init.lua
-# userscripts
-# kernel stuff
+# Treesitter all messud up
 
 # configuration.nix(5) man page
 
@@ -103,6 +100,7 @@ in
       pulsemixer
       keepassxc
       tree
+      ranger # Replace with lf? How does it even work? C for now I guess?
 
       # Sway
       swaylock

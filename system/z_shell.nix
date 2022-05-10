@@ -20,6 +20,7 @@
     gl = "git log --graph --pretty=short";
     gac = "git add -A && git commit -m";
     gf = "git fetch";
+    gs = "git status";
 
     # KeePassXC
     kee = "keepassxc-cli open ~/.config/KeePass.kdbx";

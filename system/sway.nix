@@ -14,7 +14,7 @@ in
   wrapperFeatures.gtk = true;
   config = {
     fonts = swayFont;
-    gaps.inner = 5;
+    gaps.inner = 15;
 
     input."*" = {
       natural_scroll = "enabled";

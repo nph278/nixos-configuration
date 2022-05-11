@@ -61,7 +61,7 @@ in
     };
 
     window = {
-      opacity = 0.5;
+      background_opacity = 0.5;
     };
   };
 }

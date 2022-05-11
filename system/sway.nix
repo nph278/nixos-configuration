@@ -31,7 +31,7 @@ in
 
     bars = [{
       fonts = swayFont;
-      statusCommand = "while date +'%d -> %r     '; do sleep 1; done";
+      statusCommand = "while date +'%D -> %r       '; do sleep 1; done";
       position = "top";
       colors = {
         statusline = colors.white;

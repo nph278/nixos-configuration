@@ -26,7 +26,7 @@ in
     };
 
     output."*" = {
-      bg = "${colors.black} solid_color";
+      bg = "${./assets/bg.png} fill";
     };
 
     bars = [{

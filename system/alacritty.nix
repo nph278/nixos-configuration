@@ -59,5 +59,9 @@ in
     shell = {
       program = "zsh";
     };
+
+    window = {
+      opacity = 0.5;
+    };
   };
 }

@@ -1,4 +1,5 @@
 # TODO:
+# alacritty trasnparency whyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 # Treesitter all messud up
 
 # configuration.nix(5) man page

@@ -21,6 +21,7 @@
     gac = "git add -A && git commit -m";
     gf = "git fetch";
     gs = "git status";
+    gd = "git diff";
 
     # KeePassXC
     kee = "keepassxc-cli open ~/.config/KeePass.kdbx";

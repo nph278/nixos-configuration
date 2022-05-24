@@ -42,6 +42,7 @@
     lock = "swaylock -f -c #000000";
     p = "cd ~/Projects; cd $(/usr/bin/env ls ~/Projects | grep -v \\\\. | fzf)";
     down = "(cd ~/Projects && doas nix-collect-garbage -d && rebuild --upgrade && shutdown now) || lock";
+    redo = "$(cat ~/.zsh_history | fzf)";
   };
 
   initExtraFirst = ''

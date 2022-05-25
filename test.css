@@ -1,0 +1,13 @@
+/* Youtube */
+ytd-app, ytd-app div#container, iron-selector#chips, #guide-inner-content {
+	color: #abb2bf;
+	background: #282c34;
+}
+
+body::-webkit-scrollbar-track {
+        background: #282c34;
+}
+
+body::-webkit-scrollbar-track-thumb {
+        background: #abb2bf;
+}

@@ -197,6 +197,10 @@ in
     downloads.location.directory = "~/Downloads";
     hints.chars = "qwertyuiopasdfghjklzxcvbnm";
     editor.command = [ "alacritty" "-e" "vim" "{file}" ];
+
+    content = {
+      user_stylesheets = "~/test.css";
+    };
   };
 
   quickmarks = {
@@ -209,9 +213,9 @@ in
   };
 
   keyBindings.normal = {
-    "eu" = "edit-url";
-    "et" = "edit-text";
-    "wk" = "jseval document.querySelector('head').innerHTML += '<style>* {background-color: ${colors.black} !important; color: ${colors.white} !important; border-color: ${colors.white} !important; font-family: monospace !important;} a { color: ${colors.blue} !important;}</style>'";
+    eu = "edit-url";
+    et = "edit-text";
+    wk = "jseval document.querySelector('head').innerHTML += '<style>* {background-color: ${colors.black} !important; color: ${colors.white} !important; border-color: ${colors.white} !important; font-family: monospace !important;} a { color: ${colors.blue} !important;}</style>'";
   };
 }
 

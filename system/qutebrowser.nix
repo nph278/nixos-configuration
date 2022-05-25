@@ -210,6 +210,7 @@ in
     gh = "github.com";
     pm = "protonmail.com";
     yc = "news.ycombinator.com";
+    wk = "en.wikipedia.org";
   };
 
   keyBindings.normal = {

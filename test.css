@@ -9,7 +9,7 @@ a, a span {
 }
 
 /* Youtube */
-ytd-app, ytd-app div#container, iron-selector#chips, #guide-inner-content {
+ytd-app, ytd-app div#container, iron-selector#chips, #guide-inner-content, tp-yt-app-header, #channel-header.ytd-c4-tabbed-header-renderer, ytd-mini-guide-renderer, .yt-simple-endpoint, tp-yt-paper-tab, ytd-expandable-tab-renderer, #tabs-inner-container.ytd-c4-tabbed-header-renderer, ytd-two-column-browse-results-renderer, ytd-browse[page-subtype=channels] {
 	color: #abb2bf;
 	background: #282c34;
 }

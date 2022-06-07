@@ -40,7 +40,7 @@ pkgs.mkShell rec {
     (neovim.override {
       configure = {
         customRC = ''
-          :luafile ~/.config/nvim/init.lua
+          :luafile ${./nvim/init.lua}
         '';
 
         packages.myVimPackage = with pkgs.vimPlugins; {

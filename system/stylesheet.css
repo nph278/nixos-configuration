@@ -36,9 +36,28 @@ body::-webkit-scrollbar-track-thumb {
 	display: none;
 }
 
+/* DuckDuckGo */
+
+#pg-index, .tag-home, #search_form_homepage, .search__autocomplete *, .body--serp * {
+	color: #abb2bf;
+	background: #282c34;
+}
+
+#search_form_homepage {
+  border-color: #abb2bf;
+}
+
+#search_button_homepage {
+  display: none;
+}
+
+.footer__card, .search-filters-wrap::before, .search-filters-wrap::after {
+	color: #abb2bf !important;
+	background: #282c34 !important;
+}
+
 /* Wikipedia */
 /** To prevent 'jumping' effect within #p-personal in Vector/Monobook. Overrides [[MediaWiki:Gadget-dark-mode-toggle-pagestyles.css]] **/
-
 
 .mediawiki.skin-vector-legacy :not(#pt-darkmode) + #pt-watchlist::before,
 .mediawiki..skin-monobook :not(#pt-darkmode) + #pt-watchlist::before {

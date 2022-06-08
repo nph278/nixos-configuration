@@ -491,9 +491,7 @@ vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', { silent = true })
 local telescope = require('telescope')
 
 telescope.load_extension('fzf')
-require("telescope").load_extension('file_browser')
-
-local fb_actions = require "telescope".extensions.file_browser.actions
+telescope.load_extension("ui-select")
 
 telescope.setup {
   pickers = {
@@ -502,12 +500,10 @@ telescope.setup {
     lsp_code_actions = { theme = 'cursor' }
   },
 
-  extentions = {
-    file_browser = {
-      ["n"] = {
-        a = fb_actions.create -- This doesn't work, use c
-      },
-    },
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {}
+    }
   },
 
   preview = { treesitter = true }
@@ -526,8 +522,6 @@ vim.api.nvim_set_keymap('n', '<space>b', ':Telescope git_branches<CR>',
 vim.api.nvim_set_keymap('n', '<space>f', ':Telescope lsp_workspace_symbols<CR>',
   { silent = true })
 
--- https://github.com/nvim-telescope/telescope-ui-select.nvim/blob/master/lua/telescope/_extensions/ui-select.lua TODO TODO todo TODO
-
 vim.api.nvim_set_keymap('n', '<space>ca', ':lua vim.lsp.buf.code_action()<CR>',
   { silent = true })
 vim.api.nvim_set_keymap('v', '<space>ca', ':\'<,\'>lua vim.lsp.buf.range_code_action()<CR>',
@@ -535,8 +529,6 @@ vim.api.nvim_set_keymap('v', '<space>ca', ':\'<,\'>lua vim.lsp.buf.range_code_ac
 
 
 vim.api.nvim_set_keymap('n', '<space>h', ':Telescope registers<CR>',
-  { silent = true })
-vim.api.nvim_set_keymap('n', '<space>e', ':Telescope file_browser<CR><Esc>',
   { silent = true })
 vim.api.nvim_set_keymap('n', '<space>d', ':Telescope diagnostics<CR>',
   { silent = true })

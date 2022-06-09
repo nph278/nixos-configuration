@@ -1,7 +1,7 @@
 # TODO:
-# qb :set content.user_stylesheets
 #
 #
+# User stylesheet and wallpaper working correctly
 #
 # alacritty trasnparency whyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 

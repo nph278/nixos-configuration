@@ -53,7 +53,7 @@ pkgs.mkShell rec {
 
             # Treesitter
             nvim-treesitter
-            nvim-treesitter-textobjects
+            # nvim-treesitter-textobjects
             # playground
 
             # LSP

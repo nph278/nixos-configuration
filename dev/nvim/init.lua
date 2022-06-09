@@ -286,9 +286,11 @@ vim.api.nvim_set_hl(0, 'MatchParen', { ctermbg = 0, cterm = { underline = true }
 vim.api.nvim_set_keymap('n', '<C-f>', '', {})
 
 -- GitGutter
-vim.api.nvim_set_hl(0, 'GitGutterAdd', { ctermfg = 2 })
-vim.api.nvim_set_hl(0, 'GitGutterChange', { ctermfg = 3 })
-vim.api.nvim_set_hl(0, 'GitGutterDelete', { ctermfg = 1 })
+vim.api.nvim_set_hl(0, 'GitGutterAddLineNr', { ctermfg = 2 })
+vim.api.nvim_set_hl(0, 'GitGutterChangeLineNr', { ctermfg = 3 })
+vim.api.nvim_set_hl(0, 'GitGutterDeleteLineNr', { ctermfg = 1 })
+-- vim.cmd("GitGutterSignsDisable")
+-- vim.cmd("GitGutterLineNrHighlightsEnable")
 
 -- File tree
 -- require('nvim-tree').setup {
@@ -467,22 +469,6 @@ require('nvim-treesitter.configs').setup {
   highlight = { enable = true },
 
   context_commentstring = { enable = true, enable_autocmd = false },
-
-  textobjects = {
-    select = {
-      enable = true,
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-
-        ["ac"] = "@conditional.outer",
-        ["ic"] = "@conditional.inner",
-
-        ["aa"] = "@parameter.outer",
-        ["ia"] = "@parameter.inner"
-      }
-    }
-  }
 }
 vim.api.nvim_set_keymap('n', '_', ':foldopen<CR>', { silent = true }) -- Fold
 vim.api.nvim_set_keymap('n', '-', ':foldclose<CR>', { silent = true })

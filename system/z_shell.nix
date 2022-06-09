@@ -41,7 +41,7 @@
     dev = "toolbox run -c dev zsh";
     ssh-setup = "killall ssh-agent; kee && eval \"$(ssh-agent -s)\" && wl-paste | ssh-add ~/.ssh/id_ed25519 && wl-copy ''";
     lock = "swaylock -f -c #000000";
-    p = "cd ~/Projects; cd $(/usr/bin/env ls ~/Projects | grep -v \\\\.blend | fzf)";
+    p = "cd ~/Projects; cd $(/usr/bin/env ls ~/Projects | grep -v '\\\.[^i]' | fzf)";
     down = "(rebuild --upgrade && shutdown now) || lock";
     garbage = "doas cd ~/Projects && doas nix-collect-garbage -d";
     redo = "$(cat ~/.zsh_history | fzf)";

@@ -339,13 +339,9 @@ vim.api.nvim_set_hl(0, 'GitGutterDeleteLineNr', { ctermfg = 1 })
 -- LSP
 local nvim_lsp = require('lspconfig')
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
   end
 
   -- Mappings.
@@ -681,3 +677,6 @@ vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
 vim.api.nvim_set_keymap('n', '/', "/\\c", { silent = true })
 vim.api.nvim_set_keymap('t', '<Esc><Esc>', "<C-\\><C-n>", { silent = true })
 vim.api.nvim_set_keymap('t', '<C-d>', "<Esc><Esc>:q<CR>", { silent = true })
+
+vim.api.nvim_set_keymap('n', '<A-v>', ":vsplit<CR>", { silent = true })
+vim.api.nvim_set_keymap('n', '<A-b>', ":split<CR>", { silent = true })

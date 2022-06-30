@@ -133,6 +133,7 @@ in
     (nerdfonts.override { fonts = [ "VictorMono" ]; })
     noto-fonts
     noto-fonts-emoji
+    noto-fonts-cjk
   ];
 
   # Apparmor

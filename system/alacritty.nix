@@ -7,6 +7,17 @@ in
 {
   enable = true;
   settings = {
+    env = {
+      THEME_BLACK = colors.black;
+      THEME_RED = colors.red;
+      THEME_GREEN = colors.green;
+      THEME_YELLOW = colors.yellow;
+      THEME_BLUE = colors.blue;
+      THEME_MAGENTA = colors.magenta;
+      THEME_CYAN = colors.cyan;
+      THEME_WHITE = colors.white;
+    };
+
     font = {
       normal = {
         family = font;

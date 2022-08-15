@@ -18,9 +18,9 @@ pkgs.mkShell rec {
     luaformatter
 
     # Python
-    (python310.withPackages (p: with p; [
-      python-lsp-server
-    ]))
+    # (python310.withPackages (p: with p; [
+    #   python-lsp-server
+    # ]))
 
     # Deps
     openssl

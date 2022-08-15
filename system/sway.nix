@@ -7,7 +7,7 @@ let
   };
 
   term = "alacritty";
-  lock = "${pkgs.swaylock}/bin/swaylock -f -c #000000";
+  lock = "${import ./swaylock.nix {inherit pkgs; inherit theme; }}";
 in
 {
   enable = true;

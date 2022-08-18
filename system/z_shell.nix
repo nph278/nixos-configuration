@@ -45,6 +45,7 @@
     down = "(rebuild --upgrade && shutdown now) || lock";
     garbage = "doas cd ~/Projects && doas nix-collect-garbage -d";
     redo = "$(cat ~/.zsh_history | fzf)";
+    cleannvim = "rm -rf ~/.local/share/nvim";
   };
 
   initExtraFirst = ''

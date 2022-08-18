@@ -10,7 +10,7 @@ in
     cursor = colors.blue;
     cursor_text_color = colors.black;
     enable_audio_bell = false;
-    
+
     foreground = colors.white;
     background = colors.black;
 

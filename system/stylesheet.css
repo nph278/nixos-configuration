@@ -1,59 +1,67 @@
-/* General */
-html {
-	color: #abb2bf;
-	background: #282c34;
-}
-
-a, a span {
-	color: #61afef;
-}
-
 /* Youtube */
-ytd-app, ytd-app div#container, iron-selector#chips, #guide-inner-content, tp-yt-app-header, #channel-header.ytd-c4-tabbed-header-renderer, ytd-mini-guide-renderer, .yt-simple-endpoint, tp-yt-paper-tab, ytd-expandable-tab-renderer, #tabs-inner-container.ytd-c4-tabbed-header-renderer, ytd-two-column-browse-results-renderer, ytd-browse[page-subtype=channels] {
-	color: #abb2bf;
-	background: #282c34;
+ytd-app,
+ytd-app div#container,
+iron-selector#chips,
+#guide-inner-content,
+tp-yt-app-header,
+#channel-header.ytd-c4-tabbed-header-renderer,
+ytd-mini-guide-renderer,
+.yt-simple-endpoint,
+tp-yt-paper-tab,
+ytd-expandable-tab-renderer,
+#tabs-inner-container.ytd-c4-tabbed-header-renderer,
+ytd-two-column-browse-results-renderer,
+ytd-browse[page-subtype="channels"] {
+    color: #abb2bf;
+    background: #282c34;
 }
 
 body::-webkit-scrollbar-track {
-        background: #282c34;
+    background: #282c34;
 }
 
 body::-webkit-scrollbar-track-thumb {
-        background: #abb2bf;
+    background: #abb2bf;
 }
 
 /* Hacker News */
 #hnmain * {
-	color: #abb2bf;
-	background: #282c34;
+    color: #abb2bf;
+    background: #282c34;
 }
 
 #hnmain a {
-	color: #61afef;
+    color: #61afef;
 }
 
 #pagespace {
-	display: none;
+    display: none;
 }
 
 /* DuckDuckGo */
 
-#pg-index, .tag-home, #search_form_homepage, .search__autocomplete *, .body--serp * {
-	color: #abb2bf;
-	background: #282c34;
+#pg-index,
+.tag-home,
+#search_form_homepage,
+.search__autocomplete *,
+.body--serp * {
+    color: #abb2bf;
+    background: #282c34;
 }
 
 #search_form_homepage {
-  border-color: #abb2bf;
+    border-color: #abb2bf;
 }
 
 #search_button_homepage {
-  display: none;
+    display: none;
 }
 
-.footer__card, .search-filters-wrap::before, .search-filters-wrap::after {
-	color: #abb2bf !important;
-	background: #282c34 !important;
+.footer__card,
+.search-filters-wrap::before,
+.search-filters-wrap::after {
+    color: #abb2bf !important;
+    background: #282c34 !important;
 }
 
 /* Wikipedia */
@@ -61,18 +69,17 @@ body::-webkit-scrollbar-track-thumb {
 
 .mediawiki.skin-vector-legacy :not(#pt-darkmode) + #pt-watchlist::before,
 .mediawiki..skin-monobook :not(#pt-darkmode) + #pt-watchlist::before {
-	content: "Light mode";
+    content: "Light mode";
 }
 
-	@media screen {
-			
-		/* set height for monobook and timeless, because the filter in FF needs dimensions to get it to apply */
-		.mediawiki.{
-			    height: 100%;
-		}
+@media screen {
+    /* set height for monobook and timeless, because the filter in FF needs dimensions to get it to apply */
+    .mediawiki. {
+        height: 100%;
+    }
 
-		    /* Filter needs to reside on `.mediawiki`, see https://phabricator.wikimedia.org/T221425#5153917 */
-		    .mediawiki,
+    /* Filter needs to reside on `.mediawiki`, see https://phabricator.wikimedia.org/T221425#5153917 */
+    .mediawiki,
 		    /* All other selectors have `filter` double-applied to turn back to “normal” by inheritance */
 		    .mediawiki img,
 		    .mediawiki video,
@@ -91,62 +98,62 @@ body::-webkit-scrollbar-track-thumb {
 		    .mediawiki .mw-kartographer-map,
 		    .mediawiki .mw-kartographer-mapDialog-map,
 		    .mediawiki .ext-related-articles-card-list .ext-related-articles-card-thumb {
-	    	    filter: invert( 1 ) hue-rotate( 180deg );
-		}
+        filter: invert(1) hue-rotate(180deg);
+    }
 
-		/* Reset overrides, needed where double application above isn't working. */
-		/* Vector modern */
-		.mediawiki .skin-vector .mw-logo-wordmark,
-		.mediawiki .skin-vector .mw-logo-tagline,
-		.mediawiki .skin-timeless .mw-wiki-title > img,
-		.mediawiki .wvui-icon svg {
-			filter: none;
-		}
+    /* Reset overrides, needed where double application above isn't working. */
+    /* Vector modern */
+    .mediawiki .skin-vector .mw-logo-wordmark,
+    .mediawiki .skin-vector .mw-logo-tagline,
+    .mediawiki .skin-timeless .mw-wiki-title > img,
+    .mediawiki .wvui-icon svg {
+        filter: none;
+    }
 
-		/* Backgrounds */
-		.mediawiki table,
-		.mediawiki table.ambox-content,
-		.mediawiki table.toccolours,
-		.mediawiki .mw-notification,
-		.mediawiki .mwe-popups,
-		.mediawiki .infobox,
-		.mediawiki .toc,
-		.mediawiki .thumbinner,
-		.mediawiki .wikitable,
-		.mediawiki .cbnnr-main,
-		.mediawiki .cx-callout,
-		.mediawiki #simpleSearch,
-		.mediawiki #simpleSearch #searchInput,
-		.mediawiki #siteNotice #centralNotice .cnotice {
-				background-color: #ddd;
-		}
+    /* Backgrounds */
+    .mediawiki table,
+    .mediawiki table.ambox-content,
+    .mediawiki table.toccolours,
+    .mediawiki .mw-notification,
+    .mediawiki .mwe-popups,
+    .mediawiki .infobox,
+    .mediawiki .toc,
+    .mediawiki .thumbinner,
+    .mediawiki .wikitable,
+    .mediawiki .cbnnr-main,
+    .mediawiki .cx-callout,
+    .mediawiki #simpleSearch,
+    .mediawiki #simpleSearch #searchInput,
+    .mediawiki #siteNotice #centralNotice .cnotice {
+        background-color: #ddd;
+    }
 
-		/* Borders */
-		.mediawiki body,
-		.mediawiki h1,
-		.mediawiki h2,
-		.mediawiki h3,
-		.mediawiki h4,
-		.mediawiki h5,
-		.mediawiki h6,
-		.mediawiki table.ambox-content,
-		.mediawiki table.toccolours,
-		.mediawiki .mw-notification,
-		.mediawiki .infobox,
-		.mediawiki .toc,
-		.mediawiki .thumbinner,
-		.mediawiki #mw-head,
-		.mediawiki #mw-panel,
-		.mediawiki #content.mw-body,
-		.mediawiki #simpleSearch,
-		.mediawiki #simpleSearch #searchInput,
-		.mediawiki #siteNotice #centralNotice .cnotice {
-				border-color: #cdcbc8;
-		}
+    /* Borders */
+    .mediawiki body,
+    .mediawiki h1,
+    .mediawiki h2,
+    .mediawiki h3,
+    .mediawiki h4,
+    .mediawiki h5,
+    .mediawiki h6,
+    .mediawiki table.ambox-content,
+    .mediawiki table.toccolours,
+    .mediawiki .mw-notification,
+    .mediawiki .infobox,
+    .mediawiki .toc,
+    .mediawiki .thumbinner,
+    .mediawiki #mw-head,
+    .mediawiki #mw-panel,
+    .mediawiki #content.mw-body,
+    .mediawiki #simpleSearch,
+    .mediawiki #simpleSearch #searchInput,
+    .mediawiki #siteNotice #centralNotice .cnotice {
+        border-color: #cdcbc8;
+    }
 
-		/* Links */
-		/* Links: normal */
-		.mediawiki a,
+    /* Links */
+    /* Links: normal */
+    .mediawiki a,
 		.mediawiki .vector-menu-tabs li a,
 		/* Backwards compatible VectorTabs, deprecated in MW v1.35. */
 		.mediawiki .vectorTabs li a,
@@ -155,76 +162,76 @@ body::-webkit-scrollbar-track-thumb {
 		.mediawiki .mw-parser-output a.extiw,
 		.mediawiki .mw-parser-output a.extiw:active,
 			.mediawiki #mw-panel .portal .body li a {
-	color: #36c;
-}
+        color: #36c;
+    }
 
-/* Links: visited */
-.mediawiki a:visited,
-.mediawiki .mw-parser-output a.extiw:visited,
-.mediawiki #mw-panel .portal .body li a:visited {
-		/* color: #709bbd; Proposal below uses to-be-standardized color from https://phabricator.wikimedia.org/T213778 */
-		color: #6b4ba1;
-	}
+    /* Links: visited */
+    .mediawiki a:visited,
+    .mediawiki .mw-parser-output a.extiw:visited,
+    .mediawiki #mw-panel .portal .body li a:visited {
+        /* color: #709bbd; Proposal below uses to-be-standardized color from https://phabricator.wikimedia.org/T213778 */
+        color: #6b4ba1;
+    }
 
-	/* Links: red */
-	.mediawiki a.new,
-	.mediawiki .vector-menu-tabs li.new a,
-	.mediawiki .vectorTabs li.new a {
-			color: #ff6e6e;
-		}
+    /* Links: red */
+    .mediawiki a.new,
+    .mediawiki .vector-menu-tabs li.new a,
+    .mediawiki .vectorTabs li.new a {
+        color: #ff6e6e;
+    }
 
-		/* ::: Special Element Treatments ::: */
-		/* Image thumbnails */
-		.mediawiki .thumbimage {
-				border: 0;
-			}
+    /* ::: Special Element Treatments ::: */
+    /* Image thumbnails */
+    .mediawiki .thumbimage {
+        border: 0;
+    }
 
-			/* Content image (thumbnail) SVGs */
-			/* `*not( .mbox-image )` exception doesn't work for unclear reasons */
-			.mediawiki .image img[ src*='svg' ],
-			.mediawiki img[ src*='Wiktionary-logo'] {
-					background-color: #fff;
-						border-radius: 1px;
-					}
+    /* Content image (thumbnail) SVGs */
+    /* `*not( .mbox-image )` exception doesn't work for unclear reasons */
+    .mediawiki .image img[src*="svg"],
+    .mediawiki img[src*="Wiktionary-logo"] {
+        background-color: #fff;
+        border-radius: 1px;
+    }
 
-					/* Dealing with false positives from selector above */
-					.mediawiki .mw-echo-ui-notificationItemWidget-icon img[ src*='svg' ],
+    /* Dealing with false positives from selector above */
+    .mediawiki .mw-echo-ui-notificationItemWidget-icon img[ src*='svg' ],
 					.mediawiki .mbox-image .image img[ src*='svg' ],
 					/* Emoji generated by [[Template:Emoji]] */
 					.mediawiki .emoji .image img,
 					/* Vote symbols on Talk pages */
 					.mediawiki .image img[ alt^="Symbol" ] {
-							background-color: transparent;
-						}
+        background-color: transparent;
+    }
 
-						/* Page previews */
-						.mediawiki .mwe-popups {
-							    box-shadow: 0 30px 90px -20px rgba( 0, 0, 0, 0.3 ), 0 0 1px #000;
-						    }
+    /* Page previews */
+    .mediawiki .mwe-popups {
+        box-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.3), 0 0 1px #000;
+    }
 
-						    .mediawiki .mwe-popups.flipped-y:after,
-						    .mediawiki .mwe-popups.flipped-x-y:after {
-							    	border-top: 11px solid #ddd;
-							}
+    .mediawiki .mwe-popups.flipped-y:after,
+    .mediawiki .mwe-popups.flipped-x-y:after {
+        border-top: 11px solid #ddd;
+    }
 
-							.mediawiki .mwe-popups.mwe-popups-no-image-pointer:after {
-									border-bottom: 11px solid #ddd;
-								}
+    .mediawiki .mwe-popups.mwe-popups-no-image-pointer:after {
+        border-bottom: 11px solid #ddd;
+    }
 
-								/* Contributions menu */
-								.mediawiki .cx-callout-1:after {
-										border-bottom-color: #ddd;
-									}
+    /* Contributions menu */
+    .mediawiki .cx-callout-1:after {
+        border-bottom-color: #ddd;
+    }
 
-									/* Mobile Wikipedia logo mobile header */
-									.mediawiki .branding-box img {
-											filter: brightness( 0 );
-										}
+    /* Mobile Wikipedia logo mobile header */
+    .mediawiki .branding-box img {
+        filter: brightness(0);
+    }
+}
 
-									}
+@-moz-document url-prefix() {
+    body {
+        background: #000;
+    }
+}
 
-									@-moz-document url-prefix() {
-										    body {
-											            background: #000;
-												        }
-												}

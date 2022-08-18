@@ -337,6 +337,8 @@ vim.api.nvim_set_hl(0, 'GitGutterDeleteLineNr', { ctermfg = 1 })
 -- vim.cmd('highlight NvimTreeGitDeleted ,ctermfg=1')
 
 -- LSP
+-- Servers: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+
 local nvim_lsp = require('lspconfig')
 
 local on_attach = function(_, bufnr)

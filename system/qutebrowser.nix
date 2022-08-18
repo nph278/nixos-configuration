@@ -1,6 +1,5 @@
-{ theme }:
-
 let
+  theme = import ./theme.nix;
   colors = theme.colors;
   font = "10pt ${theme.font}";
 in

@@ -1,13 +1,14 @@
-{ pkgs, theme }:
+{ pkgs }:
 
 let
+  theme = import ./theme.nix;
   colors = theme.colors;
   swayFont = {
     names = [ theme.font ];
   };
 
   term = "alacritty";
-  lock = "${import ./swaylock.nix {inherit pkgs; inherit theme; }}";
+  lock = "${import ./swaylock.nix {inherit pkgs; }}";
 in
 {
   enable = true;

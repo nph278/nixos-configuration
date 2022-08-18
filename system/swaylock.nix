@@ -1,6 +1,7 @@
-{ pkgs, theme }:
+{ pkgs }:
 
 let
+  theme = import ./theme.nix;
   font = theme.font;
   colors = theme.colors;
 in

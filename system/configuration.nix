@@ -11,7 +11,7 @@
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz";
-  theme = (import ./theme.nix);
+  theme = import ./theme.nix;
 in
 {
   imports = [
@@ -84,10 +84,10 @@ in
   # Home Manager
   home-manager.users.carl = {
     # Sway
-    programs.zsh = (import ./z_shell.nix) { inherit pkgs; inherit theme; };
-    programs.alacritty = (import ./alacritty.nix) { inherit theme; };
-    programs.qutebrowser = (import ./qutebrowser.nix) { inherit theme; };
-    wayland.windowManager.sway = (import ./sway.nix) { inherit pkgs; inherit theme; };
+    programs.zsh = (import ./z_shell.nix) { inherit pkgs; };
+    programs.alacritty = (import ./alacritty.nix);
+    programs.qutebrowser = (import ./qutebrowser.nix);
+    wayland.windowManager.sway = (import ./sway.nix) { inherit pkgs; };
 
     programs.git = {
       enable = true;

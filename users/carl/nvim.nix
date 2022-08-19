@@ -2,8 +2,9 @@
 
 {
   enable = true;
-  package = unstablePkgs.neovim-unwrapped; # Use unstable nvim
+  package = unstablePkgs.neovim-unwrapped; # Use unstable nvim (I am mentally unstable)
 
+  # No programming allowed
   withNodeJs = false;
   withPython3 = false;
   withRuby = false;
@@ -45,7 +46,19 @@
     telescope-ui-select-nvim
   ];
 
+  # Run all the luas (luai)
   extraConfig = ''
-    luafile ${./init.lua}
+    luafile ${./lua/options.lua}
+    luafile ${./lua/hl.lua}
+    luafile ${./lua/gitgutter.lua}
+    luafile ${./lua/lsp.lua}
+    luafile ${./lua/cmp.lua}
+    luafile ${./lua/status.lua}
+    luafile ${./lua/lightspeed.lua}
+    luafile ${./lua/treesitter.lua}
+    luafile ${./lua/comment.lua}
+    luafile ${./lua/keybinds.lua}
+    " luafile ${./lua/filetree.lua}
+    " luafile ${./lua/telescope.lua}
   '';
 }

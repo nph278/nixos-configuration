@@ -66,8 +66,8 @@ in
 
   initExtra = ''
     precmd() {zle-keymap-select}
+
     pfetch
-    eval "$(direnv hook zsh)"
 
     function zle-keymap-select {
       if [[ ''${KEYMAP} == vicmd ]] ||

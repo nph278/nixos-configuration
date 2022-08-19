@@ -4,10 +4,10 @@ let
   rustPkgs = unstablePkgs.rust.packages.stable;
 in
 {
-  # Sway
   programs.zsh = (import ./z_shell.nix) { inherit pkgs; inherit rustPkgs; };
-  programs.alacritty = (import ./alacritty.nix);
-  programs.qutebrowser = (import ./qutebrowser.nix);
+  programs.neovim = (import ./nvim.nix) { inherit unstablePkgs; };
+  programs.alacritty = import ./alacritty.nix;
+  programs.qutebrowser = import ./qutebrowser.nix;
   wayland.windowManager.sway = (import ./sway.nix) { inherit pkgs; };
 
   programs.git = {
@@ -42,7 +42,6 @@ in
     capitaine-cursors
 
     # Dev
-    direnv
     gh
     fzf
     ripgrep

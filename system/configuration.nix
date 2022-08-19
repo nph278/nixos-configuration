@@ -1,7 +1,6 @@
 # TODO:
 #
-#
-# User stylesheet and wallpaper working correctly
+# Fix telescope
 #
 
 # configuration.nix(5) man page

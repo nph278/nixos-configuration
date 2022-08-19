@@ -34,6 +34,7 @@ in
     steam = "fl com.valvesoftware.Steam";
     stk = "fl net.supertuxkart.SuperTuxKart";
     gimp = "fl org.gimp.GIMP";
+    snake = "snake-crossterm";
 
     # Nix
     rebuild = "doas nixos-rebuild switch";

@@ -6,18 +6,6 @@ in
 pkgs.mkShell rec {
   name = "dev";
   buildInputs = with pkgs; [
-    # Rust
-    rustc
-    cargo
-    clippy
-    rustfmt
-    rust-analyzer
-
-    # Python
-    # (python310.withPackages (p: with p; [
-    #   python-lsp-server
-    # ]))
-
     # Neovim
     (neovim.override {
       configure = {
@@ -68,6 +56,5 @@ pkgs.mkShell rec {
     })
   ];
 
-  RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
   # LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}";
 }

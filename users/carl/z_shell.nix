@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, rustPkgs }:
 
 let
   theme = import ./theme.nix;
@@ -84,6 +84,7 @@ in
 
   localVariables = {
     PROMPT = "%~ $ ";
+    RUST_SRC_PATH = "${rustPkgs.rustPlatform.rustLibSrc}";
   };
 }
 

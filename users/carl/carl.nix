@@ -1,8 +1,11 @@
 { pkgs, unstablePkgs }:
 
+let
+  rustPkgs = unstablePkgs.rust.packages.stable;
+in
 {
   # Sway
-  programs.zsh = (import ./z_shell.nix) { inherit pkgs; };
+  programs.zsh = (import ./z_shell.nix) { inherit pkgs; inherit rustPkgs; };
   programs.alacritty = (import ./alacritty.nix);
   programs.qutebrowser = (import ./qutebrowser.nix);
   wayland.windowManager.sway = (import ./sway.nix) { inherit pkgs; };
@@ -49,12 +52,19 @@
     unstablePkgs.sumneko-lua-language-server
     unstablePkgs.luaformatter
 
-    # Rust dyndeps
-    openssl
-    pkg-config
-
     # Nix
     unstablePkgs.rnix-lsp
+
+    # Rust
+    rustPkgs.rustc
+    rustPkgs.cargo
+    rustPkgs.clippy
+    rustPkgs.rustfmt
+    unstablePkgs.rust-analyzer
+
+    # Rust dyndeps
+    # unstablePkgs.openssl
+    # unstablePkgs.pkg-config
   ];
 }
 

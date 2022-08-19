@@ -9,6 +9,7 @@
 { config, pkgs, ... }:
 
 let
+  unstablePkgs = import (fetchTarball ("https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz")) { };
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz";
   theme = import ./theme.nix;
 in
@@ -82,7 +83,7 @@ in
   hardware.opengl.enable = true;
 
   # Home Manager
-  home-manager.users.carl = import ../users/carl/carl.nix { inherit pkgs; };
+  home-manager.users.carl = import ../users/carl/carl.nix { inherit pkgs; inherit unstablePkgs; };
 
   # Fonts
   fonts.fonts = with pkgs; [

@@ -13,28 +13,10 @@ pkgs.mkShell rec {
     rustfmt
     rust-analyzer
 
-    # Lua
-    sumneko-lua-language-server
-    luaformatter
-
     # Python
     # (python310.withPackages (p: with p; [
     #   python-lsp-server
     # ]))
-
-    # Deps
-    openssl
-    pkg-config
-    # xorg.libX11
-    # xorg.libXcursor
-    # xorg.libXrandr
-    # xorg.libXi
-
-    # Nix
-    rnix-lsp
-
-    # Tools
-    ripgrep
 
     # Neovim
     (neovim.override {

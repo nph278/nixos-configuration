@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, unstablePkgs }:
 
 {
   # Sway
@@ -31,18 +31,30 @@
     grim
     sway-contrib.grimshot
 
-    # Dev
-    direnv
-    gh
-    fzf
-    xdg-utils
-
     # Multimedia
     imv
     mpv
 
     # Cursor theme
     capitaine-cursors
+
+    # Dev
+    direnv
+    gh
+    fzf
+    ripgrep
+    xdg-utils
+
+    # Lua
+    unstablePkgs.sumneko-lua-language-server
+    unstablePkgs.luaformatter
+
+    # Rust dyndeps
+    openssl
+    pkg-config
+
+    # Nix
+    unstablePkgs.rnix-lsp
   ];
 }
 

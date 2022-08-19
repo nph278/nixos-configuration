@@ -38,6 +38,10 @@ body::-webkit-scrollbar-track-thumb {
     display: none;
 }
 
+html[op] {
+    background: #282c34;
+}
+
 /* DuckDuckGo */
 
 #pg-index,

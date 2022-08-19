@@ -5,7 +5,7 @@
 
 # configuration.nix(5) man page
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, modulesPath, ... }:
 
 let
   unstablePkgs = import (fetchTarball ("https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz")) { };
@@ -14,9 +14,39 @@ let
 in
 {
   imports = [
-    ./hardware-configuration.nix
+    (modulesPath + "/installer/scan/not-detected.nix")
     (import "${home-manager}/nixos")
   ];
+
+  # Kernel/initrd
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
+
+  # Decryption
+  boot.initrd.luks.devices."btrfs".device = "/dev/disk/by-label/btrfs-enc";
+  boot.initrd.luks.devices."swap".device = "/dev/disk/by-label/swap-enc";
+
+  # Mount points
+  fileSystems."/" = {
+    device = "/dev/mapper/btrfs";
+    fsType = "btrfs";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/efi";
+    fsType = "vfat";
+  };
+
+  # Swap
+  swapDevices = [{ device = "/dev/mapper/swap"; }];
+
+  # Microcode
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # high-resolution display
+  hardware.video.hidpi.enable = lib.mkDefault true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -24,8 +54,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Network
-  networking.hostName = "hp";
-  # networking.wireless.enable = true;
+  networking.hostName = "tp01";
   networking.useDHCP = false;
   networking.interfaces.enp10s0.useDHCP = true;
 

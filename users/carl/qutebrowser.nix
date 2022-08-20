@@ -5,6 +5,7 @@ let
   colors = theme.colors;
   font = "10pt ${theme.font}";
 
+  # Add theme colors for user stylesheet
   fullStylesheet = pkgs.writeTextFile
     {
       name = "fullStylesheet.css";

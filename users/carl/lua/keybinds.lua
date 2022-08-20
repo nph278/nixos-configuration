@@ -38,3 +38,5 @@ vim.api.nvim_set_keymap('t', '<C-d>', "<Esc><Esc>:q<CR>", { silent = true })
 
 vim.api.nvim_set_keymap('n', '<A-v>', ":vsplit<CR>", { silent = true })
 vim.api.nvim_set_keymap('n', '<A-b>', ":split<CR>", { silent = true })
+
+vim.api.nvim_set_keymap('n', '<space>t', ":vsplit term://tree<CR>", { silent = true })

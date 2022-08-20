@@ -12,26 +12,26 @@ ytd-expandable-tab-renderer,
 #tabs-inner-container.ytd-c4-tabbed-header-renderer,
 ytd-two-column-browse-results-renderer,
 ytd-browse[page-subtype="channels"] {
-    color: #abb2bf;
-    background: #282c34;
+    color: var(--white);
+    background: var(--black);
 }
 
 body::-webkit-scrollbar-track {
-    background: #282c34;
+    background: var(--black);
 }
 
 body::-webkit-scrollbar-track-thumb {
-    background: #abb2bf;
+    background: var(--white);
 }
 
 /* Hacker News */
 #hnmain * {
-    color: #abb2bf;
-    background: #282c34;
+    color: var(--white);
+    background: var(--black);
 }
 
 #hnmain a {
-    color: #61afef;
+    color: var(--blue);
 }
 
 #pagespace {
@@ -39,7 +39,7 @@ body::-webkit-scrollbar-track-thumb {
 }
 
 html[op] {
-    background: #282c34;
+    background: var(--black);
 }
 
 /* DuckDuckGo */
@@ -49,12 +49,12 @@ html[op] {
 #search_form_homepage,
 .search__autocomplete *,
 .body--serp * {
-    color: #abb2bf;
-    background: #282c34;
+    color: var(--white);
+    background: var(--black);
 }
 
 #search_form_homepage {
-    border-color: #abb2bf;
+    border-color: var(--white);
 }
 
 #search_button_homepage {
@@ -64,8 +64,8 @@ html[op] {
 .footer__card,
 .search-filters-wrap::before,
 .search-filters-wrap::after {
-    color: #abb2bf !important;
-    background: #282c34 !important;
+    color: var(--white)!important;
+    background: var(--black)!important;
 }
 
 /* Wikipedia */

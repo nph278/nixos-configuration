@@ -1,6 +1,7 @@
 # TODO:
 #
 # Fix telescope
+# Home-manager latest version
 #
 
 # configuration.nix(5) man page

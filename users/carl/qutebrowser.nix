@@ -1,7 +1,28 @@
+{ pkgs }:
+
 let
   theme = import ./theme.nix;
   colors = theme.colors;
   font = "10pt ${theme.font}";
+
+  fullStylesheet = pkgs.writeTextFile
+    {
+      name = "fullStylesheet.css";
+      text = ''
+        :root {
+          --black: ${colors.black};
+          --red: ${colors.red};
+          --green: ${colors.green};
+          --yellow: ${colors.yellow};
+          --blue: ${colors.blue};
+          --magenta: ${colors.magenta};
+          --cyan: ${colors.cyan};
+          --white: ${colors.white};
+        }
+
+        ${builtins.readFile ./stylesheet.css}
+      '';
+    };
 in
 {
   enable = true;
@@ -198,7 +219,7 @@ in
     editor.command = [ "alacritty" "-e" "vim" "{file}" ];
 
     content = {
-      user_stylesheets = "${./stylesheet.css}";
+      user_stylesheets = "${fullStylesheet}";
     };
   };
 
@@ -216,7 +237,6 @@ in
     eu = "edit-url";
     et = "edit-text";
     wk = "jseval document.querySelector('head').innerHTML += '<style>* {background-color: ${colors.black} !important; color: ${colors.white} !important; border-color: ${colors.white} !important; font-family: monospace !important;} a { color: ${colors.blue} !important;}</style>'";
-    cs = ":set content.user_stylesheets ${./stylesheet.css}";
   };
 }
 

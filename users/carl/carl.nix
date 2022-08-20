@@ -4,11 +4,11 @@ let
   rustPkgs = unstablePkgs.rust.packages.stable;
 in
 {
-  programs.zsh = (import ./z_shell.nix) { inherit pkgs; inherit rustPkgs; };
-  programs.neovim = (import ./nvim.nix) { inherit unstablePkgs; };
-  programs.qutebrowser = (import ./qutebrowser.nix { inherit pkgs; });
+  programs.zsh = import ./z_shell.nix { inherit pkgs; inherit rustPkgs; };
+  programs.neovim = import ./nvim.nix { inherit unstablePkgs; };
+  programs.qutebrowser = import ./qutebrowser.nix { inherit pkgs; };
   programs.alacritty = import ./alacritty.nix;
-  wayland.windowManager.sway = (import ./sway.nix) { inherit pkgs; };
+  wayland.windowManager.sway = import ./sway.nix { inherit pkgs; };
 
   programs.git = {
     enable = true;
@@ -53,6 +53,7 @@ in
 
     # Nix
     unstablePkgs.rnix-lsp
+    unstablePkgs.statix
 
     # Rust
     rustPkgs.rustc

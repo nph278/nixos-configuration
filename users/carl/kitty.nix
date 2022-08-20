@@ -1,6 +1,5 @@
 let
   theme = import ./theme.nix;
-  font = theme.font;
 in
 with theme.colors; {
   enable = true;
@@ -26,7 +25,7 @@ with theme.colors; {
   };
 
   font = {
-    name = font;
+    name = theme.font;
     size = 11;
   };
 }

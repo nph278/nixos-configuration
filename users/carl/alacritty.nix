@@ -1,6 +1,5 @@
 let
   theme = import ./theme.nix;
-  font = theme.font;
 in
 with theme.colors; {
   enable = true;
@@ -18,19 +17,19 @@ with theme.colors; {
 
     font = {
       normal = {
-        family = font;
+        family = theme.font;
         style = "regular";
       };
       bold = {
-        family = font;
+        family = theme.font;
         style = "bold";
       };
       italic = {
-        family = font;
+        family = theme.font;
         style = "italic";
       };
       bold_italic = {
-        family = font;
+        family = theme.font;
         style = "bold italic";
       };
 
@@ -54,14 +53,7 @@ with theme.colors; {
       };
 
       normal = {
-        black = black;
-        red = red;
-        green = green;
-        yellow = yellow;
-        blue = blue;
-        magenta = magenta;
-        cyan = cyan;
-        white = white;
+        inherit black red green yellow blue magenta cyan white;
       };
     };
 

@@ -1,7 +1,9 @@
 # TODO:
 #
 # Fix telescope
-# Home-manager latest version
+# Sway keybinds
+# Better swaylock config format
+# Correct lua importing
 #
 
 # configuration.nix(5) man page
@@ -10,7 +12,7 @@
 
 let
   pkgs = import <nixpkgs> { };
-  unstablePkgs = import (fetchTarball ("https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz")) { };
+  unstablePkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz") { };
   home-manager = pkgs.fetchFromGitHub {
     owner = "nix-community";
     repo = "home-manager";

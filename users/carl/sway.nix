@@ -2,7 +2,6 @@
 
 let
   theme = import ./theme.nix;
-  colors = theme.colors;
   swayFont = {
     names = [ theme.font ];
   };
@@ -10,7 +9,7 @@ let
   term = "alacritty";
   lock = "${import ./swaylock.nix {inherit pkgs; }}";
 in
-{
+with theme.colors; {
   enable = true;
   wrapperFeatures.gtk = true;
   config = {
@@ -35,22 +34,22 @@ in
       statusCommand = "while date +'%D -> %r       '; do sleep 1; done";
       position = "top";
       colors = {
-        statusline = colors.white;
-        background = colors.black;
+        statusline = white;
+        background = black;
         focusedWorkspace = {
-          border = colors.black;
-          background = colors.blue;
-          text = colors.black;
+          border = black;
+          background = blue;
+          text = black;
         };
         activeWorkspace = {
-          border = colors.black;
-          background = colors.red;
-          text = colors.black;
+          border = black;
+          background = red;
+          text = black;
         };
         inactiveWorkspace = {
-          border = colors.black;
-          background = colors.black;
-          text = colors.white;
+          border = black;
+          background = black;
+          text = white;
         };
       };
     }];

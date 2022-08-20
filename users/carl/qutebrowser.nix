@@ -2,182 +2,181 @@
 
 let
   theme = import ./theme.nix;
-  colors = theme.colors;
   font = "10pt ${theme.font}";
 
   # Add theme colors for user stylesheet
   fullStylesheet = pkgs.writeTextFile
     {
       name = "fullStylesheet.css";
-      text = ''
+      text = with theme.colors; ''
         :root {
-          --black: ${colors.black};
-          --red: ${colors.red};
-          --green: ${colors.green};
-          --yellow: ${colors.yellow};
-          --blue: ${colors.blue};
-          --magenta: ${colors.magenta};
-          --cyan: ${colors.cyan};
-          --white: ${colors.white};
+          --black: ${black};
+          --red: ${red};
+          --green: ${green};
+          --yellow: ${yellow};
+          --blue: ${blue};
+          --magenta: ${magenta};
+          --cyan: ${cyan};
+          --white: ${white};
         }
 
         ${builtins.readFile ./stylesheet.css}
       '';
     };
 in
-{
+with theme.colors; {
   enable = true;
   settings = {
     colors = {
       webpage.preferred_color_scheme = "dark";
 
       hints = {
-        bg = colors.yellow;
-        fg = colors.black;
-        match.fg = colors.red;
+        bg = yellow;
+        fg = black;
+        match.fg = red;
       };
 
       completion = {
-        even.bg = colors.black;
-        odd.bg = colors.black;
-        fg = colors.white;
-        match.fg = colors.green;
+        even.bg = black;
+        odd.bg = black;
+        fg = white;
+        match.fg = green;
 
         item.selected = {
-          bg = colors.blue;
-          fg = colors.black;
-          border.top = colors.blue;
-          border.bottom = colors.blue;
-          match.fg = colors.black;
+          bg = blue;
+          fg = black;
+          border.top = blue;
+          border.bottom = blue;
+          match.fg = black;
         };
 
-        scrollbar.bg = colors.black;
-        scrollbar.fg = colors.white;
+        scrollbar.bg = black;
+        scrollbar.fg = white;
 
         category = {
-          bg = colors.black;
-          fg = colors.red;
-          border.top = colors.black;
-          border.bottom = colors.black;
+          bg = black;
+          fg = red;
+          border.top = black;
+          border.bottom = black;
         };
       };
 
       downloads = {
-        bar.bg = colors.black;
-        error.bg = colors.red;
-        error.fg = colors.black;
-        start.bg = colors.blue;
-        start.fg = colors.black;
-        stop.bg = colors.green;
-        stop.fg = colors.black;
+        bar.bg = black;
+        error.bg = red;
+        error.fg = black;
+        start.bg = blue;
+        start.fg = black;
+        stop.bg = green;
+        stop.fg = black;
       };
 
       messages = {
         error = {
-          bg = colors.red;
-          fg = colors.black;
-          border = colors.red;
+          bg = red;
+          fg = black;
+          border = red;
         };
 
         warning = {
-          bg = colors.yellow;
-          fg = colors.black;
-          border = colors.yellow;
+          bg = yellow;
+          fg = black;
+          border = yellow;
         };
 
         info = {
-          bg = colors.blue;
-          fg = colors.black;
-          border = colors.blue;
+          bg = blue;
+          fg = black;
+          border = blue;
         };
       };
 
       prompts = {
-        bg = colors.blue;
-        fg = colors.black;
-        border = colors.blue;
-        selected.bg = colors.blue;
-        selected.fg = colors.white;
+        bg = blue;
+        fg = black;
+        border = blue;
+        selected.bg = blue;
+        selected.fg = white;
       };
 
       statusbar = {
         caret = {
-          bg = colors.magenta;
-          fg = colors.black;
-          selection.bg = colors.magenta;
-          selection.fg = colors.black;
+          bg = magenta;
+          fg = black;
+          selection.bg = magenta;
+          selection.fg = black;
         };
 
         command = {
-          bg = colors.black;
-          fg = colors.white;
-          private.bg = colors.black;
-          private.fg = colors.white;
+          bg = black;
+          fg = white;
+          private.bg = black;
+          private.fg = white;
         };
 
         insert = {
-          bg = colors.green;
-          fg = colors.black;
+          bg = green;
+          fg = black;
         };
 
         normal = {
-          bg = colors.black;
-          fg = colors.white;
+          bg = black;
+          fg = white;
         };
 
         passthrough = {
-          bg = colors.blue;
-          fg = colors.black;
+          bg = blue;
+          fg = black;
         };
 
         private = {
-          bg = colors.red;
-          fg = colors.black;
+          bg = red;
+          fg = black;
         };
 
-        progress.bg = colors.white;
+        progress.bg = white;
 
         url = {
-          fg = colors.white;
-          hover.fg = colors.blue;
-          error.fg = colors.red;
-          warn.fg = colors.yellow;
-          success.http.fg = colors.yellow;
-          success.https.fg = colors.green;
+          fg = white;
+          hover.fg = blue;
+          error.fg = red;
+          warn.fg = yellow;
+          success.http.fg = yellow;
+          success.https.fg = green;
         };
       };
 
       tabs = {
-        bar.bg = colors.black;
+        bar.bg = black;
 
-        even.bg = colors.black;
-        odd.bg = colors.black;
-        even.fg = colors.white;
-        odd.fg = colors.white;
+        even.bg = black;
+        odd.bg = black;
+        even.fg = white;
+        odd.fg = white;
 
         indicator = {
-          error = colors.red;
-          start = colors.blue;
-          stop = colors.green;
+          error = red;
+          start = blue;
+          stop = green;
         };
 
         selected = {
-          even.bg = colors.blue;
-          odd.bg = colors.blue;
-          even.fg = colors.black;
-          odd.fg = colors.black;
+          even.bg = blue;
+          odd.bg = blue;
+          even.fg = black;
+          odd.fg = black;
         };
 
         pinned = {
-          even.bg = colors.black;
-          odd.bg = colors.black;
-          even.fg = colors.white;
-          odd.fg = colors.white;
+          even.bg = black;
+          odd.bg = black;
+          even.fg = white;
+          odd.fg = white;
           selected = {
-            even.bg = colors.blue;
-            odd.bg = colors.blue;
-            even.fg = colors.black;
-            odd.fg = colors.black;
+            even.bg = blue;
+            odd.bg = blue;
+            even.fg = black;
+            odd.fg = black;
           };
         };
       };
@@ -237,7 +236,7 @@ in
   keyBindings.normal = {
     eu = "edit-url";
     et = "edit-text";
-    wk = "jseval document.querySelector('head').innerHTML += '<style>* {background-color: ${colors.black} !important; color: ${colors.white} !important; border-color: ${colors.white} !important; font-family: monospace !important;} a { color: ${colors.blue} !important;}</style>'";
+    wk = "jseval document.querySelector('head').innerHTML += '<style>* {background-color: ${black} !important; color: ${white} !important; border-color: ${white} !important; font-family: monospace !important;} a { color: ${blue} !important;}</style>'";
   };
 }
 

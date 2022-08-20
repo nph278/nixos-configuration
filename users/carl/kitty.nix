@@ -1,27 +1,26 @@
 let
   theme = import ./theme.nix;
-  colors = theme.colors;
   font = theme.font;
 in
-{
+with theme.colors; {
   enable = true;
 
   settings = {
-    cursor = colors.blue;
-    cursor_text_color = colors.black;
+    cursor = blue;
+    cursor_text_color = black;
     enable_audio_bell = false;
 
-    foreground = colors.white;
-    background = colors.black;
+    foreground = white;
+    background = black;
 
-    color0 = colors.black;
-    color1 = colors.red;
-    color2 = colors.green;
-    color3 = colors.yellow;
-    color4 = colors.blue;
-    color5 = colors.magenta;
-    color6 = colors.cyan;
-    color7 = colors.white;
+    color0 = black;
+    color1 = red;
+    color2 = green;
+    color3 = yellow;
+    color4 = blue;
+    color5 = magenta;
+    color6 = cyan;
+    color7 = white;
 
     shell = "zsh";
   };

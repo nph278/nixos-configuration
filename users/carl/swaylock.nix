@@ -3,7 +3,6 @@
 let
   theme = import ./theme.nix;
   font = theme.font;
-  colors = theme.colors;
 in
 
-"${pkgs.swaylock}/bin/swaylock -f -i ${./assets/bg.png} -s fill --font ${font} --bs-hl-color ${colors.yellow} --inside-color ${colors.black} --inside-clear-color ${colors.black} --inside-ver-color ${colors.black} --inside-wrong-color ${colors.black} --key-hl-color ${colors.green} --ring-ver-color ${colors.yellow} --ring-color ${colors.green} --ring-clear-color ${colors.yellow} --ring-wrong-color ${colors.red} --text-color ${colors.white} --text-ver-color ${colors.yellow} --text-wrong-color ${colors.red}"
+with theme.colors; "${pkgs.swaylock}/bin/swaylock -f -i ${./assets/bg.png} -s fill --font ${font} --bs-hl-color ${yellow} --inside-color ${black} --inside-clear-color ${black} --inside-ver-color ${black} --inside-wrong-color ${black} --key-hl-color ${green} --ring-ver-color ${yellow} --ring-color ${green} --ring-clear-color ${yellow} --ring-wrong-color ${red} --text-color ${white} --text-ver-color ${yellow} --text-wrong-color ${red}"

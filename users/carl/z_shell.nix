@@ -37,7 +37,7 @@ in
     snake = "snake-crossterm";
 
     # Nix
-    rebuild = "doas nixos-rebuild switch --flake 'path:///home/carl/Projects/nixos-configuration#tp01'";
+    rebuild = "doas nixos-rebuild switch --flake 'path:///home/carl/Projects/nixos-configuration'";
 
     # Other
     db = "gdb -tui";

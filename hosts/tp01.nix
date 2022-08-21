@@ -1,6 +1,8 @@
 # TODO:
 #
-# Shared host data
+# UUID
+# Updating with `nix flake update`
+# Filetypes
 # Fix telescope
 # Sway keybinds
 # Better swaylock config format

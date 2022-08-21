@@ -1,5 +1,6 @@
 # TODO:
 #
+# Shared host data
 # Fix telescope
 # Sway keybinds
 # Better swaylock config format
@@ -120,7 +121,7 @@ in
   hardware.opengl.enable = true;
 
   # Home Manager
-  home-manager.users.carl = import ../users/carl/carl.nix { inherit pkgs; inherit unstablePkgs; };
+  home-manager.users.carl = import ../users/carl/home.nix { inherit pkgs; inherit unstablePkgs; };
 
   # Fonts
   fonts.fonts = with pkgs; [

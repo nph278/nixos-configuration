@@ -17,8 +17,8 @@ let
   home-manager = pkgs.fetchFromGitHub {
     owner = "nix-community";
     repo = "home-manager";
-    rev = "d93d56ab8c1c6aa575854a79b9d2f69d491db7d0";
-    sha256 = "de4ea9f15b13c3044f42313caeb321fa8d806400999ff79e609ee2bdd43f22ba";
+    rev = "4a3d01fb53f52ac83194081272795aa4612c2381";
+    sha256 = "3659e6e237905841a362b13a8718bfec76078c1499fc4d11b6309889f9cdb169";
   };
   theme = import ./theme.nix;
 in

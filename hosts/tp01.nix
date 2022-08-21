@@ -29,7 +29,7 @@ in
   ];
 
   # Nix features
-  nix.settings.experimental-features = [ "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Kernel/initrd
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];

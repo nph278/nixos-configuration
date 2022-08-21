@@ -28,6 +28,9 @@ in
     (import "${home-manager}/nixos")
   ];
 
+  # Nix features
+  nix.settings.experimental-features = [ "flakes" ];
+
   # Kernel/initrd
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];

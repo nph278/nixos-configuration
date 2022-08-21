@@ -12,8 +12,9 @@
 { config, nixpkgs, home-manager, nixpkgs-unstable, lib, modulesPath, ... }:
 
 let
-  pkgs = nixpkgs;
-  unstablePkgs = nixpkgs-unstable;
+  system = "x86_64-linux";
+  pkgs = import nixpkgs { inherit system; };
+  unstablePkgs = import nixpkgs-unstable { inherit system; };
   theme = import ./theme.nix;
 in
 {

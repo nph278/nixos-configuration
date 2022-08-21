@@ -69,5 +69,7 @@ in
     # Games
     (import ./snake.nix { inherit rustPkgs; inherit pkgs; })
   ];
+
+  home.stateVersion = "21.11";
 }
 

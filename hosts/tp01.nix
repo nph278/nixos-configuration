@@ -9,17 +9,11 @@
 
 # configuration.nix(5) man page
 
-{ config, pkgs, lib, modulesPath, ... }:
+{ config, nixpkgs, home-manager, nixpkgs-unstable, lib, modulesPath, ... }:
 
 let
-  pkgs = import <nixpkgs> { };
-  unstablePkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz") { };
-  home-manager = pkgs.fetchFromGitHub {
-    owner = "nix-community";
-    repo = "home-manager";
-    rev = "4a3d01fb53f52ac83194081272795aa4612c2381";
-    sha256 = "3659e6e237905841a362b13a8718bfec76078c1499fc4d11b6309889f9cdb169";
-  };
+  pkgs = nixpkgs;
+  unstablePkgs = nixpkgs-unstable;
   theme = import ./theme.nix;
 in
 {

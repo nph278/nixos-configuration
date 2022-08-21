@@ -1,6 +1,5 @@
 # TODO:
 #
-# UUID
 # Updating with `nix flake update`
 # Filetypes
 # Fix telescope
@@ -35,8 +34,8 @@ in
   boot.extraModulePackages = [ ];
 
   # Decryption
-  boot.initrd.luks.devices."btrfs".device = "/dev/disk/by-label/btrfs-enc";
-  boot.initrd.luks.devices."swap".device = "/dev/disk/by-label/swap-enc";
+  boot.initrd.luks.devices."btrfs".device = "/dev/disk/by-uuid/4629fa43-42ee-4565-b0a1-5c728b8558b2";
+  boot.initrd.luks.devices."swap".device = "/dev/disk/by-uuid/5301d3fd-3816-4f1c-81be-fc5918d6a743";
 
   # Mount points
   fileSystems."/" = {
@@ -153,7 +152,7 @@ in
   # Fix swaylock
   security.pam.services.swaylock = { };
 
-  # Automatically start ssh
+  # Automatically start ssh + sway
   programs.bash.shellInit = ''
     if [[ $TERM == linux ]]; then
       eval "$(ssh-agent -s)"

@@ -54,6 +54,7 @@ in
     # Nix
     unstablePkgs.rnix-lsp
     unstablePkgs.statix
+    vulnix
 
     # Rust
     rustPkgs.rustc

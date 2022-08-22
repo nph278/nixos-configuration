@@ -89,11 +89,18 @@ in
     pulse.enable = true;
   };
 
+  # No mutation of users (no passwd usage)
+  users.mutableUsers = false;
+
   # Users
   users.users.carl = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    initialHashedPassword = "$6$.IqSS2l7qyItCIua$kOSNB5m6KOqBOJpL1ZkKymGfoAPZ5LEn9xj9R5xRxKjR9ZHCdxTQYfTBVqtA9o/d8YSC/HNP4vRlIsn3aHb6b1";
   };
+
+  # Root password
+  users.users.root.initialHashedPassword = "$6$.IqSS2l7qyItCIua$kOSNB5m6KOqBOJpL1ZkKymGfoAPZ5LEn9xj9R5xRxKjR9ZHCdxTQYfTBVqtA9o/d8YSC/HNP4vRlIsn3aHb6b1";
 
   # Global packages
   environment.systemPackages = with pkgs; [

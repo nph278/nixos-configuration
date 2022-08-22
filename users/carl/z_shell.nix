@@ -37,7 +37,7 @@ in
     snake = "snake-crossterm";
 
     # Nix
-    rebuild = "doas nixos-rebuild switch --flake 'path:///home/carl/Projects/nixos-configuration'";
+    rebuild = "su -c 'nixos-rebuild switch --flake path:///home/carl/Projects/nixos-configuration'";
     vulns = "vulnix --system | grep CVE- | cut -c 34-51";
 
     # Other
@@ -48,9 +48,10 @@ in
     lock = "${import ./swaylock.nix {inherit pkgs; }}";
     p = "cd ~/Projects/$(/usr/bin/env ls ~/Projects | grep -v '\\\.[^i]' | fzf)";
     # down = "(rebuild --upgrade && shutdown now) || lock";
-    garbage = "doas nix-collect-garbage -d";
+    garbage = "su -c 'nix-collect-garbage -d'";
     redo = "$(cat ~/.zsh_history | fzf)";
     cleannvim = "rm -rf ~/.local/share/nvim";
+    sudo = "su root -c";
   };
 
   initExtraFirst = ''

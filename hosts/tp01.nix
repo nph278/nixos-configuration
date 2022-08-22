@@ -21,8 +21,9 @@ in
     (import "${home-manager}/nixos")
   ];
 
-  # Nix features
+  # Nix settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.allowedUsers = [ "@wheel" ];
 
   # Kernel/initrd
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
@@ -134,19 +135,8 @@ in
     enable = true;
   };
 
-  # Doas
+  # Remove sudo
   security.sudo.enable = false;
-  security.doas = {
-    enable = true;
-    extraRules = [
-      {
-        groups = [ "wheel" ];
-        noPass = false;
-        keepEnv = true;
-        persist = true;
-      }
-    ];
-  };
 
   # Fix swaylock
   security.pam.services.swaylock = { };

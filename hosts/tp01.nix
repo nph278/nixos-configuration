@@ -10,12 +10,9 @@
 
 # configuration.nix(5) man page
 
-{ config, nixpkgs, home-manager, nixpkgs-unstable, lib, modulesPath, ... }:
+{ config, pkgs, unstablePkgs, home-manager, lib, modulesPath, ... }:
 
 let
-  system = "x86_64-linux";
-  pkgs = import nixpkgs { inherit system; };
-  unstablePkgs = import nixpkgs-unstable { inherit system; };
   theme = import ./theme.nix;
 in
 {
@@ -120,6 +117,8 @@ in
   hardware.opengl.enable = true;
 
   # Home Manager
+  home-manager.useGlobalPkgs = true;
+
   home-manager.users.carl = import ../users/carl/home.nix { inherit pkgs; inherit unstablePkgs; };
 
   # Fonts

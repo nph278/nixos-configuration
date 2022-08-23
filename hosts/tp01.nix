@@ -65,6 +65,19 @@ in
   networking.useDHCP = false;
   networking.interfaces.enp10s0.useDHCP = true;
 
+  # DNS
+  environment.etc."resolv.conf".source = pkgs.writeTextFile {
+    name = "resolv.conf";
+    text = ''
+      domain home
+      nameserver 1.1.1.1
+      nameserver 192.168.1.1
+      nameserver 2001:1998:f00:2::1
+      nameserver 2001:1998:f00:1::1
+      options edns0
+    '';
+  };
+
   # Locale
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";

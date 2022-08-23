@@ -138,8 +138,6 @@ in
   hardware.opengl.enable = true;
 
   # Home Manager
-  home-manager.useGlobalPkgs = true;
-
   home-manager.users.carl = import ../users/carl/home.nix { inherit pkgs; inherit unstablePkgs; };
 
   # Fonts

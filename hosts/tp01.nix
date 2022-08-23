@@ -120,6 +120,7 @@ in
     killall
     vim
     unzip
+    gcc
   ];
 
   # SUID wrapper support?

@@ -2,6 +2,7 @@
 
 let
   rustPkgs = unstablePkgs.rust.packages.stable;
+  cligames = import ./cligames.nix { inherit rustPkgs; inherit pkgs; };
 in
 {
   programs.zsh = import ./z_shell.nix { inherit pkgs; inherit rustPkgs; };
@@ -68,7 +69,8 @@ in
     # unstablePkgs.pkg-config
 
     # Games
-    (import ./snake.nix { inherit rustPkgs; inherit pkgs; })
+    cligames.snake
+    cligames.r2048
   ];
 
   home.stateVersion = "21.11";

@@ -121,6 +121,8 @@ in
     vim
     unzip
     gcc
+    cmake
+    gnumake
   ];
 
   # SUID wrapper support?

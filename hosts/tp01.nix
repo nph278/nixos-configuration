@@ -123,6 +123,9 @@ in
     gcc
     cmake
     gnumake
+    binutils
+    strace
+    ltrace
   ];
 
   # SUID wrapper support?

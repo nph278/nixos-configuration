@@ -126,6 +126,8 @@ in
     binutils
     strace
     ltrace
+    pkg-config
+    openssl
   ];
 
   # SUID wrapper support?

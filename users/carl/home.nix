@@ -64,10 +64,6 @@ in
     rustPkgs.rustfmt
     unstablePkgs.rust-analyzer
 
-    # Rust dyndeps
-    # unstablePkgs.openssl
-    # unstablePkgs.pkg-config
-
     # Games
     cligames.snake
     cligames.r2048

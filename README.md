@@ -5,7 +5,6 @@ My NixOS configuration
 
 - subvolumes
 - "components"
-- `fenix`
 - Filetypes
 - Fix telescope
 - Sway keybinds

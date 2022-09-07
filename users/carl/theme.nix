@@ -22,6 +22,4 @@
   #   cyan = "#8fbcbb";
   #   white = "#eceff4";
   # }
-
-  font = "Victor Mono Nerd Font";
 }

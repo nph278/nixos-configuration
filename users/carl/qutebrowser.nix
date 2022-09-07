@@ -2,7 +2,7 @@
 
 let
   theme = import ./theme.nix;
-  font = "10pt ${theme.font}";
+  font = "10pt Victor Mono Nerd Font";
 
   # Add theme colors for user stylesheet
   fullStylesheet = pkgs.writeTextFile
@@ -199,7 +199,7 @@ with theme.colors; {
       web.family = {
         cursive = "Noto";
         fantasy = "Noto";
-        fixed = "courier";
+        fixed = "Scientifica";
         sans_serif = "Noto";
         serif = "Noto";
         standard = "Noto";

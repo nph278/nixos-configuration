@@ -1,5 +1,6 @@
 let
   theme = import ./theme.nix;
+  font = "Scientifica";
 in
 with theme.colors; {
   enable = true;
@@ -17,23 +18,23 @@ with theme.colors; {
 
     font = {
       normal = {
-        family = theme.font;
+        family = font;
         style = "regular";
       };
       bold = {
-        family = theme.font;
+        family = font;
         style = "bold";
       };
       italic = {
-        family = theme.font;
+        family = font;
         style = "italic";
       };
       bold_italic = {
-        family = theme.font;
+        family = font;
         style = "bold italic";
       };
 
-      size = 11;
+      size = 14;
     };
 
     colors = {

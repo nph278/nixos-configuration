@@ -130,6 +130,14 @@ in
     openssl
   ];
 
+  # Environment variables
+  environment.variables = {
+    EDITOR = "vim";
+    VISUAl = "vim";
+    OPENSSL_DIR = "${pkgs.openssl.dev}";
+    OPENSSL_LIB_DIR = "${pkgs.openssl.out}/lib";
+  };
+
   # SUID wrapper support?
   programs.mtr.enable = true;
   programs.gnupg.agent = {
@@ -150,11 +158,13 @@ in
 
   # Fonts
   fonts.fonts = with pkgs; [
+    scientifica
     (nerdfonts.override { fonts = [ "VictorMono" ]; })
     noto-fonts
     noto-fonts-emoji
     noto-fonts-cjk
   ];
+  fonts.fontconfig.allowBitmaps = true;
 
   # Apparmor
   security.apparmor = {

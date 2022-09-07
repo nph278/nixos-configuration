@@ -3,7 +3,8 @@
 let
   theme = import ./theme.nix;
   swayFont = {
-    names = [ theme.font ];
+    names = [ "Scientifica" ];
+    size = 12.0;
   };
 
   term = "alacritty";
@@ -31,7 +32,7 @@ with theme.colors; {
 
     bars = [{
       fonts = swayFont;
-      statusCommand = "while date +'%D -> %r       '; do sleep 1; done";
+      statusCommand = "while date +'%D %r'; do sleep 1; done";
       position = "top";
       colors = {
         statusline = white;

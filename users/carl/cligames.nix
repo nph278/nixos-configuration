@@ -1,10 +1,9 @@
 { pkgs, fenix, system, ... }:
 
 let
-  rustPlatform =
-    (pkgs.makeRustPlatform {
-      inherit (fenix.packages.${system}.stable) cargo rustc;
-    });
+  rustPlatform = pkgs.makeRustPlatform {
+    inherit (fenix.packages.${system}.stable) cargo rustc;
+  };
 in
 {
   home.packages = [

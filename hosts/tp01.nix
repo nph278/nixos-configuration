@@ -154,17 +154,7 @@ in
   hardware.opengl.enable = true;
 
   # Home Manager
-  home-manager.users.carl = import ../users/carl/home.nix { inherit pkgs; inherit unstablePkgs; };
-
-  # Fonts
-  fonts.fonts = with pkgs; [
-    scientifica
-    (nerdfonts.override { fonts = [ "VictorMono" ]; })
-    noto-fonts
-    noto-fonts-emoji
-    noto-fonts-cjk
-  ];
-  fonts.fontconfig.allowBitmaps = true;
+  home-manager.users.carl = import ../users/carl/home.nix { inherit pkgs; inherit unstablePkgs; inherit lib; };
 
   # Apparmor
   security.apparmor = {
@@ -176,6 +166,9 @@ in
 
   # Fix swaylock
   security.pam.services.swaylock = { };
+
+  # Bitmap fonts
+  fonts.fontconfig.allowBitmaps = true;
 
   # Automatically start ssh + sway
   programs.bash.shellInit = ''

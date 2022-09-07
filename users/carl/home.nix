@@ -1,4 +1,4 @@
-{ pkgs, unstablePkgs }:
+{ pkgs, unstablePkgs, lib }:
 
 let
   rustPkgs = unstablePkgs.rust.packages.stable;
@@ -67,7 +67,17 @@ in
     # Games
     cligames.snake
     cligames.r2048
+
+    # Fonts
+    scientifica
+    (nerdfonts.override { fonts = [ "VictorMono" ]; })
+    noto-fonts
+    noto-fonts-emoji
+    noto-fonts-cjk
   ];
+
+  # Enable fonts
+  fonts.fontconfig.enable = lib.mkForce true;
 
   home.stateVersion = "21.11";
 }

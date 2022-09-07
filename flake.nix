@@ -9,9 +9,14 @@
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, fenix, ... }:
     {
       nixosConfigurations.tp01 =
         let
@@ -21,7 +26,7 @@
         in
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit pkgs unstablePkgs home-manager; };
+          specialArgs = { inherit pkgs unstablePkgs home-manager fenix; };
           modules = [ ./hosts/tp01.nix ./hosts/shared.nix ];
         };
     };

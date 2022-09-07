@@ -37,6 +37,7 @@
   # Fix issues
   hardware.opengl.enable = true;
   xdg.portal.wlr.enable = true;
+  security.pam.services.swaylock = { };
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -68,4 +69,7 @@
     ];
   };
   nix.allowedUsers = [ "@wheel" ];
+
+  # Don't update, compatibility version
+  system.stateVersion = "21.11";
 }

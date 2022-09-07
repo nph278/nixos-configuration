@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 
 let
   theme = import ./theme.nix;
@@ -25,218 +25,220 @@ let
     };
 in
 with theme.colors; {
-  enable = true;
-  settings = {
-    colors = {
-      webpage.preferred_color_scheme = "dark";
+  programs.qutebrowser = {
+    enable = true;
+    settings = {
+      colors = {
+        webpage.preferred_color_scheme = "dark";
 
-      hints = {
-        bg = yellow;
-        fg = black;
-        match.fg = red;
-      };
-
-      completion = {
-        even.bg = black;
-        odd.bg = black;
-        fg = white;
-        match.fg = green;
-
-        item.selected = {
-          bg = blue;
-          fg = black;
-          border.top = blue;
-          border.bottom = blue;
-          match.fg = black;
-        };
-
-        scrollbar.bg = black;
-        scrollbar.fg = white;
-
-        category = {
-          bg = black;
-          fg = red;
-          border.top = black;
-          border.bottom = black;
-        };
-      };
-
-      downloads = {
-        bar.bg = black;
-        error.bg = red;
-        error.fg = black;
-        start.bg = blue;
-        start.fg = black;
-        stop.bg = green;
-        stop.fg = black;
-      };
-
-      messages = {
-        error = {
-          bg = red;
-          fg = black;
-          border = red;
-        };
-
-        warning = {
+        hints = {
           bg = yellow;
           fg = black;
-          border = yellow;
+          match.fg = red;
         };
 
-        info = {
+        completion = {
+          even.bg = black;
+          odd.bg = black;
+          fg = white;
+          match.fg = green;
+
+          item.selected = {
+            bg = blue;
+            fg = black;
+            border.top = blue;
+            border.bottom = blue;
+            match.fg = black;
+          };
+
+          scrollbar.bg = black;
+          scrollbar.fg = white;
+
+          category = {
+            bg = black;
+            fg = red;
+            border.top = black;
+            border.bottom = black;
+          };
+        };
+
+        downloads = {
+          bar.bg = black;
+          error.bg = red;
+          error.fg = black;
+          start.bg = blue;
+          start.fg = black;
+          stop.bg = green;
+          stop.fg = black;
+        };
+
+        messages = {
+          error = {
+            bg = red;
+            fg = black;
+            border = red;
+          };
+
+          warning = {
+            bg = yellow;
+            fg = black;
+            border = yellow;
+          };
+
+          info = {
+            bg = blue;
+            fg = black;
+            border = blue;
+          };
+        };
+
+        prompts = {
           bg = blue;
           fg = black;
           border = blue;
-        };
-      };
-
-      prompts = {
-        bg = blue;
-        fg = black;
-        border = blue;
-        selected.bg = blue;
-        selected.fg = white;
-      };
-
-      statusbar = {
-        caret = {
-          bg = magenta;
-          fg = black;
-          selection.bg = magenta;
-          selection.fg = black;
+          selected.bg = blue;
+          selected.fg = white;
         };
 
-        command = {
-          bg = black;
-          fg = white;
-          private.bg = black;
-          private.fg = white;
+        statusbar = {
+          caret = {
+            bg = magenta;
+            fg = black;
+            selection.bg = magenta;
+            selection.fg = black;
+          };
+
+          command = {
+            bg = black;
+            fg = white;
+            private.bg = black;
+            private.fg = white;
+          };
+
+          insert = {
+            bg = green;
+            fg = black;
+          };
+
+          normal = {
+            bg = black;
+            fg = white;
+          };
+
+          passthrough = {
+            bg = blue;
+            fg = black;
+          };
+
+          private = {
+            bg = red;
+            fg = black;
+          };
+
+          progress.bg = white;
+
+          url = {
+            fg = white;
+            hover.fg = blue;
+            error.fg = red;
+            warn.fg = yellow;
+            success.http.fg = yellow;
+            success.https.fg = green;
+          };
         };
 
-        insert = {
-          bg = green;
-          fg = black;
-        };
+        tabs = {
+          bar.bg = black;
 
-        normal = {
-          bg = black;
-          fg = white;
-        };
-
-        passthrough = {
-          bg = blue;
-          fg = black;
-        };
-
-        private = {
-          bg = red;
-          fg = black;
-        };
-
-        progress.bg = white;
-
-        url = {
-          fg = white;
-          hover.fg = blue;
-          error.fg = red;
-          warn.fg = yellow;
-          success.http.fg = yellow;
-          success.https.fg = green;
-        };
-      };
-
-      tabs = {
-        bar.bg = black;
-
-        even.bg = black;
-        odd.bg = black;
-        even.fg = white;
-        odd.fg = white;
-
-        indicator = {
-          error = red;
-          start = blue;
-          stop = green;
-        };
-
-        selected = {
-          even.bg = blue;
-          odd.bg = blue;
-          even.fg = black;
-          odd.fg = black;
-        };
-
-        pinned = {
           even.bg = black;
           odd.bg = black;
           even.fg = white;
           odd.fg = white;
+
+          indicator = {
+            error = red;
+            start = blue;
+            stop = green;
+          };
+
           selected = {
             even.bg = blue;
             odd.bg = blue;
             even.fg = black;
             odd.fg = black;
           };
+
+          pinned = {
+            even.bg = black;
+            odd.bg = black;
+            even.fg = white;
+            odd.fg = white;
+            selected = {
+              even.bg = blue;
+              odd.bg = blue;
+              even.fg = black;
+              odd.fg = black;
+            };
+          };
         };
       };
-    };
 
-    fonts = {
-      completion.category = font;
-      completion.entry = font;
-      downloads = font;
-      hints = font;
-      keyhint = font;
-      messages.error = font;
-      messages.info = font;
-      messages.warning = font;
-      prompts = font;
-      statusbar = font;
-      tabs.selected = font;
-      tabs.unselected = font;
+      fonts = {
+        completion.category = font;
+        completion.entry = font;
+        downloads = font;
+        hints = font;
+        keyhint = font;
+        messages.error = font;
+        messages.info = font;
+        messages.warning = font;
+        prompts = font;
+        statusbar = font;
+        tabs.selected = font;
+        tabs.unselected = font;
 
-      web.family = {
-        cursive = "Noto";
-        fantasy = "Noto";
-        fixed = "Scientifica";
-        sans_serif = "Noto";
-        serif = "Noto";
-        standard = "Noto";
+        web.family = {
+          cursive = "Noto";
+          fantasy = "Noto";
+          fixed = "Scientifica";
+          sans_serif = "Noto";
+          serif = "Noto";
+          standard = "Noto";
+        };
+      };
+
+      fileselect = {
+        handler = "external";
+        single_file.command = [ " alacritty " " - e " " ranger " " - -choosefile={}" ];
+        multiple_files.command = [ "alacritty" "-e" "ranger" "--choosefile={}" ];
+        folder.command = [ "alacritty" "-e" "ranger" "--choosedir={}" ];
+      };
+
+      auto_save.session = true;
+      downloads.location.directory = "~/Downloads";
+      hints.chars = "qwertyuiopasdfghjklzxcvbnm";
+      editor.command = [ "alacritty" "-e" "vim" "{file}" ];
+
+      content = {
+        user_stylesheets = "${fullStylesheet}";
       };
     };
 
-    fileselect = {
-      handler = "external";
-      single_file.command = [ " alacritty " " - e " " ranger " " - -choosefile={}" ];
-      multiple_files.command = [ "alacritty" "-e" "ranger" "--choosefile={}" ];
-      folder.command = [ "alacritty" "-e" "ranger" "--choosedir={}" ];
+    quickmarks = {
+      r = "reddit.com";
+      ra = "reddit.com/r/all";
+      yt = "youtube.com";
+      gh = "github.com";
+      pm = "protonmail.com";
+      yc = "news.ycombinator.com";
+      wk = "en.wikipedia.org";
     };
 
-    auto_save.session = true;
-    downloads.location.directory = "~/Downloads";
-    hints.chars = "qwertyuiopasdfghjklzxcvbnm";
-    editor.command = [ "alacritty" "-e" "vim" "{file}" ];
-
-    content = {
-      user_stylesheets = "${fullStylesheet}";
+    keyBindings.normal = {
+      eu = "edit-url";
+      et = "edit-text";
+      wk = "jseval document.querySelector('head').innerHTML += '<style>* {background-color: ${black} !important; color: ${white} !important; border-color: ${white} !important; font-family: monospace !important;} a { color: ${blue} !important;}</style>'";
     };
-  };
-
-  quickmarks = {
-    r = "reddit.com";
-    ra = "reddit.com/r/all";
-    yt = "youtube.com";
-    gh = "github.com";
-    pm = "protonmail.com";
-    yc = "news.ycombinator.com";
-    wk = "en.wikipedia.org";
-  };
-
-  keyBindings.normal = {
-    eu = "edit-url";
-    et = "edit-text";
-    wk = "jseval document.querySelector('head').innerHTML += '<style>* {background-color: ${black} !important; color: ${white} !important; border-color: ${white} !important; font-family: monospace !important;} a { color: ${blue} !important;}</style>'";
   };
 }
 

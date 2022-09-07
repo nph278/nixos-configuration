@@ -1,13 +1,12 @@
 # configuration.nix(5) man page
 
-{ config, pkgs, unstablePkgs, home-manager, lib, modulesPath, ... }:
+{ config, pkgs, unstablePkgs, home-manager, lib, modulesPath, fenix, ... }:
 
 let
   theme = import ./theme.nix;
 in
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
     (import "${home-manager}/nixos")
   ];
 
@@ -36,6 +35,7 @@ in
   swapDevices = [{ device = "/dev/mapper/swap"; }];
 
   # Microcode
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   # high-resolution display
@@ -88,7 +88,14 @@ in
   networking.firewall.allowedUDPPorts = [ ];
 
   # Home Manager
-  home-manager.users.carl = import ../users/carl/home.nix { inherit pkgs; inherit unstablePkgs; inherit lib; };
+  home-manager.users.carl = {
+    imports = [ ../users/carl/home.nix ];
+    config._module.args = {
+      inherit unstablePkgs fenix;
+      pkgs = lib.mkForce pkgs;
+      system = "x86_64-linux";
+    };
+  };
 
   # Apparmor
   security.apparmor = {
@@ -97,10 +104,4 @@ in
 
   # Remove sudo
   security.sudo.enable = false;
-
-  # Fix swaylock
-  security.pam.services.swaylock = { };
-
-  # config version, I guess don't update!??
-  system.stateVersion = "21.11";
 }

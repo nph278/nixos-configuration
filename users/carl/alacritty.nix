@@ -3,67 +3,69 @@ let
   font = "Scientifica";
 in
 with theme.colors; {
-  enable = true;
-  settings = {
-    env = {
-      THEME_BLACK = black;
-      THEME_RED = red;
-      THEME_GREEN = green;
-      THEME_YELLOW = yellow;
-      THEME_BLUE = blue;
-      THEME_MAGENTA = magenta;
-      THEME_CYAN = cyan;
-      THEME_WHITE = white;
-    };
-
-    font = {
-      normal = {
-        family = font;
-        style = "regular";
-      };
-      bold = {
-        family = font;
-        style = "bold";
-      };
-      italic = {
-        family = font;
-        style = "italic";
-      };
-      bold_italic = {
-        family = font;
-        style = "bold italic";
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      env = {
+        THEME_BLACK = black;
+        THEME_RED = red;
+        THEME_GREEN = green;
+        THEME_YELLOW = yellow;
+        THEME_BLUE = blue;
+        THEME_MAGENTA = magenta;
+        THEME_CYAN = cyan;
+        THEME_WHITE = white;
       };
 
-      size = 14;
-    };
+      font = {
+        normal = {
+          family = font;
+          style = "regular";
+        };
+        bold = {
+          family = font;
+          style = "bold";
+        };
+        italic = {
+          family = font;
+          style = "italic";
+        };
+        bold_italic = {
+          family = font;
+          style = "bold italic";
+        };
 
-    colors = {
-      primary = {
-        background = black;
-        foreground = white;
+        size = 14;
       };
 
-      cursor = {
-        text = "CellBackground";
-        cursor = blue;
+      colors = {
+        primary = {
+          background = black;
+          foreground = white;
+        };
+
+        cursor = {
+          text = "CellBackground";
+          cursor = blue;
+        };
+
+        selection = {
+          text = "CellBackground";
+          background = black;
+        };
+
+        normal = {
+          inherit black red green yellow blue magenta cyan white;
+        };
       };
 
-      selection = {
-        text = "CellBackground";
-        background = black;
+      shell = {
+        program = "zsh";
       };
 
-      normal = {
-        inherit black red green yellow blue magenta cyan white;
+      window = {
+        background_opacity = 0.5;
       };
-    };
-
-    shell = {
-      program = "zsh";
-    };
-
-    window = {
-      background_opacity = 0.5;
     };
   };
 }

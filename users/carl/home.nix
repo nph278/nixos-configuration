@@ -1,15 +1,17 @@
-{ pkgs, unstablePkgs, lib }:
+{ pkgs, unstablePkgs, lib, fenix, system, ... }:
 
 let
-  rustPkgs = unstablePkgs.rust.packages.stable;
-  cligames = import ./cligames.nix { inherit rustPkgs; inherit pkgs; };
+  rustToolchain = fenix.packages.${system}.stable;
 in
 {
-  programs.zsh = import ./z_shell.nix { inherit pkgs; inherit rustPkgs; };
-  programs.neovim = import ./nvim.nix { inherit unstablePkgs; };
-  programs.qutebrowser = import ./qutebrowser.nix { inherit pkgs; };
-  programs.alacritty = import ./alacritty.nix;
-  wayland.windowManager.sway = import ./sway.nix { inherit pkgs; };
+  imports = [
+    ./z_shell.nix
+    ./nvim.nix
+    ./qutebrowser.nix
+    ./alacritty.nix
+    ./cligames.nix
+    ./sway.nix
+  ];
 
   # Git config
   programs.git = {
@@ -67,15 +69,12 @@ in
     vulnix
 
     # Rust
-    rustPkgs.rustc
-    rustPkgs.cargo
-    rustPkgs.clippy
-    rustPkgs.rustfmt
+    rustToolchain.rustc
+    rustToolchain.cargo
+    rustToolchain.clippy
+    rustToolchain.rustfmt
+    rustToolchain.rust-src
     unstablePkgs.rust-analyzer
-
-    # Games
-    cligames.snake
-    cligames.r2048
 
     # Fonts
     scientifica

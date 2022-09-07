@@ -11,17 +11,13 @@ in
     (import "${home-manager}/nixos")
   ];
 
-  # Nix settings
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.allowedUsers = [ "@wheel" ];
-
   # Kernel/initrd
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  # Decryption
+  # LUKS
   boot.initrd.luks.devices."btrfs".device = "/dev/disk/by-uuid/4629fa43-42ee-4565-b0a1-5c728b8558b2";
   boot.initrd.luks.devices."swap".device = "/dev/disk/by-uuid/5301d3fd-3816-4f1c-81be-fc5918d6a743";
 
@@ -45,28 +41,10 @@ in
   # high-resolution display
   hardware.video.hidpi.enable = lib.mkDefault true;
 
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.editor = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # Network
   networking.hostName = "tp01";
   networking.useDHCP = false;
   networking.interfaces.enp10s0.useDHCP = true;
-
-  # DNS
-  environment.etc."resolv.conf".source = pkgs.writeTextFile {
-    name = "resolv.conf";
-    text = ''
-      domain home
-      nameserver 1.1.1.1
-      nameserver 192.168.1.1
-      nameserver 2001:1998:f00:2::1
-      nameserver 2001:1998:f00:1::1
-      options edns0
-    '';
-  };
 
   # Locale
   time.timeZone = "America/New_York";
@@ -77,11 +55,10 @@ in
   };
 
   # Printing
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Flatpak
   services.flatpak.enable = true;
-  xdg.portal.wlr.enable = true;
 
   # Pipewire
   security.rtkit.enable = true;
@@ -105,43 +82,10 @@ in
   # Root password
   users.users.root.initialHashedPassword = "$6$.IqSS2l7qyItCIua$kOSNB5m6KOqBOJpL1ZkKymGfoAPZ5LEn9xj9R5xRxKjR9ZHCdxTQYfTBVqtA9o/d8YSC/HNP4vRlIsn3aHb6b1";
 
-  # Global packages
-  environment.systemPackages = with pkgs; [
-    killall
-    vim
-    unzip
-    gcc
-    cmake
-    gnumake
-    binutils
-    strace
-    ltrace
-    pkg-config
-    openssl
-  ];
-
-  # Environment variables
-  environment.variables = {
-    EDITOR = "vim";
-    VISUAl = "vim";
-    OPENSSL_DIR = "${pkgs.openssl.dev}";
-    OPENSSL_LIB_DIR = "${pkgs.openssl.out}/lib";
-  };
-
-  # SUID wrapper support?
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   # Firewall
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [ ];
   networking.firewall.allowedUDPPorts = [ ];
-
-  # Opengl broken
-  hardware.opengl.enable = true;
 
   # Home Manager
   home-manager.users.carl = import ../users/carl/home.nix { inherit pkgs; inherit unstablePkgs; inherit lib; };
@@ -157,17 +101,6 @@ in
   # Fix swaylock
   security.pam.services.swaylock = { };
 
-  # Bitmap fonts
-  fonts.fontconfig.allowBitmaps = true;
-
-  # Automatically start ssh + sway
-  programs.bash.shellInit = ''
-    if [[ $TERM == linux ]]; then
-      eval "$(ssh-agent -s)"
-      sway
-    fi
-  '';
-
-  # Version, I guess don't update!??
+  # config version, I guess don't update!??
   system.stateVersion = "21.11";
 }

@@ -22,7 +22,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit pkgs unstablePkgs home-manager; };
-          modules = [ ./hosts/tp01.nix ];
+          modules = [ ./hosts/tp01.nix ./hosts/shared.nix ];
         };
     };
 }

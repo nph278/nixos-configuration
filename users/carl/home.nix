@@ -11,11 +11,20 @@ in
   programs.alacritty = import ./alacritty.nix;
   wayland.windowManager.sway = import ./sway.nix { inherit pkgs; };
 
+  # Git config
   programs.git = {
     enable = true;
     userEmail = "carllegrone@protonmail.com";
     userName = "nph278";
   };
+
+  # Automatically start ssh + sway
+  programs.bash.initExtra = ''
+    if [[ $TERM == linux ]]; then
+      eval "$(ssh-agent -s)"
+      sway
+    fi
+  '';
 
   home.packages = with pkgs; [
     # Admin

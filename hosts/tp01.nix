@@ -1,13 +1,3 @@
-# TODO:
-#
-# Updating with `nix flake update`
-# Filetypes
-# Fix telescope
-# Sway keybinds
-# Better swaylock config format
-# Correct lua importing
-#
-
 # configuration.nix(5) man page
 
 { config, pkgs, unstablePkgs, home-manager, lib, modulesPath, ... }:

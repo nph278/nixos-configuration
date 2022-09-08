@@ -17,7 +17,16 @@
       # nvim-tree-lua
 
       # Treesitter
-      nvim-treesitter
+      (nvim-treesitter.withPlugins (plugins: with plugins; [
+        tree-sitter-rust
+        tree-sitter-lua
+        tree-sitter-toml
+        tree-sitter-python
+        tree-sitter-nix
+        tree-sitter-markdown
+        tree-sitter-bash
+        tree-sitter-css
+      ]))
       # nvim-treesitter-textobjects
       # playground
 

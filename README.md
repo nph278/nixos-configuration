@@ -3,6 +3,7 @@ My NixOS configuration
 
 ## TODO
 
+- nix-shell -p
 - subvolumes
 - "components"
 - Filetypes

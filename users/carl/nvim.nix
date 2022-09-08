@@ -59,6 +59,7 @@
       luafile ${./lua/treesitter.lua}
       luafile ${./lua/comment.lua}
       luafile ${./lua/keybinds.lua}
+      luafile ${./lua/filetype.lua}
       " luafile ${./lua/filetree.lua}
       " luafile ${./lua/telescope.lua}
     '';

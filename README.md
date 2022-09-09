@@ -3,7 +3,6 @@ My NixOS configuration
 
 ## TODO
 
-- ssh-agent
 - subvolumes
 - "components"
 - Fix telescope

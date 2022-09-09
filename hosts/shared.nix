@@ -26,10 +26,6 @@
 
   # SUID wrapper support?
   programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
 
   # Bitmap fonts
   fonts.fontconfig.allowBitmaps = true;
@@ -79,6 +75,9 @@
 
   # Nix-path
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
+  # SSH
+  programs.ssh.startAgent = true;
 
   # Don't update, compatibility version
   system.stateVersion = "21.11";

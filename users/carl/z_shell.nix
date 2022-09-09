@@ -51,7 +51,7 @@ in
       rm = "trash";
       dev = "toolbox run -c dev zsh";
       ssh-setup = "killall ssh-agent; kee && eval \"$(ssh-agent -s)\" && wl-paste | ssh-add ~/.ssh/id_ed25519 && wl-copy ''";
-      lock = "${import ./swaylock.nix {inherit pkgs; }}";
+      lock = "${pkgs.swaylock}/bin/swaylock -f";
       p = "cd ~/Projects/$(/usr/bin/env ls ~/Projects | grep -v '\\\.[^i]' | fzf)";
       # down = "(rebuild --upgrade && shutdown now) || lock";
       garbage = "su -c 'nix-collect-garbage -d'";

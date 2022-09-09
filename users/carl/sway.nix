@@ -8,7 +8,6 @@ let
   };
 
   term = "alacritty";
-  lock = "${import ./swaylock.nix {inherit pkgs; }}";
 in
 with theme.colors; {
   wayland.windowManager.sway = {
@@ -107,15 +106,15 @@ with theme.colors; {
         "Control+q" = "exec ${pkgs.qutebrowser}/bin/qutebrowser";
         "Mod4+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save screen ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
         "Mod4+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save area ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
-        "Mod4+Control+l" = "exec ${lock}"; # Why
+        "Mod4+Control+l" = "${pkgs.swaylock}/bin/swaylock -f";
       };
     };
     extraConfig = ''
       seat seat0 xcursor_theme capitaine-cursors 24
       exec swayidle -w \
-        timeout 300 '${lock} ' \
+        timeout 300 '${pkgs.swaylock}/bin/swaylock -f' \
         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-        before-sleep '${lock}'
+        before-sleep '${pkgs.swaylock}/bin/swaylock -f'
     '';
   };
 }

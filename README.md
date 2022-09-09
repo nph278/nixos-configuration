@@ -3,13 +3,13 @@ My NixOS configuration
 
 ## TODO
 
+- Don't download source every rebuild
 - nix-shell -p
 - subvolumes
 - "components"
 - Filetypes
 - Fix telescope
 - Sway keybinds
-- Better swaylock config format
 - Correct lua importing
 - tmpfs
 

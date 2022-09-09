@@ -11,6 +11,7 @@ in
     ./alacritty.nix
     ./cligames.nix
     ./sway.nix
+    ./swaylock.nix
   ];
 
   # Git config

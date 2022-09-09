@@ -5,7 +5,7 @@ let
 in
 {
   imports = [
-    ./z_shell.nix
+    ./zsh
     ./nvim.nix
     ./qutebrowser.nix
     ./alacritty.nix

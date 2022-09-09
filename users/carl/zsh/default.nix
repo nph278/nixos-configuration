@@ -1,7 +1,7 @@
 { pkgs, system, fenix, ... }:
 
 let
-  theme = import ./theme.nix;
+  theme = import ../theme.nix;
   # rustPlatform =
   #   (pkgs.makeRustPlatform {
   #     inherit (fenix.packages.${system}.stable) rust-src rustc cargo;
@@ -60,36 +60,7 @@ in
       sudo = "su root -c";
     };
 
-    initExtraFirst = ''
-      fl() {
-        flatpak run $1 &> /dev/null & disown
-      }
-
-      zle -N zle-keymap-select
-      echo -ne '\e[5 q'
-
-      function prompt-command {
-        printf "$(pwd) $"
-      }
-    '';
-
-    initExtra = ''
-      precmd() {zle-keymap-select}
-
-      pfetch
-
-      function zle-keymap-select {
-        if [[ ''${KEYMAP} == vicmd ]] ||
-           [[ $1 = 'block' ]]; then
-          echo -ne '\e[1 q'
-        elif [[ ''${KEYMAP} == main ]] ||
-             [[ ''${KEYMAP} == viins ]] ||
-             [[ ''${KEYMAP} = ''' ]] ||
-             [[ $1 = 'beam' ]]; then
-          echo -ne '\e[5 q'
-        fi
-      }
-    '';
+    initExtra = builtins.readFile ./extra.zsh;
 
     localVariables = {
       PROMPT = "%~ $ ";

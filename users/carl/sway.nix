@@ -106,7 +106,7 @@ with theme.colors; {
         "Control+q" = "exec ${pkgs.qutebrowser}/bin/qutebrowser";
         "Mod4+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save screen ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
         "Mod4+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save area ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
-        "Mod4+Control+l" = "${pkgs.swaylock}/bin/swaylock -f";
+        "Mod4+Control+l" = "exec ${pkgs.swaylock}/bin/swaylock -f";
       };
     };
     extraConfig = ''

@@ -7,7 +7,6 @@ My NixOS configuration
 - subvolumes
 - "components"
 - Fix telescope
-- Sway keybinds
 - Correct lua importing
 - tmpfs
 

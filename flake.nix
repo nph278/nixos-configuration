@@ -16,7 +16,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, fenix, ... }:
+  outputs = inputs@{ nixpkgs, nixpkgs-unstable, home-manager, fenix, ... }:
     {
       nixosConfigurations.tp01 =
         let
@@ -26,7 +26,7 @@
         in
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit pkgs unstablePkgs home-manager fenix; };
+          specialArgs = { inherit pkgs unstablePkgs home-manager fenix inputs; };
           modules = [ ./hosts/tp01.nix ./hosts/shared.nix ];
         };
     };

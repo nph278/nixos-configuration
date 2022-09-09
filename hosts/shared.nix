@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # Global packages
@@ -76,6 +76,9 @@
 
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "daily" ];
+
+  # Nix-path
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   # Don't update, compatibility version
   system.stateVersion = "21.11";

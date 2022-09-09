@@ -37,5 +37,20 @@ in
         cargoSha256 = "sha256-ANY54FlG18Tr+H1/ResV9J4b8myBBcRA6vk3Ll2DSZM=";
         verifyCargoDeps = true;
       })
+    (rustPlatform.buildRustPackage
+      {
+        pname = "oblique-strategies-cli";
+        version = "0.1.0";
+
+        src = pkgs.fetchFromGitHub {
+          owner = "nph278";
+          repo = "oblique-strategies-cli";
+          rev = "6e7e07b2c2267b137612d062819c40e3e44e2839";
+          sha256 = "84b6ce5e280510c9a22deed8e393a51555ac67d0d2738fae5574b527c8e6c5b6";
+        };
+
+        cargoSha256 = "sha256-csxJF17Q/YL7kgPxExa8+FNiF4hVISJ5+6vtGyS3CdU=";
+        verifyCargoDeps = true;
+      })
   ];
 }

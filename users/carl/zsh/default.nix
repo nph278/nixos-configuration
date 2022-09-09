@@ -41,6 +41,7 @@ in
       gimp = "fl org.gimp.GIMP";
       snake = "snake-crossterm";
       "2048" = "r2048";
+      strat = "oblique-strategies | cowsay";
 
       # Nix
       rebuild = "su -c 'nixos-rebuild switch --flake path:///home/carl/Projects/nixos-configuration'";

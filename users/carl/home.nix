@@ -77,6 +77,11 @@ in
     rustToolchain.rust-src
     unstablePkgs.rust-analyzer
 
+    # funny stuff
+    cowsay
+    fortune
+    figlet
+
     # Fonts
     scientifica
     (nerdfonts.override { fonts = [ "VictorMono" ]; })

@@ -70,9 +70,12 @@
   };
   nix.allowedUsers = [ "@wheel" ];
 
-  # GC
+  # GC / optimise
   nix.gc.automatic = true;
-  nix.gc.dates = "48hr";
+  nix.gc.dates = "daily";
+
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "daily" ];
 
   # Don't update, compatibility version
   system.stateVersion = "21.11";

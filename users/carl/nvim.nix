@@ -26,6 +26,11 @@
         tree-sitter-markdown
         tree-sitter-bash
         tree-sitter-css
+        tree-sitter-c
+        tree-sitter-cpp
+        tree-sitter-html
+        tree-sitter-json
+        tree-sitter-vim
       ]))
       # nvim-treesitter-textobjects
       # playground

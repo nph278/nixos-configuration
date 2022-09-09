@@ -15,6 +15,7 @@ with theme.colors; {
         THEME_MAGENTA = magenta;
         THEME_CYAN = cyan;
         THEME_WHITE = white;
+        THEME_GRAY = gray;
       };
 
       font = {
@@ -56,6 +57,10 @@ with theme.colors; {
 
         normal = {
           inherit black red green yellow blue magenta cyan white;
+        };
+
+        bright = {
+          black = gray;
         };
       };
 

@@ -46,6 +46,7 @@ in
       # Nix
       rebuild = "su -c 'nixos-rebuild switch --flake path:///home/carl/Projects/nixos-configuration'";
       vulns = "vulnix --system | grep CVE- | cut -c 34-51";
+      withpkgs = "nix-shell --command zsh -p";
 
       # Other
       db = "gdb -tui";

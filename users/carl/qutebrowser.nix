@@ -8,7 +8,7 @@ let
   fullStylesheet = pkgs.writeTextFile
     {
       name = "fullStylesheet.css";
-      text = with theme.colors; ''
+      text = with theme.colors.normal; ''
         :root {
           --black: ${black};
           --red: ${red};
@@ -24,7 +24,7 @@ let
       '';
     };
 in
-with theme.colors; {
+with theme.colors.normal; {
   programs.qutebrowser = {
     enable = true;
     settings = {

@@ -32,6 +32,7 @@ My NixOS configuration / flake
 
 ## TODO
 
+- More colors :)
 - subvolumes
 - "components"
 - Fix telescope

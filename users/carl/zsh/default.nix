@@ -1,12 +1,5 @@
 { pkgs, system, fenix, ... }:
 
-let
-  theme = import ../theme.nix;
-  # rustPlatform =
-  #   (pkgs.makeRustPlatform {
-  #     inherit (fenix.packages.${system}.stable) rust-src rustc cargo;
-  #   });
-in
 {
   programs.zsh = {
     enable = true;
@@ -66,7 +59,6 @@ in
 
     localVariables = {
       PROMPT = "%~ $ ";
-      # RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
     };
   };
 }

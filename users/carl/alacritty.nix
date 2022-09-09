@@ -2,20 +2,35 @@ let
   theme = import ./theme.nix;
   font = "Scientifica";
 in
-with theme.colors; {
+{
   programs.alacritty = {
     enable = true;
     settings = {
-      env = {
-        THEME_BLACK = black;
-        THEME_RED = red;
-        THEME_GREEN = green;
-        THEME_YELLOW = yellow;
-        THEME_BLUE = blue;
-        THEME_MAGENTA = magenta;
-        THEME_CYAN = cyan;
-        THEME_WHITE = white;
-        THEME_GRAY = gray;
+      env = with theme.colors; {
+        THEME_BLACK = normal.black;
+        THEME_RED = normal.red;
+        THEME_GREEN = normal.green;
+        THEME_YELLOW = normal.yellow;
+        THEME_BLUE = normal.blue;
+        THEME_MAGENTA = normal.magenta;
+        THEME_CYAN = normal.cyan;
+        THEME_WHITE = normal.white;
+        THEME_BRIGHT_BLACK = bright.black;
+        THEME_BRIGHT_RED = bright.red;
+        THEME_BRIGHT_GREEN = bright.green;
+        THEME_BRIGHT_YELLOW = bright.yellow;
+        THEME_BRIGHT_BLUE = bright.blue;
+        THEME_BRIGHT_MAGENTA = bright.magenta;
+        THEME_BRIGHT_CYAN = bright.cyan;
+        THEME_BRIGHT_WHITE = bright.white;
+        # THEME_DIM_BLACK = dim.black;
+        # THEME_DIM_RED = dim.red;
+        # THEME_DIM_GREEN = dim.green;
+        # THEME_DIM_YELLOW = dim.yellow;
+        # THEME_DIM_BLUE = dim.blue;
+        # THEME_DIM_MAGENTA = dim.magenta;
+        # THEME_DIM_CYAN = dim.cyan;
+        # THEME_DIM_WHITE = dim.white;
       };
 
       font = {
@@ -40,28 +55,22 @@ with theme.colors; {
       };
 
       colors = {
-        primary = {
+        primary = with theme.colors.normal; {
           background = black;
           foreground = white;
         };
 
         cursor = {
           text = "CellBackground";
-          cursor = blue;
+          cursor = theme.colors.normal.blue;
         };
 
         selection = {
           text = "CellBackground";
-          background = black;
+          background = theme.colors.normal.black;
         };
 
-        normal = {
-          inherit black red green yellow blue magenta cyan white;
-        };
-
-        bright = {
-          black = gray;
-        };
+        inherit (theme.colors) normal bright;
       };
 
       shell = {

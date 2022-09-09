@@ -60,7 +60,11 @@ nvim_lsp.rnix.setup {
 --   flags = { debounce_text_changes = 150 }
 -- }
 
-vim.api.nvim_set_hl(0, 'LspDiagnosticsDefaultError', { ctermfg = 1 })
-vim.api.nvim_set_hl(0, 'LspDiagnosticsDefaultWarning', { ctermfg = 3 })
+vim.api.nvim_set_hl(0, 'LspDiagnosticsDefaultError', { ctermfg = 9 })
+vim.api.nvim_set_hl(0, 'LspDiagnosticsDefaultWarning', { ctermfg = 11 })
 vim.api.nvim_set_hl(0, 'LspDiagnosticsDefaultHint', { ctermfg = 4 })
 vim.api.nvim_set_hl(0, 'LspDiagnosticsDefaultInformation', { ctermfg = 4 })
+vim.api.nvim_set_hl(0, 'LspError', { ctermfg = 9 })
+vim.api.nvim_set_hl(0, 'LspWarning', { ctermfg = 11 })
+vim.api.nvim_set_hl(0, 'LspHint', { ctermfg = 4 })
+vim.api.nvim_set_hl(0, 'LspInformation', { ctermfg = 4 })

@@ -5,7 +5,7 @@ let
 in
 
 {
-  home.file.".config/swaylock/config".text = with theme.colors; ''
+  home.file.".config/swaylock/config".text = with theme.colors.normal; ''
     image=${./assets/bg.png}
     scaling=fill
     font=Scientifica

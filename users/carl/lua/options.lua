@@ -20,3 +20,4 @@ vim.o.foldlevel = 1000
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.laststatus = 3
+vim.o.cursorline = true

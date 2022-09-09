@@ -2,9 +2,6 @@
 
 { config, pkgs, unstablePkgs, home-manager, lib, modulesPath, fenix, ... }:
 
-let
-  theme = import ./theme.nix;
-in
 {
   imports = [
     (import "${home-manager}/nixos")

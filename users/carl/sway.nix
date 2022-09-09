@@ -9,7 +9,7 @@ let
 
   term = "alacritty";
 in
-with theme.colors; {
+with theme.colors.normal; {
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;

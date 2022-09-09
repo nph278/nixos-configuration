@@ -70,6 +70,10 @@
   };
   nix.allowedUsers = [ "@wheel" ];
 
+  # GC
+  nix.gc.automatic = true;
+  nix.gc.dates = "48hr";
+
   # Don't update, compatibility version
   system.stateVersion = "21.11";
 }

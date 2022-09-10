@@ -84,7 +84,6 @@ in
     trash-cli
     keepassxc
     tree
-    ranger
     jq
   ];
 

@@ -209,9 +209,9 @@ with theme.colors.normal; {
 
       fileselect = {
         handler = "external";
-        single_file.command = [ "alacritty" "-e" "${pkgs.ranger}/bin/ranger" "--choosefile={}" ];
-        multiple_files.command = [ "alacritty" "-e" "${pkgs.ranger}/bin/ranger" "--choosefile={}" ];
-        folder.command = [ "alacritty" "-e" "${pkgs.ranger}/bin/ranger" "--choosedir={}" ];
+        single_file.command = [ "alacritty" "-e" (toString ./filepicker.sh) "0" "{}" ];
+        multiple_files.command = [ "alacritty" "-e" (toString ./filepicker.sh) "0" "{}" ];
+        folder.command = [ "alacritty" "-e" (toString ./filepicker.sh) "1" "{}" ];
       };
 
       auto_save.session = true;

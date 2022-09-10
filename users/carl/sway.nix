@@ -32,7 +32,7 @@ with theme.colors.normal; {
 
       bars = [{
         fonts = swayFont;
-        statusCommand = "while date +'%D %r'; do sleep 1; done";
+        statusCommand = "while date +'%A %D %r '; do sleep 1; done";
         position = "top";
         colors = {
           statusline = white;

@@ -83,6 +83,7 @@ in
     keepassxc
     tree
     ranger
+    jq
   ];
 
   # Enable fonts

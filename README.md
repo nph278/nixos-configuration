@@ -45,4 +45,6 @@ My NixOS configuration / flake
 - Correct lua importing
 - tmpfs
 - music player
+- path stuff
+- vms
 

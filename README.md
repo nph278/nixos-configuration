@@ -25,6 +25,7 @@ My NixOS configuration / flake
 - Terminal - [Alacritty](https://github.com/alacritty/alacritty)
 - Browser - [qutebrowser](https://github.com/qutebrowser/qutebrowser)
 - Password Manager - [KeePassXC](https://github.com/keepassxreboot/keepassxc)
+- Music Player - [MPV](https://github.com/mpv-player/mpv)
 
 ## Other
 
@@ -43,7 +44,6 @@ My NixOS configuration / flake
 - Fix telescope
 - Correct lua importing
 - tmpfs
-- music player
 - path stuff
 - vms
 

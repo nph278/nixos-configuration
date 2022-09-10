@@ -32,6 +32,7 @@ in
 
     # Multimedia
     imv
+    ffmpeg
 
     # Cursor theme
     capitaine-cursors

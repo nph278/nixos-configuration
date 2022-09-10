@@ -2,9 +2,17 @@
 
 {
   home.packages = [
-    pkgs.mpv
+    (pkgs.mpv.override {
+      scripts = with pkgs.mpvScripts; [ thumbnail ];
+    })
   ];
 
+  # Main configuration
+  home.file.".config/mpv/mpv.conf".text = ''
+    osc=no
+  '';
+
+  # Input configuration
   home.file.".config/mpv/input.conf".text = ''
     h seek -5
     l seek 5

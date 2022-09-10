@@ -111,6 +111,8 @@ with theme.colors.normal; {
         "Mod4+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save screen ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
         "Mod4+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save area ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
         "Mod4+Control+l" = "exec ${pkgs.swaylock}/bin/swaylock -f";
+
+        "Mod4+p" = "exec playerctl play-pause";
       };
     };
     extraConfig = ''

@@ -34,7 +34,6 @@ My NixOS configuration / flake
 
 ## TODO
 
-- transparency?
 - ligatures
 - dim colors + guibg?
 - gcroots

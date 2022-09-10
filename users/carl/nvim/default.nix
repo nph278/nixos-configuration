@@ -64,7 +64,7 @@
     # Run all the luas (luai)
     extraConfig = ''
       luafile ${./options.lua}
-      luafile ${./hl.lua}
+      luafile ${./highlight.lua}
       luafile ${./gitgutter.lua}
       luafile ${./lsp.lua}
       luafile ${./cmp.lua}

@@ -18,5 +18,7 @@
     l seek 5
     j add volume -5
     k add volume 5
+    J add speed -0.05
+    K add speed 0.05
   '';
 }

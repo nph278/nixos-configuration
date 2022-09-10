@@ -29,12 +29,12 @@ My NixOS configuration / flake
 
 - Filesystem - btrfs
 - Shell - zsh
+- Background from [Kanagawa.nvim's GitHub](https://github.com/rebelot/kanagawa.nvim)
 
 ## TODO
 
 - transparency?
 - ligatures
-- wallpaper
 - dim colors + guibg?
 - gcroots
 - ranger config / switch to other thing

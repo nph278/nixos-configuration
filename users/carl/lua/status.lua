@@ -1,4 +1,6 @@
 -- Status line (thanks to https://nuxsh.is-a.dev/blog/custom-nvim-statusline.html)
+vim.o.laststatus = 3
+
 local modes = {
   ['n'] = 'NORMAL',
   ['no'] = 'NORMAL',

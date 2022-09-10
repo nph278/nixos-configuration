@@ -1,4 +1,9 @@
 -- Treesitter
+vim.o.foldenable = true
+vim.o.foldlevel = 1000
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+
 require('nvim-treesitter.configs').setup {
 
   highlight = { enable = true },

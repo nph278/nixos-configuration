@@ -35,10 +35,9 @@ My NixOS configuration / flake
 
 ## TODO
 
-- ligatures
+- ligatures?
 - dim colors + guibg?
 - gcroots
-- ranger config / switch to other thing
 - subvolumes
 - "components"
 - Fix telescope

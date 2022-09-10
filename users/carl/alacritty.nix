@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   theme = import ./theme.nix;
   font = "Scientifica";
@@ -74,7 +75,7 @@ in
       };
 
       shell = {
-        program = "zsh";
+        program = "${pkgs.zsh}/bin/zsh";
       };
 
       window = {

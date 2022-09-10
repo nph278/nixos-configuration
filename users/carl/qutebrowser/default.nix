@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  theme = import ./theme.nix;
+  theme = import ../theme.nix;
   font = "10pt Victor Mono Nerd Font";
 
   # Add theme colors for user stylesheet
@@ -209,9 +209,9 @@ with theme.colors.normal; {
 
       fileselect = {
         handler = "external";
-        single_file.command = [ " alacritty " " - e " " ranger " " - -choosefile={}" ];
-        multiple_files.command = [ "alacritty" "-e" "ranger" "--choosefile={}" ];
-        folder.command = [ "alacritty" "-e" "ranger" "--choosedir={}" ];
+        single_file.command = [ "alacritty" "-e" "${pkgs.ranger}/bin/ranger" "--choosefile={}" ];
+        multiple_files.command = [ "alacritty" "-e" "${pkgs.ranger}/bin/ranger" "--choosefile={}" ];
+        folder.command = [ "alacritty" "-e" "${pkgs.ranger}/bin/ranger" "--choosedir={}" ];
       };
 
       auto_save.session = true;

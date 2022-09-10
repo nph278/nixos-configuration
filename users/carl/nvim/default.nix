@@ -63,19 +63,19 @@
 
     # Run all the luas (luai)
     extraConfig = ''
-      luafile ${./lua/options.lua}
-      luafile ${./lua/hl.lua}
-      luafile ${./lua/gitgutter.lua}
-      luafile ${./lua/lsp.lua}
-      luafile ${./lua/cmp.lua}
-      luafile ${./lua/status.lua}
-      luafile ${./lua/lightspeed.lua}
-      luafile ${./lua/treesitter.lua}
-      luafile ${./lua/comment.lua}
-      luafile ${./lua/keybinds.lua}
-      luafile ${./lua/filetype.lua}
-      " luafile ${./lua/filetree.lua}
-      " luafile ${./lua/telescope.lua}
+      luafile ${./options.lua}
+      luafile ${./hl.lua}
+      luafile ${./gitgutter.lua}
+      luafile ${./lsp.lua}
+      luafile ${./cmp.lua}
+      luafile ${./status.lua}
+      luafile ${./lightspeed.lua}
+      luafile ${./treesitter.lua}
+      luafile ${./comment.lua}
+      luafile ${./keybinds.lua}
+      luafile ${./filetype.lua}
+      " luafile ${./filetree.lua}
+      " luafile ${./telescope.lua}
     '';
   };
 }

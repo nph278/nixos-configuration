@@ -82,7 +82,7 @@ in
     pulsemixer
     keepassxc
     tree
-    ranger # Replace with lf?
+    ranger
   ];
 
   # Enable fonts

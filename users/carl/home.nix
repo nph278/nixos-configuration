@@ -6,8 +6,8 @@ in
 {
   imports = [
     ./zsh
-    ./nvim.nix
-    ./qutebrowser.nix
+    ./qutebrowser
+    ./nvim
     ./alacritty.nix
     ./cligames.nix
     ./sway.nix
@@ -23,16 +23,6 @@ in
   };
 
   home.packages = with pkgs; [
-    # Admin
-    neofetch
-    pfetch
-    htop
-    trash-cli
-    pulsemixer
-    keepassxc
-    tree
-    ranger # Replace with lf? How does it even work? C for now I guess?
-
     # Sway
     swaylock
     swayidle
@@ -75,12 +65,24 @@ in
     fortune
     figlet
 
+    # Info
+    neofetch
+    pfetch
+    htop
+
     # Fonts
     scientifica
     (nerdfonts.override { fonts = [ "VictorMono" ]; })
     noto-fonts
     noto-fonts-emoji
     noto-fonts-cjk
+
+    # Other
+    trash-cli
+    pulsemixer
+    keepassxc
+    tree
+    ranger # Replace with lf?
   ];
 
   # Enable fonts

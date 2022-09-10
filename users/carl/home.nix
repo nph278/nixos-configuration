@@ -76,9 +76,12 @@ in
     noto-fonts-emoji
     noto-fonts-cjk
 
+    # Audio
+    pulsemixer
+    playerctl
+
     # Other
     trash-cli
-    pulsemixer
     keepassxc
     tree
     ranger

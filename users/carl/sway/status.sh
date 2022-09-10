@@ -1,4 +1,4 @@
-while true; do
+function once() {
   WINDOW="$(swaymsg -t get_tree | jq -r '.. | select(.type?) | select(.focused==true).name')"
   DATE="$(date +'%A %D %r')"
   MEDIA="$(playerctl metadata title 2>/dev/null || echo 'Not playing')"
@@ -15,5 +15,20 @@ while true; do
   fi
 
   echo "$WINDOW | $SONG_STATUS $MEDIA | $DATE "
-  sleep 0.1;
-done
+}
+
+function sec() {
+  while true; do
+    sleep 1;
+    once;
+  done
+}
+
+function event() {
+  while true; do
+    swaymsg -t subscribe '["window","workspace","input"]' > /dev/null;
+    once;
+  done
+}
+
+sec & event

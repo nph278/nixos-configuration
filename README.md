@@ -44,4 +44,5 @@ My NixOS configuration / flake
 - Fix telescope
 - Correct lua importing
 - tmpfs
+- music player
 

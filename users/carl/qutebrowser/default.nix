@@ -229,7 +229,7 @@ with theme.colors.normal; {
       ra = "reddit.com/r/all";
       yt = "youtube.com";
       gh = "github.com";
-      pm = "protonmail.com";
+      pm = "https://mail.proton.me/u/0/inbox";
       yc = "news.ycombinator.com";
       wk = "en.wikipedia.org";
     };

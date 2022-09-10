@@ -1,4 +1,15 @@
-precmd() {zle-keymap-select}
+set_title() {
+  echo -n "\e]0;$1\a"
+}
+
+precmd() {
+  set_title "$USER@$HOST [zsh]"
+  zle-keymap-select
+}
+
+preexec() {
+  set_title "$USER@$HOST [$1]"
+}
 
 fl() {
   flatpak run $1 &> /dev/null & disown

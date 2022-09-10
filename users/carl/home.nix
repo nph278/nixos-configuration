@@ -12,6 +12,7 @@ in
     ./alacritty.nix
     ./cligames.nix
     ./btop.nix
+    ./mpv.nix
   ];
 
   # Git config
@@ -31,7 +32,6 @@ in
 
     # Multimedia
     imv
-    mpv
 
     # Cursor theme
     capitaine-cursors

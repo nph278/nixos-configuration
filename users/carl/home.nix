@@ -6,12 +6,11 @@ in
 {
   imports = [
     ./zsh
+    ./sway
     ./qutebrowser
     ./nvim
     ./alacritty.nix
     ./cligames.nix
-    ./sway.nix
-    ./swaylock.nix
     ./btop.nix
   ];
 

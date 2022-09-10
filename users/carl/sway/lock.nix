@@ -1,12 +1,12 @@
 { ... }:
 
 let
-  theme = import ./theme.nix;
+  theme = import ../theme.nix;
 in
 
 {
   home.file.".config/swaylock/config".text = with theme.colors.normal; ''
-    image=${./assets/bg.png}
+    image=${../assets/bg.png}
     scaling=fill
     font=Scientifica
     bs-hl-color=${yellow}

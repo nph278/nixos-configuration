@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  theme = import ./theme.nix;
+  theme = import ../theme.nix;
   swayFont = {
     names = [ "Scientifica" ];
     size = 12.0;
@@ -10,6 +10,10 @@ let
   term = "alacritty";
 in
 with theme.colors.normal; {
+  imports = [
+    ./lock.nix
+  ];
+
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -27,12 +31,12 @@ with theme.colors.normal; {
       };
 
       output."*" = {
-        bg = "${./assets/bg.png} fill";
+        bg = "${../assets/bg.png} fill";
       };
 
       bars = [{
         fonts = swayFont;
-        statusCommand = "while date +'%A %D %r '; do sleep 1; done";
+        statusCommand = toString ./status.sh;
         position = "top";
         colors = {
           statusline = white;

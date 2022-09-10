@@ -12,6 +12,7 @@ in
     ./cligames.nix
     ./sway.nix
     ./swaylock.nix
+    ./btop.nix
   ];
 
   # Git config

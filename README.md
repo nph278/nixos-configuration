@@ -32,7 +32,12 @@ My NixOS configuration / flake
 
 ## TODO
 
-- More colors :)
+- transparency?
+- ligatures
+- wallpaper
+- dim colors + guibg?
+- gcroots
+- ranger config / switch to other thing
 - subvolumes
 - "components"
 - Fix telescope

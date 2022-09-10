@@ -18,14 +18,29 @@
   boot.initrd.luks.devices."swap".device = "/dev/disk/by-uuid/5301d3fd-3816-4f1c-81be-fc5918d6a743";
 
   # Mount points
-  fileSystems."/" = {
-    device = "/dev/mapper/btrfs";
-    fsType = "btrfs";
-  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/mapper/btrfs";
+      fsType = "btrfs";
+      options = [ "subvol=@root" "compress=zstd" ];
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/A1FD-E34F";
-    fsType = "vfat";
+    "/nix" = {
+      device = "/dev/mapper/btrfs";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" "compress=zstd" "noatime" ];
+    };
+
+    "/home" = {
+      device = "/dev/mapper/btrfs";
+      fsType = "btrfs";
+      options = [ "subvol=@home" "compress=zstd" ];
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/A1FD-E34F";
+      fsType = "vfat";
+    };
   };
 
   # Swap

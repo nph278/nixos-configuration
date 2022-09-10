@@ -240,9 +240,6 @@ html[op] {
 }
 
 /* Github */
-.env-production pre {
-  font-size: 2em;
-} 
 .env-production :not(pre) > * {
     background-color: var(--black) !important;
     color: var(--white) !important;

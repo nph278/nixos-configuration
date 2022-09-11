@@ -15,6 +15,11 @@ fl() {
   flatpak run $1 &> /dev/null & disown
 }
 
+# Opens the $1th hn post in the browser
+hnn() {
+  xdg-open "$(hn $[$1+1] | tail -1 | cut -c 5- | sed -r 's/\x1B\[[0-9;]*[JKmsu]//g')"
+}
+
 pfetch
 
 function zle-keymap-select {

@@ -19,7 +19,6 @@ with theme.colors.normal; {
     wrapperFeatures.gtk = true;
     config = {
       fonts = swayFont;
-      gaps.inner = 15;
 
       input."*" = {
         natural_scroll = "enabled";
@@ -121,6 +120,14 @@ with theme.colors.normal; {
         timeout 300 '${pkgs.swaylock}/bin/swaylock -f' \
         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
         before-sleep '${pkgs.swaylock}/bin/swaylock -f'
+    '';
+  };
+
+  home.file.".config/sway/startup.sh" = {
+    executable = true;
+    text = ''
+      eval "$(ssh-agent -s)"
+      sway
     '';
   };
 }

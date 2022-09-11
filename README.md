@@ -27,22 +27,25 @@ My NixOS configuration / flake
 - Password Manager - [KeePassXC](https://github.com/keepassxreboot/keepassxc)
 - Music Player - [MPV](https://github.com/mpv-player/mpv)
 
+## Desktop
+- Window Manager - [Sway](https://swaywm.org/)
+- Background from [Kanagawa.nvim's GitHub](https://github.com/rebelot/kanagawa.nvim)
+
 ## Other
 
 - Filesystem - btrfs
 - Shell - zsh
-- Background from [Kanagawa.nvim's GitHub](https://github.com/rebelot/kanagawa.nvim)
 
 ## TODO
 
 - ligatures?
 - dim colors + guibg?
 - gcroots
-- "components"
 - Fix telescope
 - Correct lua importing
 - tmpfs
 - path stuff
 - vms
 - mpv playerctl
+- dwl? Flickering
 

@@ -34,6 +34,7 @@
   hardware.opengl.enable = true;
   xdg.portal.wlr.enable = true;
   security.pam.services.swaylock = { };
+  security.rtkit.enable = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -80,6 +81,17 @@
 
   # SSH
   programs.ssh.startAgent = true;
+
+  # Pipewire
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # No mutation of users (no passwd usage)
+  users.mutableUsers = false;
 
   # Don't update, compatibility version
   system.stateVersion = "21.11";

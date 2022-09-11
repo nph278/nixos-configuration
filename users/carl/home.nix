@@ -8,6 +8,7 @@ in
     ./zsh
     ./sway
     ./qutebrowser
+    # ./dwl
     ./nvim
     ./alacritty.nix
     ./cligames.nix

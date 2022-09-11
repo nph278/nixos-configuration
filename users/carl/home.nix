@@ -13,6 +13,7 @@ in
     ./cligames.nix
     ./btop.nix
     ./mpv.nix
+    ./hn-cli.nix
   ];
 
   # Git config

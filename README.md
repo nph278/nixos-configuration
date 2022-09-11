@@ -44,4 +44,5 @@ My NixOS configuration / flake
 - tmpfs
 - path stuff
 - vms
+- mpv playerctl
 

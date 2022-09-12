@@ -8,14 +8,15 @@ in
     ./zsh
     ./sway
     ./qutebrowser
-    # ./dwl
     ./nvim
+    ./tuir
     ./alacritty.nix
     ./cligames.nix
     ./btop.nix
     ./mpv.nix
     ./hn-cli.nix
     ./direnv.nix
+    # ./dwl
   ];
 
   # Git config
@@ -86,7 +87,6 @@ in
     # Web
     tmpmail
     w3m
-    tuir
 
     # Other
     trash-cli

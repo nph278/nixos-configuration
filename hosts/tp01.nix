@@ -102,6 +102,9 @@
     enable = true;
   };
 
+  # fwupd
+  services.fwupd.enable = true;
+
   # Remove sudo
   security.sudo.enable = false;
 }

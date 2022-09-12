@@ -47,8 +47,8 @@
   swapDevices = [{ device = "/dev/mapper/swap"; }];
 
   # Microcode
-  hardware.enableRedistributableFirmware = lib.mkDefault true;
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.enableRedistributableFirmware = true;
+  hardware.cpu.amd.updateMicrocode = true;
 
   # high-resolution display
   hardware.video.hidpi.enable = lib.mkDefault true;

@@ -7,13 +7,10 @@
     vim
     unzip
     gcc
-    cmake
     gnumake
     binutils
     strace
     ltrace
-    pkg-config
-    openssl
   ];
 
   # Environment variables

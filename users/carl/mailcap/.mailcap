@@ -1,3 +1,3 @@
 image/*; curl %s > ~/.tmp_imv && imv ~/.tmp_imv && rm ~/.tmp_imv
-video/*; mpv %s
-audio/*; mpv %s
+video/*; mpv --loop %s
+audio/*; mpv --loop %s

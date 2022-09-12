@@ -71,6 +71,11 @@ html[op] {
 /* Wikipedia */
 /** To prevent 'jumping' effect within #p-personal in Vector/Monobook. Overrides [[MediaWiki:Gadget-dark-mode-toggle-pagestyles.css]] **/
 
+body.mediawiki {
+  background: var(--black);
+  color: var(--black); /* ??? It works */
+}
+
 .mediawiki.skin-vector-legacy :not(#pt-darkmode) + #pt-watchlist::before,
 .mediawiki..skin-monobook :not(#pt-darkmode) + #pt-watchlist::before {
     content: "Light mode";

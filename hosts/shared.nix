@@ -90,6 +90,9 @@
   # No mutation of users (no passwd usage)
   users.mutableUsers = false;
 
+  # irqbalance
+  services.irqbalance.enable = true;
+
   # Don't update, compatibility version
   system.stateVersion = "21.11";
 }

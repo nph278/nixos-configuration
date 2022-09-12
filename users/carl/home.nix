@@ -44,7 +44,6 @@ in
     gh
     fzf
     ripgrep
-    xdg-utils
 
     # Lua
     unstablePkgs.sumneko-lua-language-server
@@ -84,12 +83,16 @@ in
     pulsemixer
     playerctl
 
-    # Other
+    # Web
     tmpmail
+    w3m
+    tuir
+
+    # Other
     trash-cli
     keepassxc
+    xdg-utils
     tree
-    w3m
     jq
   ];
 

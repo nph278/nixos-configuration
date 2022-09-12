@@ -89,6 +89,7 @@ in
     trash-cli
     keepassxc
     tree
+    w3m
     jq
   ];
 

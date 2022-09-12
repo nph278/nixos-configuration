@@ -49,4 +49,5 @@ My NixOS configuration / flake
 - mpv playerctl
 - dwl? Flickering
 - usb iso
+- tetris
 

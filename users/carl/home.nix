@@ -85,6 +85,7 @@ in
     playerctl
 
     # Other
+    tmpmail
     trash-cli
     keepassxc
     tree

@@ -10,6 +10,7 @@ in
     ./qutebrowser
     ./nvim
     ./tuir
+    ./mailcap
     ./alacritty.nix
     ./cligames.nix
     ./btop.nix

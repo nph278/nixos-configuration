@@ -67,11 +67,11 @@
   nix.allowedUsers = [ "@wheel" ];
 
   # GC / optimise
-  nix.gc.automatic = true;
-  nix.gc.dates = "daily";
-
-  nix.optimise.automatic = true;
-  nix.optimise.dates = [ "daily" ];
+  # nix.gc.automatic = true;
+  # nix.gc.dates = "daily";
+  #
+  # nix.optimise.automatic = true;
+  # nix.optimise.dates = [ "daily" ];
 
   # Nix-path
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

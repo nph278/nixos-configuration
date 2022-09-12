@@ -15,6 +15,7 @@ in
     ./btop.nix
     ./mpv.nix
     ./hn-cli.nix
+    ./direnv.nix
   ];
 
   # Git config

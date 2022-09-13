@@ -20,6 +20,11 @@ hnn() {
   xdg-open "$(hn $[$1+1] | tail -1 | cut -c 5- | sed -r 's/\x1B\[[0-9;]*[JKmsu]//g')"
 }
 
+# Open markup file
+md() {
+  pandoc "$1" | w3m -T text/html
+}
+
 pfetch
 
 function zle-keymap-select {

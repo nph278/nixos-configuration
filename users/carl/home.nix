@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./zsh
+    ./w3m
     ./sway
     ./qutebrowser
     ./nvim
@@ -87,7 +88,7 @@ in
 
     # Web
     tmpmail
-    w3m
+    pandoc
 
     # Other
     trash-cli

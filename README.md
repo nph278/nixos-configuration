@@ -50,4 +50,6 @@ My NixOS configuration / flake
 - dwl? Flickering
 - usb iso
 - tetris
+- line 53 w3m??!??!?!?
+- youtube-dl / mpv url / mpv mailcap broken
 

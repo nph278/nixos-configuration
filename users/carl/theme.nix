@@ -17,8 +17,7 @@
       red = "#e82424";
       green = "#98bb6c";
       yellow = "#e6c384";
-      # blue = "#7fb4ca";
-      blue = "#252535"; # bleh, this should be dim, but nvim won't work with dim colors
+      blue = "#7fb4ca";
       magenta = "#938aa9";
       cyan = "#7aa89f";
       white = "#dcd7ba";

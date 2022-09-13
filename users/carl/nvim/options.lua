@@ -15,4 +15,4 @@ vim.o.showcmd = false
 vim.o.completeopt = 'menu,menuone,noselect,preview'
 vim.o.number = true
 vim.o.relativenumber = false
-vim.o.cursorline = true
+-- vim.o.cursorline = true

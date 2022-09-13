@@ -39,7 +39,6 @@ My NixOS configuration / flake
 ## TODO
 
 - ligatures?
-- dim colors + guibg?
 - gcroots
 - Fix telescope
 - Correct lua importing

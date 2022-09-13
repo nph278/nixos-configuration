@@ -115,6 +115,8 @@ with theme.colors.normal; {
       };
     };
     extraConfig = ''
+      default_border none
+
       seat seat0 xcursor_theme capitaine-cursors 24
       exec swayidle -w \
         timeout 300 '${pkgs.swaylock}/bin/swaylock -f' \

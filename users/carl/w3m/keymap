@@ -61,7 +61,6 @@ keymap	G	GOTO_LINE
 keymap	I	VIEW_IMAGE
 keymap	J	UP
 keymap	K	DOWN
-keymap	L	LIST
 keymap	M	EXTERN
 keymap	N	NEXT_MARK
 keymap	P	PREV_MARK

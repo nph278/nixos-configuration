@@ -1,4 +1,4 @@
-{ pkgs, system, fenix, ... }:
+{ pkgs, system, ... }:
 
 {
   programs.zsh = {

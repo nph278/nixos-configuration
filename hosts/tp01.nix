@@ -1,10 +1,10 @@
 # configuration.nix(5) man page
 
-{ config, pkgs, unstablePkgs, home-manager, lib, modulesPath, fenix, ... }:
+{ config, pkgs, unstablePkgs, lib, modulesPath, inputs, ... }:
 
 {
   imports = [
-    (import "${home-manager}/nixos")
+    (import "${inputs.home-manager}/nixos")
   ];
 
   # Kernel/initrd
@@ -91,7 +91,7 @@
   home-manager.users.carl = {
     imports = [ ../users/carl/home.nix ];
     config._module.args = {
-      inherit unstablePkgs fenix;
+      inherit unstablePkgs inputs;
       pkgs = lib.mkForce pkgs;
       system = "x86_64-linux";
     };

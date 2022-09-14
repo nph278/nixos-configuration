@@ -16,13 +16,13 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, nixpkgs-unstable, home-manager, fenix, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, fenix, ... }@inputs:
     {
       nixosConfigurations.tp01 =
         nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           specialArgs = {
-            inherit home-manager fenix inputs;
+            inherit inputs;
             pkgs = nixpkgs.legacyPackages.${system};
             unstablePkgs = nixpkgs-unstable.legacyPackages.${system};
           };

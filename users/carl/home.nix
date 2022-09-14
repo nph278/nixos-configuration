@@ -1,8 +1,5 @@
-{ pkgs, unstablePkgs, lib, fenix, system, ... }:
+{ pkgs, unstablePkgs, lib, system, ... }:
 
-let
-  rustToolchain = fenix.packages.${system}.stable;
-in
 {
   imports = [
     ./zsh
@@ -56,14 +53,6 @@ in
     unstablePkgs.rnix-lsp
     unstablePkgs.statix
     vulnix
-
-    # Rust
-    rustToolchain.rustc
-    rustToolchain.cargo
-    rustToolchain.clippy
-    rustToolchain.rustfmt
-    rustToolchain.rust-src
-    unstablePkgs.rust-analyzer
 
     # funny stuff
     cowsay

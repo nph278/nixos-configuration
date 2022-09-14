@@ -1,8 +1,8 @@
-{ pkgs, fenix, system, ... }:
+{ pkgs, inputs, system, ... }:
 
 let
   rustPlatform = pkgs.makeRustPlatform {
-    inherit (fenix.packages.${system}.stable) cargo rustc;
+    inherit (inputs.fenix.packages.${system}.stable) cargo rustc;
   };
 in
 {

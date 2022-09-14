@@ -57,10 +57,6 @@
     };
 
     initExtra = builtins.readFile ./extra.zsh;
-
-    localVariables = {
-      PROMPT = "%~ $ ";
-    };
   };
 }
 

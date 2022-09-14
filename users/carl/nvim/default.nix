@@ -3,7 +3,7 @@
 {
   programs.neovim = {
     enable = true;
-    package = unstablePkgs.neovim-unwrapped; # Use unstable nvim (I am mentally unstable)
+    package = unstablePkgs.neovim-unwrapped;
 
     # No programming allowed
     withNodeJs = false;

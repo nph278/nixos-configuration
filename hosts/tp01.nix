@@ -51,7 +51,7 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   # high-resolution display
-  hardware.video.hidpi.enable = lib.mkDefault true;
+  hardware.video.hidpi.enable = true;
 
   # Network
   networking.hostName = "tp01";

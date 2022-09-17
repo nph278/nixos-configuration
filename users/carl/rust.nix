@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, system, unstablePkgs, ... }:
 
 {
   home.packages = with inputs.fenix.packages.${system}.stable; [

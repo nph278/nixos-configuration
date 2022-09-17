@@ -9,6 +9,7 @@
     ./nvim
     ./tuir
     ./mailcap
+    ./rust.nix
     ./alacritty.nix
     ./cligames.nix
     ./btop.nix

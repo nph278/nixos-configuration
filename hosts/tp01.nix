@@ -100,6 +100,9 @@
   # Apparmor
   security.apparmor = {
     enable = true;
+    packages = with pkgs; [
+      apparmor-profiles
+    ];
   };
 
   # fwupd

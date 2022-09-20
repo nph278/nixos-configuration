@@ -217,7 +217,7 @@ with theme.colors.normal; {
       auto_save.session = true;
       downloads.location.directory = "~/Downloads";
       hints.chars = "qwertyuiopasdfghjklzxcvbnm";
-      editor.command = [ "alacritty" "-e" "vim" "{file}" ];
+      editor.command = [ "alacritty" "-e" "nvim" "{file}" ];
 
       content = {
         user_stylesheets = "${fullStylesheet}";

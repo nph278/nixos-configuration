@@ -45,7 +45,6 @@ My NixOS configuration / flake
 - tmpfs
 - path stuff
 - vms
-- mpv playerctl
 - dwl? Flickering
 - usb iso
 - tetris

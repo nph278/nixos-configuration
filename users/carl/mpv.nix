@@ -3,7 +3,7 @@
 {
   home.packages = [
     (pkgs.mpv.override {
-      scripts = with pkgs.mpvScripts; [ thumbnail ];
+      scripts = with pkgs.mpvScripts; [ thumbnail mpris ];
     })
   ];
 

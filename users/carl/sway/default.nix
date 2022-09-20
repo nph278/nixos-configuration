@@ -121,7 +121,7 @@ with theme.colors.normal; {
       exec swayidle -w \
         timeout 300 'if [ ! "$(playerctl status)" '==' Playing ]; then ${pkgs.swaylock}/bin/swaylock -f; fi' \
         timeout 600 'if [ ! "$(playerctl status)" '==' Playing ]; then swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; fi' \
-        before-sleep 'playerctl pause; ${pkgs.swaylock}/bin/swaylock -f'
+        before-sleep 'if [ ! "$(playerctl status)" '==' Playing ]; then playerctl pause; ${pkgs.swaylock}/bin/swaylock -f; fi'
     '';
   };
 

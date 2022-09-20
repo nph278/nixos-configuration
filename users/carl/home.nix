@@ -84,6 +84,7 @@
     trash-cli
     keepassxc
     xdg-utils
+    picotool
     tree
     jq
   ];

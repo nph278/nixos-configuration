@@ -109,7 +109,7 @@ with theme.colors.normal; {
         "Control+q" = "exec ${pkgs.qutebrowser}/bin/qutebrowser";
         "Mod4+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save screen ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
         "Mod4+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save area ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png";
-        "Mod4+Control+l" = "exec ${pkgs.swaylock}/bin/swaylock -f";
+        "Mod4+Control+l" = "exec 'playerctl pause; ${pkgs.swaylock}/bin/swaylock -f'";
 
         "Mod4+p" = "exec playerctl play-pause";
       };
@@ -119,9 +119,9 @@ with theme.colors.normal; {
 
       seat seat0 xcursor_theme capitaine-cursors 24
       exec swayidle -w \
-        timeout 300 '${pkgs.swaylock}/bin/swaylock -f' \
+        timeout 300 'playerctl pause; ${pkgs.swaylock}/bin/swaylock -f' \
         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-        before-sleep '${pkgs.swaylock}/bin/swaylock -f'
+        before-sleep 'playerctl pause; ${pkgs.swaylock}/bin/swaylock -f'
     '';
   };
 

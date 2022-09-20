@@ -45,6 +45,9 @@
     gh
     fzf
     ripgrep
+    cmake
+    gcc-arm-embedded
+    python3
 
     # Lua
     unstablePkgs.sumneko-lua-language-server
@@ -80,11 +83,14 @@
     tmpmail
     pandoc
 
+    # RPI Pico
+    picotool
+    pico-sdk
+
     # Other
     trash-cli
     keepassxc
     xdg-utils
-    picotool
     tree
     jq
   ];

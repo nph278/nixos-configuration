@@ -85,7 +85,6 @@
 
     # RPI Pico
     picotool
-    pico-sdk
 
     # Other
     trash-cli

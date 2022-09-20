@@ -32,6 +32,8 @@ in
         # THEME_DIM_MAGENTA = dim.magenta;
         # THEME_DIM_CYAN = dim.cyan;
         # THEME_DIM_WHITE = dim.white;
+
+        PICO_SDK_PATH = "${pkgs.pico-sdk}/lib/pico-sdk";
       };
 
       font = {

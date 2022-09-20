@@ -119,7 +119,7 @@ with theme.colors.normal; {
 
       seat seat0 xcursor_theme capitaine-cursors 24
       exec swayidle -w \
-        timeout 300 'playerctl pause; ${pkgs.swaylock}/bin/swaylock -f' \
+        timeout 300 'if [ ! "$(playerctl status)" '==' Playing ]; then ${pkgs.swaylock}/bin/swaylock -f; fi' \
         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
         before-sleep 'playerctl pause; ${pkgs.swaylock}/bin/swaylock -f'
     '';

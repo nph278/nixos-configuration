@@ -38,6 +38,7 @@ My NixOS configuration / flake
 
 ## TODO
 
+- see number of updates
 - ligatures?
 - gcroots
 - Fix telescope

@@ -6,6 +6,7 @@ static const int lockfullscreen     = 1;  /* 1 will force focus on the fullscree
 static const float rootcolor[]      = {0.3, 0.3, 0.3, 1.0};
 static const float bordercolor[]    = {0.5, 0.5, 0.5, 1.0};
 static const float focuscolor[]     = {1.0, 0.0, 0.0, 1.0};
+static const float fullscreen_bg[]  = {0.1, 0.1, 0.1, 0.0};
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -49,8 +50,19 @@ static const int repeat_rate = 50;
 static const int repeat_delay = 200;
 
 /* Trackpad */
+static const int tap_and_drag = 1;
+static const int drag_lock = 1;
+static const int disable_while_typing = 0;
 static const int tap_to_click = 1;
 static const int natural_scrolling = 1;
+static const double accel_speed = 0.0;
+static const int left_handed = 0;
+static const int middle_button_emulation = 1;
+
+static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE;
+static const enum libinput_config_click_method click_method = LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_AREAS;
+static const enum libinput_config_scroll_method scroll_method = LIBINPUT_CONFIG_SCROLL_2FG;
+static const uint32_t send_events_mode = LIBINPUT_CONFIG_SEND_EVENTS_ENABLED;
 
 /* If you want to use the windows key change this to WLR_MODIFIER_LOGO */
 #define MODKEY WLR_MODIFIER_LOGO

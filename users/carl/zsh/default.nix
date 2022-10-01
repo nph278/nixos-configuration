@@ -36,6 +36,7 @@
       "2048" = "r2048";
       strat = "oblique-strategies | cowsay";
       mpva = "mpv --no-video";
+      mpvterm = "DISPLAY= mpv -vo caca";
 
       # Nix
       rebuild = "su -c 'nixos-rebuild switch --flake path:///home/carl/Projects/nixos-configuration'";

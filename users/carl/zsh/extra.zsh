@@ -24,6 +24,10 @@ md() {
   pandoc "$1" | w3m -T text/html
 }
 
+ddg() {
+  w3m "duckduckgo.com/html?q=$(echo $@ | sed 's/ /+/g')"
+}
+
 pfetch
 
 function zle-keymap-select {

@@ -38,16 +38,16 @@ My NixOS configuration / flake
 
 ## TODO
 
+- turn off monitor after 600s
 - see number of updates
 - ligatures?
 - gcroots
 - Fix telescope
-- Correct lua importing
 - tmpfs
 - path stuff
 - vms
 - dwl? Flickering
 - usb iso
-- tetris
 - line 53 w3m??!??!?!?
+- line 10 status??!??!?!?
 

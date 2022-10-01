@@ -55,6 +55,7 @@
       redo = "$(cat ~/.zsh_history | fzf)";
       cleannvim = "rm -rf ~/.local/share/nvim";
       sudo = "su root -c";
+      hn = "w3m news.ycombinator.com";
     };
 
     initExtra = builtins.readFile ./extra.zsh;

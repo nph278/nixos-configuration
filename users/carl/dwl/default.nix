@@ -13,7 +13,7 @@
         sha256 = "sha256-63lYKqFy1p8MAb1SZfz8tahMJ+X5LnY5w7xjnM/X6LE=";
       };
     })).override {
-      # wlroots = unstablePkgs.wlroots;
+      wlroots = unstablePkgs.wlroots;
       conf = ./dwl_config.h;
     })
     swaybg

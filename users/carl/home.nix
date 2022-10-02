@@ -96,6 +96,10 @@
   # Enable fonts
   fonts.fontconfig.enable = lib.mkForce true;
 
+  # QT
+  qt.enable = true;
+  qt.style.name = "adwaita-dark";
+
   home.stateVersion = "21.11";
 }
 

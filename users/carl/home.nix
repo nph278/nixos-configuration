@@ -2,13 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    # Sway
-    swaylock
-    swayidle
-    wl-clipboard
-    grim
-    sway-contrib.grimshot
-
     # Multimedia
     imv
     ffmpeg

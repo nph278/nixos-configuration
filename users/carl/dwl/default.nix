@@ -1,11 +1,17 @@
 { pkgs, unstablePkgs, ... }:
 
 {
-  home.packages = with unstablePkgs; [
-    (somebar.override {
+  home.packages = with pkgs; [
+    swaylock
+    swayidle
+    swaybg
+    wl-clipboard
+    grim
+    sway-contrib.grimshot
+    (unstablePkgs.somebar.override {
       conf = ./somebar_config.hpp;
     })
-    ((dwl.overrideAttrs (old: {
+    ((unstablePkgs.dwl.overrideAttrs (old: {
       src = pkgs.fetchFromGitHub {
         owner = "djpohly";
         repo = "dwl";
@@ -16,7 +22,6 @@
       wlroots = unstablePkgs.wlroots;
       conf = ./dwl_config.h;
     })
-    swaybg
   ];
 
   home.file.".config/dwl/startup.sh" = {

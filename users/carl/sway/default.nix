@@ -14,6 +14,14 @@ with theme.colors.normal; {
     ./lock.nix
   ];
 
+  home.packages = with pkgs; [
+    swaylock
+    swayidle
+    wl-clipboard
+    grim
+    sway-contrib.grimshot
+  ];
+
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;

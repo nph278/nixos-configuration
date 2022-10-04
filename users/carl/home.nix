@@ -1,30 +1,6 @@
 { pkgs, unstablePkgs, lib, system, ... }:
 
 {
-  imports = [
-    ./zsh
-    ./w3m
-    ./sway
-    ./qutebrowser
-    ./nvim
-    ./tuir
-    ./mailcap
-    ./rust
-    ./alacritty
-    ./cligames
-    ./btop
-    ./mpv
-    ./direnv
-    # ./dwl
-  ];
-
-  # Git config
-  programs.git = {
-    enable = true;
-    userEmail = "carllegrone@protonmail.com";
-    userName = "nph278";
-  };
-
   home.packages = with pkgs; [
     # Sway
     swaylock

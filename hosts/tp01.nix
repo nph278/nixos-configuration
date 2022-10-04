@@ -89,7 +89,24 @@
 
   # Home Manager
   home-manager.users.carl = {
-    imports = [ ../users/carl/home.nix ];
+    imports = [
+      ../users/carl/home.nix
+      ../users/carl/zsh
+      ../users/carl/w3m
+      ../users/carl/sway
+      ../users/carl/qutebrowser
+      ../users/carl/nvim
+      ../users/carl/tuir
+      ../users/carl/mailcap
+      ../users/carl/rust
+      ../users/carl/alacritty
+      ../users/carl/cligames
+      ../users/carl/btop
+      ../users/carl/mpv
+      ../users/carl/direnv
+      ../users/carl/git
+      # ../users/carl/dwl
+    ];
     config._module.args = {
       inherit unstablePkgs inputs;
       pkgs = lib.mkForce pkgs;

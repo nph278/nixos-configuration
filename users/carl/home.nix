@@ -9,12 +9,12 @@
     ./nvim
     ./tuir
     ./mailcap
-    ./rust.nix
-    ./alacritty.nix
-    ./cligames.nix
-    ./btop.nix
-    ./mpv.nix
-    ./direnv.nix
+    ./rust
+    ./alacritty
+    ./cligames
+    ./btop
+    ./mpv
+    ./direnv
     # ./dwl
   ];
 

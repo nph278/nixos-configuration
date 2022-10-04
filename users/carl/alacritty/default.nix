@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  theme = import ./theme.nix;
+  theme = import ../theme.nix;
   font = "Scientifica";
 in
 {

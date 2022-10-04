@@ -42,6 +42,7 @@
       rebuild = "su -c 'nixos-rebuild switch --flake path:///home/carl/Projects/nixos-configuration'";
       vulns = "vulnix --system | grep CVE- | cut -c 34-51";
       withpkgs = "nix-shell --command zsh -p";
+      local-withpkgs = "NIX_PATH=/home/carl/.nix-defexpr/channels:nixpkgs=. withpkgs";
 
       # Other
       db = "gdb -tui";

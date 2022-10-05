@@ -38,7 +38,7 @@ My NixOS configuration / flake
 
 ## TODO
 
-- turn off monitor after 600s
+- home-manager standalone
 - see number of updates
 - ligatures?
 - gcroots

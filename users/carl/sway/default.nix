@@ -132,13 +132,8 @@ with theme.colors.normal; {
         resume 'swaymsg "output * dpms on"' \
         before-sleep 'if [ ! "$(playerctl status)" '==' Playing ]; then playerctl pause; ${pkgs.swaylock}/bin/swaylock -f; fi'
     '';
-  };
-
-  home.file.".config/sway/startup.sh" = {
-    executable = true;
-    text = ''
+    extraSessionCommands = ''
       eval "$(ssh-agent -s)"
-      sway
     '';
   };
 }

@@ -76,7 +76,7 @@
   # Nix-path
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-  # SSH
+  # SSH (why no working)
   programs.ssh.startAgent = true;
 
   # Pipewire

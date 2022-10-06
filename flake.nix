@@ -16,7 +16,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, fenix, ... }@inputs:
+  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, fenix, ... }:
     {
       nixosConfigurations.tp01 =
         nixpkgs.lib.nixosSystem rec {

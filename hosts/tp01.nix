@@ -110,7 +110,7 @@
     config._module.args = {
       inherit unstablePkgs inputs;
       pkgs = lib.mkForce pkgs;
-      system = "x86_64-linux";
+      system = pkgs.system;
     };
   };
 

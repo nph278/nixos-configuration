@@ -45,16 +45,4 @@
   #   cyan = "#56b6c2";
   #   white = "#abb2bf";
   # };
-
-  # Nord
-  # colors = {
-  #   black = "#2e3440";
-  #   red = "#bf616a";
-  #   green = "#a3be8c";
-  #   yellow = "#ebcb8b";
-  #   blue = "#5e81ac";
-  #   magenta = "#b48ead";
-  #   cyan = "#8fbcbb";
-  #   white = "#eceff4";
-  # }
 }

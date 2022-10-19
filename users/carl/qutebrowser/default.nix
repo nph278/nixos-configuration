@@ -238,6 +238,8 @@ with theme.colors.normal; {
       eu = "edit-url";
       et = "edit-text";
       wk = "jseval document.querySelector('head').innerHTML += '<style>* {background-color: ${black} !important; color: ${white} !important; border-color: ${white} !important; font-family: monospace !important;} a { color: ${blue} !important;}</style>'";
+      abe = "set content.blocking.enabled true";
+      abd = "set content.blocking.enabled false";
     };
   };
 }

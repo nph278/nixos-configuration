@@ -29,7 +29,7 @@
 
       # Programs
       blender = "fl org.blender.Blender";
-      steam = "fl com.valvesoftware.Steam";
+      steam = "com.valvesoftware.Steam -nochatui -nofriendsui & disown &> /dev/null";
       stk = "fl net.supertuxkart.SuperTuxKart";
       gimp = "fl org.gimp.GIMP";
       snake = "snake-crossterm";

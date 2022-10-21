@@ -105,6 +105,7 @@
       ../users/carl/mpv
       ../users/carl/direnv
       ../users/carl/git
+      ../users/carl/prolog
       # ../users/carl/dwl
     ];
     config._module.args = {

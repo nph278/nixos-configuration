@@ -16,6 +16,7 @@
     cmake
     gcc-arm-embedded
     python3
+    gnuapl
 
     # Lua
     unstablePkgs.sumneko-lua-language-server

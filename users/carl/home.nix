@@ -52,6 +52,8 @@
     xdg-utils
     tree
     jq
+
+    qemu
   ];
 
   # Enable fonts

@@ -5,6 +5,7 @@
 {
   imports = [
     (import "${inputs.home-manager}/nixos")
+    ../nixos/rpi-pico
   ];
 
   # Kernel/initrd
@@ -106,6 +107,8 @@
       ../users/carl/direnv
       ../users/carl/git
       ../users/carl/prolog
+      ../users/carl/fun
+      ../users/carl/rpi-pico
       # ../users/carl/dwl
     ];
     config._module.args = {
@@ -128,10 +131,4 @@
 
   # Remove sudo
   security.sudo.enable = false;
-
-  # RPI Pico udev rules
-  services.udev.extraRules = builtins.readFile (builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/platformio/platformio-core/cd8024c762bf5bae8caf210b9224548bee55ee04/scripts/99-platformio-udev.rules";
-    sha256 = "1232fg93ikhsjdwiz1qp2r0yxbjvkvpvnzic2zs1snawvm8wysq4";
-  });
 }

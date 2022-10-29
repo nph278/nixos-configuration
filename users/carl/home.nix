@@ -14,7 +14,6 @@
     fzf
     ripgrep
     cmake
-    gcc-arm-embedded
     python3
     gnuapl
 
@@ -26,11 +25,6 @@
     unstablePkgs.rnix-lsp
     unstablePkgs.statix
     vulnix
-
-    # funny stuff
-    cowsay
-    fortune
-    figlet
 
     # Info
     neofetch
@@ -51,9 +45,6 @@
     # Web
     tmpmail
     pandoc
-
-    # RPI Pico
-    picotool
 
     # Other
     trash-cli

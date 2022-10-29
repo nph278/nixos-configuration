@@ -38,6 +38,11 @@ My NixOS configuration / flake
 
 ## TODO
 
+- steam-tui
+- firejail
+
+- https://nixos.wiki/wiki/Steam
+
 - home-manager standalone
 - see number of updates
 - ligatures?

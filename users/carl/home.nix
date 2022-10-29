@@ -16,6 +16,7 @@
     cmake
     python3
     gnuapl
+    fasm
 
     # Lua
     unstablePkgs.sumneko-lua-language-server

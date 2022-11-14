@@ -46,6 +46,7 @@
     # Web
     tmpmail
     pandoc
+    firefox
 
     # Other
     trash-cli

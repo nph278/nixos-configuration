@@ -34,6 +34,7 @@
       gimp = "fl org.gimp.GIMP";
       snake = "snake-crossterm";
       "2048" = "r2048";
+      ttt = "tictactoe-ai";
       strat = "oblique-strategies | cowsay";
       mpva = "mpv --no-video";
       mpvterm = "DISPLAY= mpv -vo caca";

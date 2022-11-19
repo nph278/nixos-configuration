@@ -52,5 +52,20 @@ in
         cargoSha256 = "sha256-csxJF17Q/YL7kgPxExa8+FNiF4hVISJ5+6vtGyS3CdU=";
         verifyCargoDeps = true;
       })
+    (rustPlatform.buildRustPackage
+      {
+        pname = "tictactoe-ai";
+        version = "0.1.0";
+
+        src = pkgs.fetchFromGitHub {
+          owner = "nph278";
+          repo = "tictactoe-ai";
+          rev = "6ff5544149df1af19d7baa100258a3868a09536c";
+          sha256 = "sha256-VpBGwMNRkAshsZsYjr1+Ybhx8H/C3YcAf6RSxnlNKc0=";
+        };
+
+        cargoSha256 = "sha256-nlY2Jbgss8sTKYRu9bWO9OAXjBLB7zEw6rxMPNDSFPA=";
+        verifyCargoDeps = true;
+      })
   ];
 }

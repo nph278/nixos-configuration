@@ -17,6 +17,7 @@
     python3
     gnuapl
     fasm
+    racket
 
     # Lua
     unstablePkgs.sumneko-lua-language-server

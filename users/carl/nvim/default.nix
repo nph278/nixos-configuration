@@ -32,7 +32,6 @@
         tree-sitter-json
         tree-sitter-vim
         tree-sitter-javascript
-        tree-sitter-racket
       ]))
       # nvim-treesitter-textobjects
       # playground

@@ -18,6 +18,7 @@
     gnuapl
     fasm
     racket
+    miniserve
 
     # Lua
     unstablePkgs.sumneko-lua-language-server

@@ -75,8 +75,8 @@
       luafile ${./comment.lua}
       luafile ${./keybinds.lua}
       luafile ${./filetype.lua}
+      luafile ${./telescope.lua}
       " luafile ${./filetree.lua}
-      " luafile ${./telescope.lua}
     '';
   };
 }

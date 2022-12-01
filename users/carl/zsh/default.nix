@@ -59,7 +59,8 @@
       cleannvim = "rm -rf ~/.local/share/nvim";
       sudo = "su root -c";
       hn = "w3m news.ycombinator.com";
-      mus = "mpva \"$(find ~/Music | fzf)\"";
+      musa = "mpva \"$(find ~/Music -type d | fzf)\"";
+      muss = "mpva \"$(find ~/Music -type f | fzf)\"";
     };
 
     initExtra = builtins.readFile ./extra.zsh;

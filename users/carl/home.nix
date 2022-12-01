@@ -17,7 +17,6 @@
     python3
     gnuapl
     fasm
-    racket
     miniserve
 
     # Lua

@@ -110,6 +110,7 @@
       ../users/carl/fun
       ../users/carl/rpi-pico
       ../users/carl/prismlauncher
+      ../users/carl/racket
       # ../users/carl/dwl
     ];
     config._module.args = {

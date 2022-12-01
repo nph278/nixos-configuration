@@ -63,8 +63,8 @@
     ];
     keep-outputs = true;
     keep-derivations = true;
+    allowed-users = [ "@wheel" ];
   };
-  nix.allowedUsers = [ "@wheel" ];
 
   # GC / optimise
   # nix.gc.automatic = true;

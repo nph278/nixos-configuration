@@ -120,6 +120,7 @@ with theme.colors.normal; {
         "Mod4+Control+l" = "exec 'playerctl pause; ${pkgs.swaylock}/bin/swaylock -f'";
 
         "Mod4+p" = "exec playerctl play-pause";
+        "Mod4+Return" = "exec playerctl next";
       };
     };
     extraConfig = ''

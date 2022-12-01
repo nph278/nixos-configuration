@@ -55,6 +55,10 @@ nvim_lsp.rnix.setup {
   on_attach = on_attach,
   flags = { debounce_text_changes = 150 }
 }
+nvim_lsp.racket_langserver.setup {
+  on_attach = on_attach,
+  flags = { debounce_text_changes = 150 }
+}
 -- nvim_lsp.pylsp.setup {
 --   on_attach = on_attach,
 --   flags = { debounce_text_changes = 150 }

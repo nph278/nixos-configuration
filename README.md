@@ -38,6 +38,7 @@ My NixOS configuration / flake
 
 ## TODO
 
+- Racket libs/langserver pkg
 - IRC
 - steam-tui
 - firejail

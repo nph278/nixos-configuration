@@ -109,6 +109,7 @@
       ../users/carl/prolog
       ../users/carl/fun
       ../users/carl/rpi-pico
+      ../users/carl/prismlauncher
       # ../users/carl/dwl
     ];
     config._module.args = {

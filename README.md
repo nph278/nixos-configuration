@@ -38,21 +38,19 @@ My NixOS configuration / flake
 
 ## TODO
 
+- IRC
 - steam-tui
 - firejail
-
-- https://nixos.wiki/wiki/Steam
-
+- [steam on wiki](https://nixos.wiki/wiki/Steam)
 - home-manager standalone
 - see number of updates
 - ligatures?
 - gcroots
-- Fix telescope
 - tmpfs
 - path stuff
 - vms
 - dwl? Flickering
 - usb iso
-- line 53 w3m??!??!?!?
+- line 50 w3m??!??!?!?
 - line 10 status??!??!?!?
 

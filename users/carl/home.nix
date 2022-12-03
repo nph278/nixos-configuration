@@ -40,6 +40,7 @@
     python3
     gnuapl
     fasm
+    nasm
     miniserve
 
     # Lua

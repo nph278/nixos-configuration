@@ -17,16 +17,31 @@
   };
 
   outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, fenix, ... }:
+    let
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      unstablePkgs = nixpkgs-unstable.legacyPackages."x86_64-linux";
+    in
     {
       nixosConfigurations.tp01 =
         nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           specialArgs = {
-            inherit inputs;
-            pkgs = nixpkgs.legacyPackages.${system};
-            unstablePkgs = nixpkgs-unstable.legacyPackages.${system};
+            inherit inputs pkgs unstablePkgs;
           };
           modules = [ ./hosts/tp01.nix ./hosts/shared.nix ];
         };
+
+      homeConfigurations.carl = home-manager.lib.homeManagerConfiguration {
+        modules = [
+          ./users/carl/home.nix
+        ];
+
+        inherit pkgs;
+
+        extraSpecialArgs = {
+          inherit inputs unstablePkgs;
+          system = "x86_64-linux";
+        };
+      };
     };
 }

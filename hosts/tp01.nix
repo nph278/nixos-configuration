@@ -4,7 +4,6 @@
 
 {
   imports = [
-    (import "${inputs.home-manager}/nixos")
     ../nixos/rpi-pico
   ];
 
@@ -87,16 +86,6 @@
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [ ];
   networking.firewall.allowedUDPPorts = [ ];
-
-  # Home Manager
-  home-manager.users.carl = {
-    imports = [ ../users/carl/home.nix ];
-    config._module.args = {
-      inherit unstablePkgs inputs;
-      pkgs = lib.mkForce pkgs;
-      system = pkgs.system;
-    };
-  };
 
   # Apparmor
   security.apparmor = {

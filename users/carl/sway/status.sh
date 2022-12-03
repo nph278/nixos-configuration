@@ -14,7 +14,7 @@ function once() {
     SONG_STATUS='⏹'
   fi
 
-  echo "$WINDOW | $SONG_STATUS $MEDIA | $DATE "
+  echo "$WINDOW | $SONG_STATUS $MEDIA | $DATE hi"
 }
 
 function sec() {

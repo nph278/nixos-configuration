@@ -11,6 +11,7 @@
     binutils
     strace
     ltrace
+    git
   ];
 
   # Environment variables

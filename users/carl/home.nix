@@ -82,6 +82,9 @@
     qemu
   ];
 
+  home.username = "carl";
+  home.homeDirectory = "/home/carl";
+
   # Enable fonts
   fonts.fontconfig.enable = lib.mkForce true;
 

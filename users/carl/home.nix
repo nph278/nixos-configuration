@@ -79,6 +79,7 @@
     xdg-utils
     tree
     jq
+    yt-dlp
 
     qemu
   ];

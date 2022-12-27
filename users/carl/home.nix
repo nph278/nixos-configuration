@@ -80,6 +80,7 @@
     tree
     jq
     yt-dlp
+    logisim-evolution
 
     qemu
   ];

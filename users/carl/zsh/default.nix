@@ -61,6 +61,7 @@
       hn = "w3m news.ycombinator.com";
       musa = "mpva \"$(find ~/Music -type d | fzf)\"";
       muss = "mpva \"$(find ~/Music -type f | fzf)\"";
+      logisim = "_JAVA_AWT_WM_NONREPARENTING=1 logisim-evolution";
     };
 
     initExtra = builtins.readFile ./extra.zsh;

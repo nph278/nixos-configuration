@@ -25,7 +25,7 @@ My NixOS configuration / flake
 - Terminal - [Alacritty](https://github.com/alacritty/alacritty)
 - Browser - [qutebrowser](https://github.com/qutebrowser/qutebrowser)
 - Password Manager - [KeePassXC](https://github.com/keepassxreboot/keepassxc)
-- Music Player - [MPV](https://github.com/mpv-player/mpv)
+- Media Player - [MPV](https://github.com/mpv-player/mpv)
 
 ## Desktop
 - Window Manager - [Sway](https://swaywm.org/)
@@ -43,7 +43,6 @@ My NixOS configuration / flake
 - steam-tui
 - firejail
 - [steam on wiki](https://nixos.wiki/wiki/Steam)
-- home-manager standalone
 - see number of updates
 - ligatures?
 - gcroots

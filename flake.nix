@@ -1,5 +1,5 @@
 {
-  description = "My NixOS / home-manager configuration";
+  description = "My NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, fenix, ... }:
+  outputs = inputs @ { nixpkgs, nixpkgs-unstable, fenix, ... }:
     {
       nixosConfigurations.tp01 =
         nixpkgs.lib.nixosSystem rec {

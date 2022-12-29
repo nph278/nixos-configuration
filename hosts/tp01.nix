@@ -4,7 +4,6 @@
 
 {
   imports = [
-    (import "${inputs.home-manager}/nixos")
     ../nixos/rpi-pico
   ];
 
@@ -78,25 +77,84 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     initialHashedPassword = "$6$.IqSS2l7qyItCIua$kOSNB5m6KOqBOJpL1ZkKymGfoAPZ5LEn9xj9R5xRxKjR9ZHCdxTQYfTBVqtA9o/d8YSC/HNP4vRlIsn3aHb6b1";
+    packages = with pkgs; [
+      # Multimedia
+      imv
+      ffmpeg
+
+      # Cursor theme
+      capitaine-cursors
+
+      # Dev
+      gh
+      zsh
+      fzf
+      ripgrep
+      cmake
+      python3
+      gnuapl
+      fasm
+      nasm
+      miniserve
+
+      # Lua
+      unstablePkgs.sumneko-lua-language-server
+      unstablePkgs.luaformatter
+
+      # Nix
+      unstablePkgs.rnix-lsp
+      unstablePkgs.statix
+      vulnix
+
+      # Info
+      neofetch
+      pfetch
+      htop
+
+      # Audio
+      pulsemixer
+      playerctl
+
+      # Web
+      pandoc
+      w3m
+      qutebrowser
+      # tuir
+      # tmpmail
+      # firefox
+
+      # Other
+      trash-cli
+      keepassxc
+      xdg-utils
+      tree
+      jq
+      yt-dlp
+      logisim-evolution
+
+      # Virt
+      qemu
+    ];
   };
 
   # Root password
   users.users.root.initialHashedPassword = "$6$.IqSS2l7qyItCIua$kOSNB5m6KOqBOJpL1ZkKymGfoAPZ5LEn9xj9R5xRxKjR9ZHCdxTQYfTBVqtA9o/d8YSC/HNP4vRlIsn3aHb6b1";
 
+  # Fonts
+  fonts.fonts = with pkgs; [
+    scientifica
+    (nerdfonts.override {
+      fonts = [ "VictorMono" ];
+    })
+    noto-fonts
+    noto-fonts-emoji
+    noto-fonts-cjk
+  ];
+
   # Firewall
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [ ];
   networking.firewall.allowedUDPPorts = [ ];
-
-  # Home Manager
-  home-manager.users.carl = {
-    imports = [ ../users/carl/home.nix ];
-    config._module.args = {
-      inherit unstablePkgs inputs;
-      pkgs = lib.mkForce pkgs;
-      system = pkgs.system;
-    };
-  };
 
   # Apparmor
   security.apparmor = {

@@ -79,8 +79,14 @@
     initialHashedPassword = "$6$.IqSS2l7qyItCIua$kOSNB5m6KOqBOJpL1ZkKymGfoAPZ5LEn9xj9R5xRxKjR9ZHCdxTQYfTBVqtA9o/d8YSC/HNP4vRlIsn3aHb6b1";
     packages = with pkgs; [
       # Multimedia
+      (pkgs.mpv.override {
+        scripts = with pkgs.mpvScripts; [ thumbnail mpris ];
+      })
       imv
       ffmpeg
+
+      # Terminal
+      alacritty
 
       # Cursor theme
       capitaine-cursors
@@ -89,13 +95,18 @@
       gh
       zsh
       fzf
+      git
       ripgrep
       cmake
       python3
-      gnuapl
       fasm
       nasm
       miniserve
+      racket
+      picotool
+      gcc-arm-embedded
+      # gnuapl
+      # scryer-prolog
 
       # Lua
       unstablePkgs.sumneko-lua-language-server
@@ -110,10 +121,14 @@
       neofetch
       pfetch
       htop
+      # btop
 
       # Audio
       pulsemixer
       playerctl
+
+      # Games
+      prismlauncher
 
       # Web
       pandoc
@@ -123,6 +138,17 @@
       # tmpmail
       # firefox
 
+      # Sway
+      sway
+      swaylock
+      swayidle
+      wl-clipboard
+      grim
+      sway-contrib.grimshot
+
+      # Virt
+      qemu
+
       # Other
       trash-cli
       keepassxc
@@ -131,10 +157,12 @@
       jq
       yt-dlp
       logisim-evolution
-
-      # Virt
-      qemu
-    ];
+      # cowsay
+      # fortune
+      # figlet
+    ]
+    // (import ../nixos/cligames.nix)
+    // (import ../nixos/rust.nix);
   };
 
   # Root password

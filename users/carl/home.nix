@@ -1,27 +1,26 @@
 { pkgs, unstablePkgs, lib, system, ... }:
 
 {
+  ###
+  ### Comment means pkgs added, but configs not.
+  ###
+
   imports = [
     # ./zsh
     # ./w3m
-    ./sway
+    # ./sway
     # ./qutebrowser
     ./nvim
     # ./tuir
     # ./mailcap
-    ./rust
-    ./alacritty
-    ./cligames
-    ./btop
-    ./mpv
+    # ./rust
+    # ./alacritty
+    # ./btop
+    # ./mpv
     ./direnv
-    ./git
-    ./prolog
-    ./fun
-    ./rpi-pico
-    ./prismlauncher
-    ./racket
-    # ./dwl
+    # ./git
+    # ./prolog
+    ### ./dwl # especial
   ];
 }
 

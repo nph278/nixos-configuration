@@ -116,6 +116,8 @@
       unstablePkgs.rnix-lsp
       unstablePkgs.statix
       vulnix
+      direnv
+      nix-direnv
 
       # Info
       neofetch

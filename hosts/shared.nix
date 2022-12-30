@@ -67,6 +67,10 @@
     allowed-users = [ "@wheel" ];
   };
 
+  environment.pathsToLink = [
+    "/share/nix-direnv"
+  ];
+
   # GC / optimise
   # nix.gc.automatic = true;
   # nix.gc.dates = "daily";

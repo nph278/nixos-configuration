@@ -17,7 +17,6 @@
     # ./alacritty
     # ./btop
     # ./mpv
-    ./direnv
     # ./git
     # ./prolog
     ### ./dwl # especial

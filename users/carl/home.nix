@@ -19,7 +19,7 @@
     # ./mpv
     # ./git
     # ./prolog
-    ### ./dwl # especial
+    ### ./dwl # especiu~al
   ];
 }
 

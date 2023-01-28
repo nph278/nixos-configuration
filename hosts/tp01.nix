@@ -85,7 +85,9 @@
 
   # Firewall
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedTCPPorts = [
+    8096 # Jellyfin
+  ];
   networking.firewall.allowedUDPPorts = [ ];
 
   # Home Manager
@@ -111,4 +113,20 @@
 
   # Remove sudo
   security.sudo.enable = false;
+
+  # Jellyfin
+  virtualisation.oci-containers.containers."jellyfin" = {
+    autoStart = true;
+    image = "jellyfin/jellyfin";
+    volumes = [
+      "/media/Containers/Jellyfin/config:/config"
+      "/media/Containers/Jellyfin/cache:/cache"
+      "/media/Containers/Jellyfin/log:/log"
+      "/home/carl/Music:/Music"
+    ];
+    ports = [ "8096:8096" ];
+    environment = {
+      JELLYFIN_LOG_DIR = "/log";
+    };
+  };
 }

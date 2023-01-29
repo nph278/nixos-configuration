@@ -28,6 +28,7 @@
     # Multimedia
     imv
     ffmpeg
+    beets
 
     # Cursor theme
     capitaine-cursors

@@ -123,6 +123,7 @@
       "/media/Containers/Jellyfin/cache:/cache"
       "/media/Containers/Jellyfin/log:/log"
       "/home/carl/Music:/Music"
+      "/home/carl/Pictures:/Pictures"
     ];
     ports = [ "8096:8096" ];
     environment = {

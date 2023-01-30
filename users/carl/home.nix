@@ -29,6 +29,7 @@
     imv
     ffmpeg
     beets
+    flac
 
     # Cursor theme
     capitaine-cursors

@@ -59,9 +59,12 @@
       cleannvim = "rm -rf ~/.local/share/nvim";
       sudo = "su root -c";
       hn = "w3m news.ycombinator.com";
-      musa = "mpva \"$(find ~/Music -type d | fzf)\"";
-      muss = "mpva \"$(find ~/Music -type f | fzf)\"";
       logisim = "_JAVA_AWT_WM_NONREPARENTING=1 logisim-evolution";
+
+      # Music
+      muspath = "beet ls -f '$path'";
+      musa = "mpva \"$(muspath -a \"$(beet ls -f '$album' -a | fzf)\")\"";
+      muss = "mpva \"$(muspath \"$(beet ls -f '$title' | fzf)\")\"";
     };
 
     initExtra = builtins.readFile ./extra.zsh;

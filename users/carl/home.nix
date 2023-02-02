@@ -21,6 +21,7 @@
     ./rpi-pico
     ./prismlauncher
     ./racket
+    ./abcde
     # ./dwl
   ];
 

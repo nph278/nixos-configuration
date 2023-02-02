@@ -6,6 +6,6 @@
   ];
 
   home.file.".abcde.conf".text = ''
-    OUTPUTFORMAT=flac
+    OUTPUTTYPE=flac
   '';
 }

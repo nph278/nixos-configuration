@@ -31,6 +31,7 @@
     ffmpeg
     beets
     flac
+    exiftool
 
     # Cursor theme
     capitaine-cursors

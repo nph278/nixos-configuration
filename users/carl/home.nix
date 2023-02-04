@@ -32,6 +32,7 @@
     beets
     flac
     exiftool
+    id3v2
 
     # Cursor theme
     capitaine-cursors

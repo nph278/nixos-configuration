@@ -60,6 +60,7 @@
     neofetch
     pfetch
     htop
+    file
 
     # Fonts
     scientifica

@@ -121,6 +121,8 @@ with theme.colors.normal; {
 
         "Mod4+p" = "exec playerctl play-pause";
         "Mod4+Return" = "exec playerctl next";
+        "Mod4+Control+j" = "exec ${./volume.sh} down";
+        "Mod4+Control+k" = "exec ${./volume.sh} up";
       };
     };
     extraConfig = ''

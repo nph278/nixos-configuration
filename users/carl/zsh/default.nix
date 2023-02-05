@@ -65,6 +65,7 @@
       muspath = "beet ls -f '$path'";
       musa = "mpva \"$(muspath -a \"$(beet ls -f '$album' -a | fzf)\")\"";
       muss = "mpva \"$(muspath \"$(beet ls -f '$title' | fzf)\")\"";
+      muscrazy = "mpva --shuffle ~/Music/";
     };
 
     initExtra = builtins.readFile ./extra.zsh;
